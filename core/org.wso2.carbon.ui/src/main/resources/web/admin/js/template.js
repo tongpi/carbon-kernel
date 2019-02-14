@@ -224,17 +224,17 @@ YAHOO.util.Event.onAvailable('menu-panel-button_dummy',
 
             
             document.getElementById('vertical-menu-container').style.display = "";
-            var menuSliderTxt1 = "<span>Main</span>";
-            var menuSliderTxt2 = "<span>Monitor</span>";
-            var menuSliderTxt3 = "<span>Configure</span>";
-            var menuSliderTxt4 = "<span>Tools</span>";
-            var menuSliderTxt5 = "<span>Extensions</span>";
+            var menuSliderTxt1 = "<span>首页</span>";
+            var menuSliderTxt2 = "<span>监控</span>";
+            var menuSliderTxt3 = "<span>配置</span>";
+            var menuSliderTxt4 = "<span>工具</span>";
+            var menuSliderTxt5 = "<span>扩展</span>";
             if(getInternetExplorerVersion()!=-1){
-                menuSliderTxt1 = '<span class="ie">Main</span>';
-                menuSliderTxt2 = '<span class="ie">Monitor</span>';
-                menuSliderTxt3 = '<span class="ie">Configure</span>';
-                menuSliderTxt4 = '<span class="ie">Tools</span>';
-                menuSliderTxt5 = '<span class="ie">Extensions</span>';
+                menuSliderTxt1 = '<span class="ie">首页</span>';
+                menuSliderTxt2 = '<span class="ie">监控</span>';
+                menuSliderTxt3 = '<span class="ie">配置</span>';
+                menuSliderTxt4 = '<span class="ie">工具</span>';
+                menuSliderTxt5 = '<span class="ie">扩展</span>';
             }
             var menuSlider0 = document.getElementById('menu-panel-button0');
             var menuSlider1 = document.getElementById('menu-panel-button1');
