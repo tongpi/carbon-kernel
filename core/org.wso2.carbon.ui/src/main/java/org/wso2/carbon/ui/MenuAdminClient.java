@@ -255,6 +255,9 @@ public class MenuAdminClient {
 
                 if (region.equals(menus[a].getRegion()) && display) {
                     if ("".equals(menus[a].getParentMenu())) {
+                        System.out.println("+++++++++++++++++++++++");
+                        System.out.println("parentMenuID:"+menus[a].getId());
+                        System.out.println("+++++++++++++++++++++++");
                         parentMenuItems.put(menus[a].getId(), menus[a]);
                     } else {
                         ArrayList<Menu> childMenus = (ArrayList) childMenuItems.get(menus[a].getParentMenu());
@@ -264,6 +267,9 @@ public class MenuAdminClient {
                             ArrayList<Menu> tmp = new ArrayList();
                             tmp.add(menus[a]);
                             childMenuItems.put(menus[a].getParentMenu(), tmp);
+                            System.out.println("===================");
+                            System.out.println(tmp);
+                            System.out.println("===================");
                         }
                     }
                 }
