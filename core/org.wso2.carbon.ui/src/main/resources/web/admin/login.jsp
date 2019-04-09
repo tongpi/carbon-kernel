@@ -131,60 +131,60 @@ if (CharacterEncoder.getSafeText(request.getParameter("skipLoginPage"))!=null){
         <table cellspacing="0" width="100%">
             <tr>
                 <td>
-                    <div id="features">
-                        <table cellspacing="0">
-                            <tr class="feature feature-top">
-                                <td>
-                                    <a target="_blank" href="<%=userGuideURL %>"><img src="../admin/images/user-guide.gif"/></a>
-                                </td>
-                                <td>
-                                    <h3><a target="_blank" href="<%=userGuideURL %>"><fmt:message key="user.guide"/></a></h3>
+<%--                    <div id="features">--%>
+<%--                        <table cellspacing="0">--%>
+<%--                            <tr class="feature feature-top">--%>
+<%--                                <td>--%>
+<%--                                    <a target="_blank" href="<%=userGuideURL %>"><img src="../admin/images/user-guide.gif"/></a>--%>
+<%--                                </td>--%>
+<%--                                <td>--%>
+<%--                                    <h3><a target="_blank" href="<%=userGuideURL %>"><fmt:message key="user.guide"/></a></h3>--%>
 
-                                    <p><fmt:message key="user.guide.text"/></p>
-                                </td>
-                            </tr>
-                            <tr class="feature">
-                                <td>
-                                    <a target="_blank" href="<%=userForumURL %>"><img
-                                            src="../admin/images/forum.gif"/></a>
-                                </td>
-                                <td>
-                                    <h3><a target="_blank" href="<%=userForumURL %>"><fmt:message
-                                            key="forum"/></a>
-                                    </h3>
+<%--                                    <p><fmt:message key="user.guide.text"/></p>--%>
+<%--                                </td>--%>
+<%--                            </tr>--%>
+<%--                            <tr class="feature">--%>
+<%--                                <td>--%>
+<%--                                    <a target="_blank" href="<%=userForumURL %>"><img--%>
+<%--                                            src="../admin/images/forum.gif"/></a>--%>
+<%--                                </td>--%>
+<%--                                <td>--%>
+<%--                                    <h3><a target="_blank" href="<%=userForumURL %>"><fmt:message--%>
+<%--                                            key="forum"/></a>--%>
+<%--                                    </h3>--%>
 
-                                    <p><fmt:message key="forum.text"/></p>
-                                </td>
-                            </tr>
-                            <tr class="feature">
-                                <td>
-                                    <a target="_blank"
-                                       href="<%=issuetrackerURL %>"><img
-                                            src="../admin/images/issue-tracker.gif"/></a>
-                                </td>
-                                <td>
-                                    <h3><a target="_blank"
-                                           href="<%=issuetrackerURL %>">
-                                        <fmt:message key="issue.tracker"/></a></h3>
+<%--                                    <p><fmt:message key="forum.text"/></p>--%>
+<%--                                </td>--%>
+<%--                            </tr>--%>
+<%--                            <tr class="feature">--%>
+<%--                                <td>--%>
+<%--                                    <a target="_blank"--%>
+<%--                                       href="<%=issuetrackerURL %>"><img--%>
+<%--                                            src="../admin/images/issue-tracker.gif"/></a>--%>
+<%--                                </td>--%>
+<%--                                <td>--%>
+<%--                                    <h3><a target="_blank"--%>
+<%--                                           href="<%=issuetrackerURL %>">--%>
+<%--                                        <fmt:message key="issue.tracker"/></a></h3>--%>
 
-                                    <p><fmt:message key="issue.tracker.text"/></p>
+<%--                                    <p><fmt:message key="issue.tracker.text"/></p>--%>
 
-                                </td>
-                            </tr>
-                            <tr class="feature">
-                                <td>
-                                    <a target="_blank" href="<%=mailinglistURL %>"><img
-                                            src="../admin/images/mailing-list.gif"/></a>
-                                </td>
-                                <td>
-                                    <h3><a target="_blank" href="<%=mailinglistURL %>">
-                                        <fmt:message key="mailing.list"/></a></h3>
+<%--                                </td>--%>
+<%--                            </tr>--%>
+<%--                            <tr class="feature">--%>
+<%--                                <td>--%>
+<%--                                    <a target="_blank" href="<%=mailinglistURL %>"><img--%>
+<%--                                            src="../admin/images/mailing-list.gif"/></a>--%>
+<%--                                </td>--%>
+<%--                                <td>--%>
+<%--                                    <h3><a target="_blank" href="<%=mailinglistURL %>">--%>
+<%--                                        <fmt:message key="mailing.list"/></a></h3>--%>
 
-                                    <p><fmt:message key="mailing.list.text"/></p>
-                                </td>
-                            </tr>
-                        </table>
-                    </div>
+<%--                                    <p><fmt:message key="mailing.list.text"/></p>--%>
+<%--                                </td>--%>
+<%--                            </tr>--%>
+<%--                        </table>--%>
+<%--                    </div>--%>
                 </td>
                 <td width="20%">
                     <div id="loginbox">

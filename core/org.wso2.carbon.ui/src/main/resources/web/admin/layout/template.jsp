@@ -177,32 +177,32 @@
         <td class="vertical-menu-container" id="vertical-menu-container" style="display:none;">
             <div id="menu-panel-button0"></div>
             <div id="menu-panel-button1" class="menu-panel-buttons"></div>
-            <div id="menu-panel-button2" class="menu-panel-buttons"></div>
-            <div id="menu-panel-button3" class="menu-panel-buttons"></div>
-            <div id="menu-panel-button4" class="menu-panel-buttons"></div>
-            <div id="menu-panel-button5" class="menu-panel-buttons"></div>
-            <div id="menu-panel-button_dummy" style="display:none"></div>
+<%--            <div id="menu-panel-button2" class="menu-panel-buttons"></div>--%>
+<%--            <div id="menu-panel-button3" class="menu-panel-buttons"></div>--%>
+<%--            <div id="menu-panel-button4" class="menu-panel-buttons"></div>--%>
+<%--            <div id="menu-panel-button5" class="menu-panel-buttons"></div>--%>
+<%--            <div id="menu-panel-button_dummy" style="display:none"></div>--%>
         </td>
         <td id="menu-panel" valign="top">
             <table id="menu-table" border="0" cellspacing="0">
                 <tr>
                     <td id="region1"><tiles:insertAttribute name="region1"/></td>
                 </tr>
-                <tr>
-                    <td id="region2"><tiles:insertAttribute name="region2"/></td>
-                </tr>
-                <tr>
-                    <td id="region3"><tiles:insertAttribute name="region3"/></td>
-                </tr>
-                <tr>
-                    <td id="region4"><tiles:insertAttribute name="region4"/></td>
-                </tr>
-                <tr>
-                    <td id="region5"><tiles:insertAttribute name="region5"/></td>
-                </tr>
-                <tr>
-                    <td><img src="../admin/images/1px.gif" width="225px" height="1px"/></td>
-                </tr>
+<%--                <tr>--%>
+<%--                    <td id="region2"><tiles:insertAttribute name="region2"/></td>--%>
+<%--                </tr>--%>
+<%--                <tr>--%>
+<%--                    <td id="region3"><tiles:insertAttribute name="region3"/></td>--%>
+<%--                </tr>--%>
+<%--                <tr>--%>
+<%--                    <td id="region4"><tiles:insertAttribute name="region4"/></td>--%>
+<%--                </tr>--%>
+<%--                <tr>--%>
+<%--                    <td id="region5"><tiles:insertAttribute name="region5"/></td>--%>
+<%--                </tr>--%>
+<%--                <tr>--%>
+<%--                    <td><img src="../admin/images/1px.gif" width="225px" height="1px"/></td>--%>
+<%--                </tr>--%>
             </table>
         </td>
         <td id="middle-content">
