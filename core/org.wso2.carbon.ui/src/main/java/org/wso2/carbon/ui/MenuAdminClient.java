@@ -277,13 +277,7 @@ public class MenuAdminClient {
                 ArrayList childMenusForParent = (ArrayList) childMenuItems.get(menu.getId());
                 if(childMenusForParent != null){ //if no child menu items, do not print the parent
                     menuContent.append(getHtmlForMenuItem(menu, request));
-                    System.out.println("++++++++++++++++");
-                    System.out.println("getId:" + menu.getId());
-                    System.out.println("++++++++++++++++");
-                    System.out.println("I18nKe:" + menu.getI18nKey());
-                    System.out.println("++++++++++++++++");
-                    System.out.println("ParentMenu:" + menu.getParentMenu());
-                    System.out.println("++++++++++++++++");
+
                     prepareHTMLForChildMenuItems(menu.getId(), request);
                 }
             }
@@ -392,6 +386,13 @@ public class MenuAdminClient {
                     		menuContent.append(getHtmlForMenuItem(menu, request));
                     	}                    	
                     }else{
+                        System.out.println("++++++++++++++++");
+                        System.out.println("getId:" + menu.getId());
+                        System.out.println("++++++++++++++++");
+                        System.out.println("I18nKe:" + menu.getI18nKey());
+                        System.out.println("++++++++++++++++");
+                        System.out.println("ParentMenu:" + menu.getParentMenu());
+                        System.out.println("++++++++++++++++");
                     	//If no childs & current menu item does not contain an link
                     	//do not print                    
                         menuContent.append(getHtmlForMenuItem(menu, request));
