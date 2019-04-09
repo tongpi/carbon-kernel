@@ -49,7 +49,7 @@
     <div id="header-div">
         <div class="right-logo"><fmt:message key="management.console"/></div>
         <div class="left-logo">
-            <a href="../admin/index.jsp" class="header-home"><img src="../admin/images/1px.gif" width="300px" height="32px"/></a>
+            <a href="../admin/index.jsp" class="header-home"><img src="../admin/images/login_logo.png" width="300px" height="32px"/></a>
         </div>
         <div class="middle-ad">
             <%@include file="announcements.jsp"%>
@@ -133,32 +133,36 @@
 		                        <strong><fmt:message key="signed.in.as"/>:</strong>&nbsp;<%=signedInAs%>@<%=domainName%>
 		                    </label>
 		                </li>
+
 				<li class="middle">|</li>
 		                <li class="right">
 		                    <a href="../admin/logout_action.jsp"><fmt:message key="sign.out"/></a>
 		                </li>
 		                <%  } else { %>
-		                <li class="right">
-		                    <a href="../admin/login.jsp"><fmt:message key="sign.in"/></a>
-		                </li>
+<%--		                <li class="right">--%>
+<%--		                    <a href="../admin/login.jsp"><fmt:message key="sign.in"/></a>--%>
+<%--		                </li>--%>
 		                <%  } %>
-		                <li class="middle">|</li>
-		                <li class="middle">
-		                    <a target="_blank" href="<%=userGuideURL %>"><fmt:message key="docs"/></a>
-		                </li>
-				<li class="middle">|</li>
-				<%
-				String aboutPageURL = "";
-				if(CarbonUIUtil.isContextRegistered(config,"/product/")){
-					aboutPageURL = "../product/about.html";
-				}else{
-					//switch to carbon about page
-					aboutPageURL = "../docs/about.html";
-				}
-				%>
-		                <li class="left">
-		                    <a target="_blank" href="<%=aboutPageURL %>"><fmt:message key="about"/></a>
-		                </li>
+
+
+
+<%--		                <li class="middle">|</li>--%>
+<%--		                <li class="middle">--%>
+<%--		                    <a target="_blank" href="<%=userGuideURL %>"><fmt:message key="docs"/></a>--%>
+<%--		                </li>--%>
+<%--				<li class="middle">|</li>--%>
+<%--				<%--%>
+<%--				String aboutPageURL = "";--%>
+<%--				if(CarbonUIUtil.isContextRegistered(config,"/product/")){--%>
+<%--					aboutPageURL = "../product/about.html";--%>
+<%--				}else{--%>
+<%--					//switch to carbon about page--%>
+<%--					aboutPageURL = "../docs/about.html";--%>
+<%--				}--%>
+<%--				%>--%>
+<%--		                <li class="left">--%>
+<%--		                    <a target="_blank" href="<%=aboutPageURL %>"><fmt:message key="about"/></a>--%>
+<%--		                </li>--%>
 		            </ul>
 		</div>
         </div>

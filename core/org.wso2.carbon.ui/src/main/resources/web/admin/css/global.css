@@ -102,7 +102,7 @@ table#main-table td {
 	padding: 0px;
 }
 table#main-table td#header {
-	background-image: url( ../images/header-region-bg.gif);
+	/*background-image: url( ../images/header-region-bg.gif);*/
     background-repeat: repeat-x;
     background-position: left top;
 	height: 100px;
@@ -163,7 +163,7 @@ table#main-table td#footer {
 
 /* ---------------- header styles ------------------ */
 div#header-div {
-    background-image: url( ../images/header-bg.gif);
+    background-image: url( ../images/login_logo.png) !important;
     background-repeat: no-repeat;
     background-position: left top;
     height: 100px;
@@ -171,7 +171,7 @@ div#header-div {
 }
 
 div#header-div div.left-logo {
-	background-image: url( ../images/header-logo.gif );
+	background-image: url( ../images/login_logo.png ) !important;
     background-repeat: no-repeat;
     background-position: left top;
 	height: 32px;

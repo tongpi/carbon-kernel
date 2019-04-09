@@ -235,7 +235,7 @@ public class MenuAdminClient {
             appendMenuHeader();
             if (region.equals("region1")) {
                 Locale locale =CarbonUIUtil.getLocaleFromSession(request);
-                appendHomeLink(locale);
+//                appendHomeLink(locale);
             }
 
             //build a hierarchy of MenuItems
@@ -376,7 +376,9 @@ public class MenuAdminClient {
                 menuContent.append("<ul class=\"sub\">");
                 for (int a = 0; a < sortedMenuIds.length; a++) {
                     Menu menu = (Menu) childMenus.get(sortedMenuIds[a]);
-                    
+                    if (!"identity".equals(menu.getId())){
+                        continue;
+                    }
                     ArrayList childs = (ArrayList) childMenuItems.get(menu.getId());
                     if(childs == null){
                     	if(! menu.getLink().equals("#") && menu.getLink().trim().length() > 0){
