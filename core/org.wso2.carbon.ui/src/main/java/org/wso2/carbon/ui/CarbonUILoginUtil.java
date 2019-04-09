@@ -151,7 +151,7 @@ public final class CarbonUILoginUtil {
             if (skipLoginPage) {
                 response.sendRedirect(contextPath + "/carbon/admin/login_action.jsp");
             } else {
-                response.sendRedirect(contextPath + "/carbon/admin/login.jsp");
+                response.sendRedirect(contextPath + "/carbon/userstore/index.jsp?region=region1&item=user_mgt_menu_list");
 
             }
         }
