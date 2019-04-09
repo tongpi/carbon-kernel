@@ -220,7 +220,7 @@
         </td>
     </tr>
     <tr>
-        <td id="footer" colspan="3"><tiles:insertAttribute name="footer"/></td>
+<%--        <td id="footer" colspan="3"><tiles:insertAttribute name="footer"/></td>--%>
     </tr>
 </table>
 <script type="text/javascript">
