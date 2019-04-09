@@ -376,15 +376,8 @@ public class MenuAdminClient {
                 menuContent.append("<ul class=\"sub\">");
                 for (int a = 0; a < sortedMenuIds.length; a++) {
                     Menu menu = (Menu) childMenus.get(sortedMenuIds[a]);
-                    System.out.println("++++++++++++++");
-                    System.out.println(menu.getParentMenu());
-                    System.out.println("++++++++++++++");
-                    System.out.println(menu.getLink());
-                    System.out.println("++++++++++++++");
-                    System.out.println(menu.getI18nBundle());
-                    System.out.println("++++++++++++++");
 
-                    if (!"identity".equals(menu.getRegion().substring(0,menu.getParentMenu().indexOf("_")))){
+                    if (!"identity".equals(menu.getParentMenu().substring(0,menu.getParentMenu().indexOf("_")))){
                         continue;
                     }
                     ArrayList childs = (ArrayList) childMenuItems.get(menu.getId());
