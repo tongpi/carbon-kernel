@@ -49,7 +49,7 @@
     <div id="header-div">
         <div class="right-logo"><fmt:message key="management.console"/></div>
         <div class="left-logo">
-            <a href="../admin/index.jsp" class="header-home"><img src="../admin/images/login_logo.png" width="300px" height="32px"/></a>
+            <a href="../userstore/index.jsp?region=region1&item=user_mgt_menu_list" class="header-home"><img src="../admin/images/login_logo.png" width="300px" height="32px"/></a>
         </div>
         <div class="middle-ad">
             <%@include file="announcements.jsp"%>
