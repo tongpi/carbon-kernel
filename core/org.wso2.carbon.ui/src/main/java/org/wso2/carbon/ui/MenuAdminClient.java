@@ -254,22 +254,16 @@ public class MenuAdminClient {
                 }
 
                 if (region.equals(menus[a].getRegion()) && display) {
-                    if ("".equals(menus[a].getParentMenu())) {
-                        System.out.println("+++++++++++++++++++++++");
-                        System.out.println("parentMenuID:"+menus[a].getId());
-                        System.out.println("+++++++++++++++++++++++");
+                    if ("".equals(menus[a].getParentMenu()) && ("identity_menu".equals(menus[a].getId()) || "identity_entitlement_menu".equals(menus[a].getId()))) {
                         parentMenuItems.put(menus[a].getId(), menus[a]);
                     } else {
                         ArrayList<Menu> childMenus = (ArrayList) childMenuItems.get(menus[a].getParentMenu());
                         if (childMenus != null && childMenus.size() > 0) {
                             childMenus.add(menus[a]);
-                        } else {
+                        } else if(("identity_menu".equals(menus[a].getParentMenu()) || "identity_entitlement_menu".equals(menus[a].getParentMenu()))){
                             ArrayList<Menu> tmp = new ArrayList();
                             tmp.add(menus[a]);
                             childMenuItems.put(menus[a].getParentMenu(), tmp);
-                            System.out.println("===================");
-                            System.out.println(tmp);
-                            System.out.println("===================");
                         }
                     }
                 }
