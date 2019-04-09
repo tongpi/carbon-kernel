@@ -260,7 +260,8 @@ public class MenuAdminClient {
                         ArrayList<Menu> childMenus = (ArrayList) childMenuItems.get(menus[a].getParentMenu());
                         if (childMenus != null && childMenus.size() > 0) {
                             childMenus.add(menus[a]);
-                        } else if(("identity_menu".equals(menus[a].getParentMenu()) || "identity_entitlement_menu".equals(menus[a].getParentMenu()))){
+                        } else {
+//                        } else if(("identity_menu".equals(menus[a].getParentMenu()) || "identity_entitlement_menu".equals(menus[a].getParentMenu()))){
                             ArrayList<Menu> tmp = new ArrayList();
                             tmp.add(menus[a]);
                             childMenuItems.put(menus[a].getParentMenu(), tmp);
