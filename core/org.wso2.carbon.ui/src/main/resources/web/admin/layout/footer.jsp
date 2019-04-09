@@ -16,13 +16,13 @@
  under the License.
  --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" pageEncoding="UTF-8" %>
-<div id="footer-div">
-	<div class="footer-content">
-		<div class="copyright">
-		    &copy; 2005 - 2018 WSO2 Inc. All Rights Reserved.
-		</div>
-		<!--div class="poweredby">
-		</div-->
-	</div>
-</div>
+<%--<div id="footer-div">--%>
+<%--	<div class="footer-content">--%>
+<%--		<div class="copyright">--%>
+<%--		    &copy; 2005 - 2018 WSO2 Inc. All Rights Reserved.--%>
+<%--		</div>--%>
+<%--		<!--div class="poweredby">--%>
+<%--		</div-->--%>
+<%--	</div>--%>
+<%--</div>--%>
                         
