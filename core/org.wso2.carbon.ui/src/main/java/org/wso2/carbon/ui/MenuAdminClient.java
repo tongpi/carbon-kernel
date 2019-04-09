@@ -261,7 +261,6 @@ public class MenuAdminClient {
                         if (childMenus != null && childMenus.size() > 0) {
                             childMenus.add(menus[a]);
                         } else {
-//                        } else if(("identity_menu".equals(menus[a].getParentMenu()) || "identity_entitlement_menu".equals(menus[a].getParentMenu()))){
                             ArrayList<Menu> tmp = new ArrayList();
                             tmp.add(menus[a]);
                             childMenuItems.put(menus[a].getParentMenu(), tmp);
@@ -278,6 +277,13 @@ public class MenuAdminClient {
                 ArrayList childMenusForParent = (ArrayList) childMenuItems.get(menu.getId());
                 if(childMenusForParent != null){ //if no child menu items, do not print the parent
                     menuContent.append(getHtmlForMenuItem(menu, request));
+                    System.out.println("++++++++++++++++");
+                    System.out.println("getId:" + menu.getId());
+                    System.out.println("++++++++++++++++");
+                    System.out.println("I18nKe:" + menu.getI18nKey());
+                    System.out.println("++++++++++++++++");
+                    System.out.println("ParentMenu:" + menu.getParentMenu());
+                    System.out.println("++++++++++++++++");
                     prepareHTMLForChildMenuItems(menu.getId(), request);
                 }
             }
@@ -378,9 +384,7 @@ public class MenuAdminClient {
                 for (int a = 0; a < sortedMenuIds.length; a++) {
                     Menu menu = (Menu) childMenus.get(sortedMenuIds[a]);
 
-//                    if ("identity".equals(menu.getParentMenu().substring(0,menu.getParentMenu().indexOf("_")))){
-//                        continue;
-//                    }
+//
                     ArrayList childs = (ArrayList) childMenuItems.get(menu.getId());
                     if(childs == null){
                     	if(! menu.getLink().equals("#") && menu.getLink().trim().length() > 0){
