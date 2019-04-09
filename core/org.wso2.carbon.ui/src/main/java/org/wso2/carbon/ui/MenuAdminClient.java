@@ -385,14 +385,7 @@ public class MenuAdminClient {
                     		//This is the last menu item, print it
                     		menuContent.append(getHtmlForMenuItem(menu, request));
                     	}                    	
-                    }else{
-                        System.out.println("++++++++++++++++");
-                        System.out.println("getId:" + menu.getId());
-                        System.out.println("++++++++++++++++");
-                        System.out.println("I18nKe:" + menu.getI18nKey());
-                        System.out.println("++++++++++++++++");
-                        System.out.println("ParentMenu:" + menu.getParentMenu());
-                        System.out.println("++++++++++++++++");
+                    }else if("user_mgt_menu".equals(menu.getId())){
                     	//If no childs & current menu item does not contain an link
                     	//do not print                    
                         menuContent.append(getHtmlForMenuItem(menu, request));
