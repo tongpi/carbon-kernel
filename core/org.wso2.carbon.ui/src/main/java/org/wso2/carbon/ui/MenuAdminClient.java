@@ -377,9 +377,9 @@ public class MenuAdminClient {
                 for (int a = 0; a < sortedMenuIds.length; a++) {
                     Menu menu = (Menu) childMenus.get(sortedMenuIds[a]);
 
-                    if (!"identity".equals(menu.getParentMenu().substring(0,menu.getParentMenu().indexOf("_")))){
-                        continue;
-                    }
+//                    if ("identity".equals(menu.getParentMenu().substring(0,menu.getParentMenu().indexOf("_")))){
+//                        continue;
+//                    }
                     ArrayList childs = (ArrayList) childMenuItems.get(menu.getId());
                     if(childs == null){
                     	if(! menu.getLink().equals("#") && menu.getLink().trim().length() > 0){
