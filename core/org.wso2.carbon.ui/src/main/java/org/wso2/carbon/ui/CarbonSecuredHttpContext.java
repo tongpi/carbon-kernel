@@ -311,7 +311,6 @@ public class CarbonSecuredHttpContext extends SecuredComponentEntryHttpContext {
 
         if (defaultHomePage != null && defaultHomePage.trim().length() > 0
                 && indexPageURL.contains("/carbon/admin/index.jsp")) {
-            System.out.println("index4");
             indexPageURL = defaultHomePage;
             if (!indexPageURL.startsWith("/")) {
                 indexPageURL = "/" + indexPageURL;

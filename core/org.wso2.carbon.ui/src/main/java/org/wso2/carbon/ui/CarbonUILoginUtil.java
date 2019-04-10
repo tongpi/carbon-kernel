@@ -169,7 +169,6 @@ public final class CarbonUILoginUtil {
         if (request.getParameter(CarbonConstants.INDEX_PAGE_URL) != null) {
             return request.getParameter(CarbonConstants.INDEX_PAGE_URL);
         } else if (indexPageURL == null) {
-            System.out.println("index2");
             return "/carbon/admin/index.jsp";
         }
 
@@ -562,7 +561,6 @@ public final class CarbonUILoginUtil {
                 	log.debug("User already authenticated. Redirecting to " + indexPageURL);
                 }
                 // redirect relative to the servlet container root
-                System.out.println("index3");
                 response.sendRedirect(context + "/carbon/admin/index.jsp");
                 return RETURN_FALSE;
             } else if (requestedURI.indexOf("login_action.jsp") > -1 && !authenticated) {
