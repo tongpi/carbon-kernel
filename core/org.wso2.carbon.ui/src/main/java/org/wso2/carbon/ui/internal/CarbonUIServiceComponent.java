@@ -258,7 +258,7 @@ public class CarbonUIServiceComponent {
         String indexPageURL = CarbonUIUtil.getIndexPageURL(serverConfig);
         if (indexPageURL == null) {
 //            indexPageURL = "/carbon/admin/index.jsp";
-            indexPageURL = "carbon/userstore/index.jsp?region=region1&item=user_mgt_menu_list";
+            indexPageURL = "/carbon/userstore/index.jsp?region=region1&item=user_mgt_menu_list";
         }
         RegistryService registryService = getRegistryService();
         Registry registry = registryService.getLocalRepository();
