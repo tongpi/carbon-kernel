@@ -233,8 +233,8 @@ if (CharacterEncoder.getSafeText(request.getParameter("skipLoginPage"))!=null){
 <%--                                        				value="rememberMe" tabindex="3"/>--%>
                                         <input type="hidden" name="rememberMe"
                                                value="" tabindex="3"/>
-                                        <label for="txtRememberMe"><fmt:message
-                                                key="rememberMe"/></label>
+<%--                                        <label for="txtRememberMe"><fmt:message--%>
+<%--                                                key="rememberMe"/></label>--%>
                                     </td>
                                 </tr>
                                 <tr>
