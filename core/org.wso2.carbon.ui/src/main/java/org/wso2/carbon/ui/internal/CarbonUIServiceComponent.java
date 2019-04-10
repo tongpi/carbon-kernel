@@ -257,6 +257,7 @@ public class CarbonUIServiceComponent {
         String serverURL = CarbonUIUtil.getServerURL(serverConfig);
         String indexPageURL = CarbonUIUtil.getIndexPageURL(serverConfig);
         if (indexPageURL == null) {
+            System.out.println("index1");
             indexPageURL = "/carbon/admin/index.jsp";
         }
         RegistryService registryService = getRegistryService();
