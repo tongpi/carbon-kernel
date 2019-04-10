@@ -207,9 +207,9 @@
         </td>
         <td id="middle-content">
             <table id="content-table" border="0" cellspacing="0">
-                <tr>
-                    <td id="page-header-links"><tiles:insertAttribute name="breadcrumb"/></td>
-                </tr>
+<%--                <tr>--%>
+<%--                    <td id="page-header-links"><tiles:insertAttribute name="breadcrumb"/></td>--%>
+<%--                </tr>--%>
                 <tr>
                     <td id="body">
                         <img src="../admin/images/1px.gif" width="735px" height="1px"/>
