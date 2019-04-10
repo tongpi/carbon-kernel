@@ -169,7 +169,7 @@ public final class CarbonUILoginUtil {
         if (request.getParameter(CarbonConstants.INDEX_PAGE_URL) != null) {
             return request.getParameter(CarbonConstants.INDEX_PAGE_URL);
         } else if (indexPageURL == null) {
-            return "/carbon/admin/index.jsp";
+            return "carbon/userstore/index.jsp?region=region1&item=user_mgt_menu_list";
         }
 
         return indexPageURL;
