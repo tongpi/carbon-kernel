@@ -229,8 +229,10 @@ if (CharacterEncoder.getSafeText(request.getParameter("skipLoginPage"))!=null){
                                         
                                     </td>
                                     <td>
-                                    	<input type="checkbox" name="rememberMe" 
-                                        				value="rememberMe" tabindex="3"/>
+<%--                                    	<input type="checkbox" name="rememberMe" --%>
+<%--                                        				value="rememberMe" tabindex="3"/>--%>
+                                        <input type="hidden" name="rememberMe"
+                                               value="" tabindex="3"/>
                                         <label for="txtRememberMe"><fmt:message
                                                 key="rememberMe"/></label>
                                     </td>
@@ -244,10 +246,10 @@ if (CharacterEncoder.getSafeText(request.getParameter("skipLoginPage"))!=null){
                                 </tr>
                             </table>
                         </form>
-                        <br/>
-			            <a target="_blank" href="../docs/signin_userguide.html" tabindex="4">
-                            <fmt:message key="sign.in.help"/>
-                        </a>
+<%--                        <br/>--%>
+<%--			            <a target="_blank" href="../docs/signin_userguide.html" tabindex="4">--%>
+<%--                            <fmt:message key="sign.in.help"/>--%>
+<%--                        </a>--%>
                     </div>
                 </td>
             </tr>
