@@ -437,6 +437,10 @@ public class MenuAdminClient {
         String html = "";
         if (menu.getParentMenu().trim().length() == 0
                 || menu.getLink().trim().length() == 0) {
+
+            if("Identity".equals(menuText)){
+                menuText = CarbonUIUtil.geti18nString("component.Identity", "org.wso2.carbon.i18n.Resources", locale);
+            }
             html = "<li id=\""
             	+menu.getRegion()
             	+"_"+ menu.getId()
