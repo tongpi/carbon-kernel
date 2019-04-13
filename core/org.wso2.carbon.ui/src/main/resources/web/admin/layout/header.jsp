@@ -130,7 +130,8 @@
 
 		                <li class="middle">
 		                    <label id="logged-user">
-		                        <strong><fmt:message key="signed.in.as"/>:</strong>&nbsp;<%=signedInAs%>@<%=domainName%>
+<%--		                        <strong><fmt:message key="signed.in.as"/>:</strong>&nbsp;<%=signedInAs%>@<%=domainName%>--%>
+								<strong><fmt:message key="signed.in.as"/>:</strong>&nbsp;<%=signedInAs%>
 		                    </label>
 		                </li>
 

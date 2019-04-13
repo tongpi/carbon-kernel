@@ -106,7 +106,7 @@
     <link href="../dialog/css/dialog.css" rel="stylesheet" type="text/css" media="all"/>
     <link rel="stylesheet" href="../admin/css/carbonFormStyles.css">
     <!--[if gte IE 8]>
-    <link href="../dialog/css/dialog-ie8.css" rel="stylesheet" type="text/css" media="all"/>        
+    <link href="../dialog/css/dialog-ie8.css" rel="stylesheet" type="text/css" media="all"/>
     <![endif]-->
     <!--[if gte IE 7]>
     <link href="../dialog/css/dialog-ie8.css" rel="stylesheet" type="text/css" media="all"/>
@@ -124,7 +124,7 @@
     <script type="text/javascript" src="../admin/js/jquery-1.6.3.min.js"></script>
     <script type="text/javascript" src="../admin/js/jquery.form.js"></script>
     <script type="text/javascript" src="../dialog/js/jqueryui/jquery-ui.min.js"></script>
-    <script type="text/javascript" src="../admin/js/jquery.validate.js"></script>    
+    <script type="text/javascript" src="../admin/js/jquery.validate.js"></script>
     <script type="text/javascript" src="../admin/js/jquery.cookie.js"></script>
     <script type="text/javascript" src="../admin/js/jquery.ui.core.min.js"></script>
     <script type="text/javascript" src="../admin/js/jquery.ui.widget.min.js"></script>
@@ -156,6 +156,9 @@
 		<%
 	}
 %>
+<%
+Boolean authenticated = (Boolean) request.getSession().getAttribute("authenticated");
+if (authenticated != null && authenticated.booleanValue()) {    %>
 <body>
 <jsp:include page="../../admin/jsp/browser_checker.jsp" />
 <div id="dcontainer"></div>
@@ -177,39 +180,44 @@
         <td class="vertical-menu-container" id="vertical-menu-container" style="display:none;">
             <div id="menu-panel-button0"></div>
             <div id="menu-panel-button1" class="menu-panel-buttons"></div>
-<%--            <div id="menu-panel-button2" class="menu-panel-buttons"></div>--%>
-<%--            <div id="menu-panel-button3" class="menu-panel-buttons"></div>--%>
-<%--            <div id="menu-panel-button4" class="menu-panel-buttons"></div>--%>
-<%--            <div id="menu-panel-button5" class="menu-panel-buttons"></div>--%>
-<%--            <div id="menu-panel-button_dummy" style="display:none"></div>--%>
         </td>
         <td id="menu-panel" valign="top">
             <table id="menu-table" border="0" cellspacing="0">
                 <tr>
                     <td id="region1"><tiles:insertAttribute name="region1"/></td>
                 </tr>
-<%--                <tr>--%>
-<%--                    <td id="region2"><tiles:insertAttribute name="region2"/></td>--%>
-<%--                </tr>--%>
-<%--                <tr>--%>
-<%--                    <td id="region3"><tiles:insertAttribute name="region3"/></td>--%>
-<%--                </tr>--%>
-<%--                <tr>--%>
-<%--                    <td id="region4"><tiles:insertAttribute name="region4"/></td>--%>
-<%--                </tr>--%>
-<%--                <tr>--%>
-<%--                    <td id="region5"><tiles:insertAttribute name="region5"/></td>--%>
-<%--                </tr>--%>
-<%--                <tr>--%>
-<%--                    <td><img src="../admin/images/1px.gif" width="225px" height="1px"/></td>--%>
-<%--                </tr>--%>
             </table>
         </td>
         <td id="middle-content">
+<% } else { %>
+<body>
+<jsp:include page="../../admin/jsp/browser_checker.jsp" />
+<div id="dcontainer"></div>
+<script type="text/javascript" src="../dialog/js/dialog.js"></script>
+
+<!-- JS imports for collapsible menu -->
+<script src="../yui/build/yahoo-dom-event/yahoo-dom-event.js" type="text/javascript"></script>
+<script src="../yui/build/animation/animation-min.js" type="text/javascript"></script>
+<script src="../admin/js/template.js" type="text/javascript"></script>
+<script src="../yui/build/yahoo/yahoo-min.js" type="text/javascript"></script>
+<script src="../yui/build/selector/selector-min.js" type="text/javascript"></script>
+
+<table id="main-table" border="0" cellspacing="0">
+    <tr>
+        <td class="vertical-menu-container" id="vertical-menu-container" style="display:none;">
+            <div id="menu-panel-button0"></div>
+            <div id="menu-panel-button1" class="menu-panel-buttons"></div>
+        </td>
+        <td id="menu-panel" valign="top">
+            <table id="menu-table" border="0" cellspacing="0">
+                <tr>
+                    <td id="region1"><tiles:insertAttribute name="region1"/></td>
+                </tr>
+            </table>
+        </td>
+        <td >
+<% } %>
             <table id="content-table" border="0" cellspacing="0">
-<%--                <tr>--%>
-<%--                    <td id="page-header-links"><tiles:insertAttribute name="breadcrumb"/></td>--%>
-<%--                </tr>--%>
                 <tr>
                     <td id="body">
                         <img src="../admin/images/1px.gif" width="735px" height="1px"/>
@@ -220,7 +228,6 @@
         </td>
     </tr>
     <tr>
-<%--        <td id="footer" colspan="3"><tiles:insertAttribute name="footer"/></td>--%>
     </tr>
 </table>
 <script type="text/javascript">
