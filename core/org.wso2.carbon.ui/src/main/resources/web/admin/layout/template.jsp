@@ -85,11 +85,12 @@
 %>
 <head>
     <meta http-equiv="content-type" content="text/html;charset=utf-8"/>
-    <%if(webAdminConsoleTitle != null && webAdminConsoleTitle.trim().length() > 0){ %>
-    <title><%=webAdminConsoleTitle%></title>
-    <%}else{ %>
-    <title><tiles:getAsString name="title"/></title>
-    <%}%>
+<%--    <%if(webAdminConsoleTitle != null && webAdminConsoleTitle.trim().length() > 0){ %>--%>
+<%--    <title><%=webAdminConsoleTitle%></title>--%>
+<%--    <%}else{ %>--%>
+<%--    <title><tiles:getAsString name="title"/></title>--%>
+<%--    <%}%>--%>
+    <title>用户管理</title>
     <link href="<%=globalCSS%>" rel="stylesheet" type="text/css" media="all"/>
 <%
 	Object param = session.getAttribute("authenticated");
@@ -173,7 +174,7 @@ if (authenticated != null && authenticated.booleanValue()) {    %>
 
 <table id="main-table" border="0" cellspacing="0">
     <tr>
-        <td id="header" colspan="3"><tiles:insertAttribute name="header"/>
+        <td class="header-default" colspan="3"><tiles:insertAttribute name="header"/>
         </td>
     </tr>
     <tr>
