@@ -46,17 +46,13 @@
 <![endif]-->
 <fmt:bundle basename="org.wso2.carbon.i18n.Resources">
 
-    <div id="header-div">
-        <div class="right-logo"><fmt:message key="management.console"/></div>
-        <div class="left-logo">
-            <a href="../userstore/index.jsp?region=region1&item=user_mgt_menu_list" class="header-home"><img src="../admin/images/login_logo.png" width="300px" height="32px"/></a>
-        </div>
-        <div class="middle-ad">
-            <%@include file="announcements.jsp"%>
-        </div>
+	<div class="container-fluid">
+	<div class="pull-left brand float-remove-xs text-center-xs">
+		<a href="../userstore/index.jsp?region=region1&item=user_mgt_menu_list" title="用户管理" > <img src="../admin/images/logo-inverse.svg" alt="API 发布者首页" class="logo"></a>
+	</div>
         <div class="header-links">
-		<div class="right-links">            
-			<ul>
+
+			<ul class="nav navbar-right float-remove-xs text-center-xs">
 		                <%
 		                    Boolean authenticated = (Boolean) request.getSession().getAttribute("authenticated");
 		                    if (authenticated != null && authenticated.booleanValue()) {
@@ -89,7 +85,7 @@
                                 }
                         %>
                         <%
-                            if (authenticated != null && authenticated.booleanValue() && 
+                            if (authenticated != null && authenticated.booleanValue() &&
                                 MultitenantConstants.SUPER_TENANT_DOMAIN_NAME.equals(domainName)) {
                                 if (!CarbonUtils.isRunningOnLocalTransportMode()) {
                                     String remoteServerURL = (String) request.getSession().getAttribute(CarbonConstants.SERVER_URL);
@@ -113,7 +109,7 @@
                                             }
                                         }
                                         if (!remoteServerURL.equals(frontEndServerURL)) {
-   
+
                         %>
                                 <li class="middle">
                                     <label id="logged-user">
@@ -128,42 +124,29 @@
                             }
                         %>
 
-		                <li class="middle">
-		                    <label id="logged-user">
-<%--		                        <strong><fmt:message key="signed.in.as"/>:</strong>&nbsp;<%=signedInAs%>@<%=domainName%>--%>
-								<strong><fmt:message key="signed.in.as"/>:</strong>&nbsp;<%=signedInAs%>
-		                    </label>
-		                </li>
-
-				<li class="middle">|</li>
-		                <li class="right">
-		                    <a href="../admin/logout_action.jsp"><fmt:message key="sign.out"/></a>
-		                </li>
-		                <%  } else { %>
-<%--		                <li class="right">--%>
-<%--		                    <a href="../admin/login.jsp"><fmt:message key="sign.in"/></a>--%>
-<%--		                </li>--%>
+						<li class="visible-inline-block">
+							<a href="#" class="dropdown" data-toggle="dropdown" title="<fmt:message key='signed.in.as'/>">
+                                <span class="icon fw-stack fw-lg">
+                                <i class="fw fw-stack-2x" title="<fmt:message key='signed.in.as'/>"></i>
+                                <i class="fw fw-user fw-stack-1x fw-inverse" title="<fmt:message key='signed.in.as'/>"></i>
+							    </span>
+							    <span class="hidden-xs">
+                                    <%=signedInAs%>
+                                    <span class="caret"></span>
+							    </span>
+							</a>
+							<ul class="dropdown-menu dropdown-menu-right float-remove-xs position-static-xs text-center-xs remove-margin-xs slideInDown" role="menu">
+                                <li class="dropdown-header visible-xs">
+                                    <%=signedInAs%>
+                                    <span class="caret"></span>
+                                </li>
+                                <li class="dropdown-header visible-xs">
+                                    <a href="../admin/logout_action.jsp"><fmt:message key="sign.out"/></a>
+                                </li>
+							</ul>
+						</li>
 		                <%  } %>
 
-
-
-<%--		                <li class="middle">|</li>--%>
-<%--		                <li class="middle">--%>
-<%--		                    <a target="_blank" href="<%=userGuideURL %>"><fmt:message key="docs"/></a>--%>
-<%--		                </li>--%>
-<%--				<li class="middle">|</li>--%>
-<%--				<%--%>
-<%--				String aboutPageURL = "";--%>
-<%--				if(CarbonUIUtil.isContextRegistered(config,"/product/")){--%>
-<%--					aboutPageURL = "../product/about.html";--%>
-<%--				}else{--%>
-<%--					//switch to carbon about page--%>
-<%--					aboutPageURL = "../docs/about.html";--%>
-<%--				}--%>
-<%--				%>--%>
-<%--		                <li class="left">--%>
-<%--		                    <a target="_blank" href="<%=aboutPageURL %>"><fmt:message key="about"/></a>--%>
-<%--		                </li>--%>
 		            </ul>
 		</div>
         </div>

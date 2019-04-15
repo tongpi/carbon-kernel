@@ -1534,3 +1534,79 @@ label.error{
 	width: 300px;
 	height: 36px;
 }
+
+.container-fluid {
+	margin-right: auto;
+	margin-left: auto;
+	padding-left: 15px;
+	padding-right: 15px;
+}
+
+
+header .nav > li > a {
+	padding: 10px 15px;
+	height: 56px;
+	color: #7f9ebd;
+}
+
+.nav > li > a {
+	position: relative;
+	display: block;
+	padding: 10px 15px;
+}
+
+.header-default {
+	background: #003e7b;
+}
+
+header {
+	min-height: 50px;
+	position: relative;
+}
+
+.open > .dropdown-menu {
+	display: block;
+}
+
+.caret {
+	display: inline-block;
+	width: 0;
+	height: 0;
+	margin-left: 2px;
+	vertical-align: middle;
+	border-top: 4px dashed;
+	border-top: 4px solid \9;
+	border-right: 4px solid transparent;
+	border-left: 4px solid transparent;
+}
+
+
+header .nav > li > a {
+	padding: 10px 15px;
+	height: 56px;
+	color:#7f9ebd;
+}
+
+header .nav > li > a:hover {
+	background: #003e7b;
+	color:#ffffff;
+}
+
+header .nav > li > a:focus {
+	color: #fff;
+	background: #003e7b;
+}
+
+header .nav .open > a,
+header .nav .open > a:hover,
+header .nav .open > a:focus {
+	background: #003e7b;
+}
+
+header .nav .dropdown-menu {
+	background: #ffffff;
+}
+
+header .nav .dropdown-menu a {
+	color: #212529
+}
