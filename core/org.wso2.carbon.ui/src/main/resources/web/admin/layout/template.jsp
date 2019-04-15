@@ -191,7 +191,7 @@ if (authenticated != null && authenticated.booleanValue()) {    %>
         </td>
         <td id="middle-content">
 <% } else { %>
-<body>
+<body class="page-content-wrapper page-wrapper-box">
 <jsp:include page="../../admin/jsp/browser_checker.jsp" />
 <div id="dcontainer"></div>
 <script type="text/javascript" src="../dialog/js/dialog.js"></script>
