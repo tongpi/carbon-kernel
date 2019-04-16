@@ -44,10 +44,12 @@
             <Property name="WriteGroups">true</Property>
             <Property name="UsernameJavaRegEx">^[\S]{3,30}$</Property>
             <Property name="UsernameJavaScriptRegEx">^[\S]{3,30}$</Property>
-            <Property name="UsernameJavaRegExViolationErrorMsg">Username pattern policy violated</Property>
+<!--            <Property name="UsernameJavaRegExViolationErrorMsg">Username pattern policy violated</Property>-->
+            <Property name="UsernameJavaRegExViolationErrorMsg">用户名不符合规范</Property>
             <Property name="PasswordJavaRegEx">^[\S]{5,30}$</Property>
             <Property name="PasswordJavaScriptRegEx">^[\S]{5,30}$</Property>
-            <Property name="PasswordJavaRegExViolationErrorMsg">Password length should be within 5 to 30 characters</Property>
+<!--            <Property name="PasswordJavaRegExViolationErrorMsg">Password length should be within 5 to 30 characters</Property>-->
+            <Property name="PasswordJavaRegExViolationErrorMsg">密码长度应在5到30个字符之间</Property>
             <Property name="RolenameJavaRegEx">^[\S]{3,30}$</Property>
             <Property name="RolenameJavaScriptRegEx">^[\S]{3,30}$</Property>
             <Property name="CaseInsensitiveUsername">true</Property>
