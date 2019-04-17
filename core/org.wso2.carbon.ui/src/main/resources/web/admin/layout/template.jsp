@@ -174,7 +174,7 @@ if (authenticated != null && authenticated.booleanValue()) {    %>
 
 <table id="main-table" border="0" cellspacing="0">
     <tr>
-        <td class="header-default" colspan="3"><tiles:insertAttribute name="header"/>
+        <td class="header header-default" colspan="3"><tiles:insertAttribute name="header"/>
         </td>
     </tr>
     <tr>
@@ -227,8 +227,6 @@ if (authenticated != null && authenticated.booleanValue()) {    %>
                 </tr>
             </table>
         </td>
-    </tr>
-    <tr>
     </tr>
 </table>
 <script type="text/javascript">

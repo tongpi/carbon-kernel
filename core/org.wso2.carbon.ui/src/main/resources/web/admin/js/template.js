@@ -483,6 +483,27 @@ function selectTab(tab){
     }
     YAHOO.util.Dom.addClass(tab, 'selected');            
 }
+
+$(function(){
+    //点击用户名下拉列表退出
+    $('#dropdownUser').click(function(event){
+        //阻止隐藏事件
+        event.stopPropagation();
+        if($('#dropdownLogout').is(':visible')){
+            $(this).parent().removeClass("active");
+            $('#dropdownLogout').hide();
+        }else{
+            $(this).parent().addClass("active");
+            $('#dropdownLogout').show();
+        }
+    });
+    //点击用户名其他区域隐藏退出
+    $(document).click(function(){
+        $('#dropdownUser').parent().removeClass("active");
+        $("#dropdownLogout").hide();
+    });
+});
+
 jQuery(document).ready(
   function() {
       if (jQuery('#menu-table li a').length <= 1) {

@@ -125,7 +125,7 @@
                         %>
 
 						<li class="visible-inline-block">
-							<a href="#" class="dropdown" data-toggle="dropdown" title="<fmt:message key='signed.in.as'/>">
+							<a href="#" id="dropdownUser" class="user_pic" title="<fmt:message key='signed.in.as'/>">
                                 <span class="icon fw-stack fw-lg">
                                 <i class="fw fw-stack-2x" title="<fmt:message key='signed.in.as'/>"></i>
                                 <i class="fw fw-user fw-stack-1x fw-inverse" title="<fmt:message key='signed.in.as'/>"></i>
@@ -135,11 +135,7 @@
                                     <span class="caret"></span>
 							    </span>
 							</a>
-							<ul class="dropdown-menu dropdown-menu-right float-remove-xs position-static-xs text-center-xs remove-margin-xs slideInDown" role="menu">
-                                <li class="dropdown-header visible-xs">
-                                    <%=signedInAs%>
-                                    <span class="caret"></span>
-                                </li>
+							<ul id="dropdownLogout" class="dropdown-menu"  >
                                 <li class="dropdown-header visible-xs">
                                     <a href="../admin/logout_action.jsp"><fmt:message key="sign.out"/></a>
                                 </li>
