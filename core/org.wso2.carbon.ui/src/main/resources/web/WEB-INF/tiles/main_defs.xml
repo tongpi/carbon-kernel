@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="ISO-8859-1" ?>
+<?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE tiles-definitions PUBLIC
         "-//Apache Software Foundation//DTD Tiles Configuration 2.0//EN"
         "http://tiles.apache.org/dtds/tiles-config_2_0.dtd">
@@ -9,7 +9,7 @@
     <!-- =======================================================  -->
 
     <definition name="main.layout" template="/admin/layout/template.jsp">
-        <put-attribute name="title" value="WSO2 Management Console"/>
+        <put-attribute name="title" value="管理控制台"/>
         <put-attribute name="header" value="/admin/layout/header.jsp"/>
         <put-attribute name="region1" value="/admin/layout/region1.jsp"/>
         <put-attribute name="region2" value="/admin/layout/region2.jsp"/>
