@@ -26,33 +26,33 @@ public class UserStoreConfigConstants {
     public static final String TENANTS = "tenants";
     //Define datasource property for JDBC
     public static final String dataSource = "dataSource";
-    public static final String dataSourceDescription = "Connection name to user store";
+    public static final String dataSourceDescription = "用户存储连接名称";
     //Common Properties
     public static final String maxRoleNameListLength = "MaxRoleNameListLength";
-    public static final String maxRoleNameListLengthDescription = "Maximum number of roles retrieved at once";
+    public static final String maxRoleNameListLengthDescription = "一次检索的最大角色数";
     public static final String maxUserNameListLength = "MaxUserNameListLength";
-    public static final String maxUserNameListLengthDescription = "Maximum number of users retrieved at once";
+    public static final String maxUserNameListLengthDescription = "一次检索的最大用户数";
     public static final String userRolesCacheEnabled = "UserRolesCacheEnabled";
-    public static final String userRolesCacheEnabledDescription = "This is to indicate whether to cache the role list of a user";
+    public static final String userRolesCacheEnabledDescription = "这是为了指示是否缓存用户的角色列表";
     public static final String SCIMEnabled = "SCIMEnabled";
-    public static final String SCIMEnabledDescription = "Whether SCIM is enabled for the user store";
+    public static final String SCIMEnabledDescription = "是否为用户存储启用SCIM";
     public static final String claimOperationsSupported = "ClaimOperationsSupported";
-    public static final String claimOperationsSupportedDescription = "Whether the userstore supports claim read and write";
-    public static final String getClaimOperationsSupportedDisplayName = "Claim Operations Supported";
+    public static final String claimOperationsSupportedDescription = "用户存储区是否支持声明读写";
+    public static final String getClaimOperationsSupportedDisplayName = "声明操作支持";
 
     //Mandatory to LDAP user stores
     public static final String connectionURL = "ConnectionURL";
-    public static final String connectionURLDescription = "Connection URL for the user store";
+    public static final String connectionURLDescription = "用户存储的连接URL";
     public static final String connectionName = "ConnectionName";
-    public static final String connectionNameDescription = "This should be a DN (Distinguish Name) of a user with " +
-                                                           "sufficient permissions to perform operations on users " +
-                                                           "and roles in LDAP";
+    public static final String connectionNameDescription = "这应该是具有足够权限对LDAP中的用户和角色执行操作的用户的DN（区分名称）";
+
+
     public static final String connectionPassword = "ConnectionPassword";
-    public static final String connectionPasswordDescription = "Password of the admin user";
+    public static final String connectionPasswordDescription = "管理员用户的密码";
     public static final String userSearchBase = "UserSearchBase";
-    public static final String userSearchBaseDescription = "DN of the context under which user entries are stored in LDAP";
+    public static final String userSearchBaseDescription = "在LDAP中存储用户条目的上下文的DN";
     public static final String disabled = "Disabled";
-    public static final String disabledDescription = "Whether user store is disabled";
+    public static final String disabledDescription = "用户存储是否被禁用";
 
 
     //Write Group Privilege Properties

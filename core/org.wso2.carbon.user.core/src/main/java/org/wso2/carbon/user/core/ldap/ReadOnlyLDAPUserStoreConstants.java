@@ -30,56 +30,55 @@ public class ReadOnlyLDAPUserStoreConstants {
 
     //For multiple attribute separation
     private static final String MULTI_ATTRIBUTE_SEPARATOR = "MultiAttributeSeparator";
-    private static final String MULTI_ATTRIBUTE_SEPARATOR_DESCRIPTION = "This is the separator for multiple claim values";
-    private static final String DisplayNameAttributeDescription = "Attribute name to display as the Display Name";
+    private static final String MULTI_ATTRIBUTE_SEPARATOR_DESCRIPTION = "指定多个声明值的分隔符";
+    private static final String DisplayNameAttributeDescription = "可作为显示名称的属性名称";
     private static final String DisplayNameAttribute = "DisplayNameAttribute";
     private static final String roleDNPattern = "RoleDNPattern";
-    private static final String roleDNPatternDescription = "The patten for role's DN. It can be defined to improve " +
-            "the LDAP search";
+    private static final String roleDNPatternDescription = "角色DN的模式。可以定义它来改进LDAP搜索";
 
 
     static {
 
-        setMandatoryProperty(UserStoreConfigConstants.connectionURL, "Connection URL", "ldap://",
+        setMandatoryProperty(UserStoreConfigConstants.connectionURL, "连接 URL", "ldap://",
                 UserStoreConfigConstants.connectionURLDescription, false);
-        setMandatoryProperty(UserStoreConfigConstants.connectionName, "Connection Name", "uid=," +
+        setMandatoryProperty(UserStoreConfigConstants.connectionName, "连接名称", "uid=," +
                 "ou=", UserStoreConfigConstants.connectionNameDescription, false);
-        setMandatoryProperty(UserStoreConfigConstants.connectionPassword, "Connection Password",
+        setMandatoryProperty(UserStoreConfigConstants.connectionPassword, "连接密码",
                 "", UserStoreConfigConstants.connectionPasswordDescription, true);
-        setMandatoryProperty(UserStoreConfigConstants.userSearchBase, "User Search Base",
+        setMandatoryProperty(UserStoreConfigConstants.userSearchBase, "用户搜索库",
                 "ou=system", UserStoreConfigConstants.userSearchBaseDescription, false);
-        setMandatoryProperty(UserStoreConfigConstants.userNameAttribute, "Username Attribute",
+        setMandatoryProperty(UserStoreConfigConstants.userNameAttribute, "用户名属性",
                 "", UserStoreConfigConstants.userNameAttributeDescription, false);
 
-        setMandatoryProperty(UserStoreConfigConstants.usernameSearchFilter, "User Search Filter",
+        setMandatoryProperty(UserStoreConfigConstants.usernameSearchFilter, "用户搜索过滤条件",
                 "(&(objectClass=person)(uid=?))", UserStoreConfigConstants
                         .usernameSearchFilterDescription, false);
-        setMandatoryProperty(UserStoreConfigConstants.usernameListFilter, "User List Filter",
+        setMandatoryProperty(UserStoreConfigConstants.usernameListFilter, "用户列表过滤条件",
                 "(objectClass=person)", UserStoreConfigConstants.usernameListFilterDescription, false);
 
 
-        setProperty(UserStoreConfigConstants.userDNPattern, "User DN Pattern", "", UserStoreConfigConstants.userDNPatternDescription);
-        setProperty(DisplayNameAttribute, "Display name attribute", "", DisplayNameAttributeDescription);
-        setProperty(UserStoreConfigConstants.disabled, "Disabled", "false", UserStoreConfigConstants.disabledDescription);
-        setProperty(UserStoreConfigConstants.readGroups, "Read Groups", "true", UserStoreConfigConstants
+        setProperty(UserStoreConfigConstants.userDNPattern, "用户 DN 模式", "", UserStoreConfigConstants.userDNPatternDescription);
+        setProperty(DisplayNameAttribute, "显示名属性", "", DisplayNameAttributeDescription);
+        setProperty(UserStoreConfigConstants.disabled, "禁用", "false", UserStoreConfigConstants.disabledDescription);
+        setProperty(UserStoreConfigConstants.readGroups, "允许读取群组", "true", UserStoreConfigConstants
                 .readLDAPGroupsDescription);
-        setProperty(UserStoreConfigConstants.groupSearchBase, "Group Search Base", "ou=Groups,dc=wso2,dc=org",
+        setProperty(UserStoreConfigConstants.groupSearchBase, "群组搜索库", "ou=Groups,dc=wso2,dc=org",
                 UserStoreConfigConstants.groupSearchBaseDescription);
-        setProperty(UserStoreConfigConstants.groupNameAttribute, "Group Name Attribute", "cn", UserStoreConfigConstants.groupNameAttributeDescription);
-        setProperty(UserStoreConfigConstants.groupNameSearchFilter, "Group Search Filter",
+        setProperty(UserStoreConfigConstants.groupNameAttribute, "群组名称属性", "cn", UserStoreConfigConstants.groupNameAttributeDescription);
+        setProperty(UserStoreConfigConstants.groupNameSearchFilter, "群组搜索过滤条件",
                 "(&(objectClass=groupOfNames)(cn=?))", UserStoreConfigConstants.groupNameSearchFilterDescription);
-        setProperty(UserStoreConfigConstants.groupNameListFilter, "Group List Filter", "(objectClass=groupOfNames)",
+        setProperty(UserStoreConfigConstants.groupNameListFilter, "群组列表过滤条件", "(objectClass=groupOfNames)",
                 UserStoreConfigConstants.groupNameListFilterDescription);
 
-        setProperty(roleDNPattern, "Role DN Pattern", "", roleDNPatternDescription);
+        setProperty(roleDNPattern, "角色 DN 模式", "", roleDNPatternDescription);
 
-        setProperty(UserStoreConfigConstants.membershipAttribute, "Membership Attribute", "member", UserStoreConfigConstants.membershipAttributeDescription);
-        setProperty(UserStoreConfigConstants.memberOfAttribute, "Member Of Attribute", "", UserStoreConfigConstants.memberOfAttribute);
-        setProperty("BackLinksEnabled", "Enable Back Links", "false", " Whether to allow attributes to be result from" +
-                "references to the object from other objects");
+        setProperty(UserStoreConfigConstants.membershipAttribute, "成员关系属性", "member", UserStoreConfigConstants.membershipAttributeDescription);
+        setProperty(UserStoreConfigConstants.memberOfAttribute, "成员属性", "", UserStoreConfigConstants.memberOfAttribute);
+        setProperty("BackLinksEnabled", "启用属性引用", "false", " W是否允许属性由其他对象对对象的引用产生");
+        
 
-        setProperty("Referral", "Referral", "follow", "Guides the requests to a domain controller in the correct domain");
-        setProperty("ReplaceEscapeCharactersAtUserLogin", "Enable Escape Characters at User Login", "true", "Whether replace escape character when user login");
+        setProperty("Referral", "转介", "follow", "将请求引导到正确域中的域控制器");
+        setProperty("ReplaceEscapeCharactersAtUserLogin", "在用户登录时启用转义字符", "true", "用户登录时是否替换转义符");
         setProperty("UniqueID", "", "", "");
 
     }

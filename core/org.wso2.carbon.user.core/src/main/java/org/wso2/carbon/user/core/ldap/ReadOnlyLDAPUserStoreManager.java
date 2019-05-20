@@ -101,30 +101,30 @@ public class ReadOnlyLDAPUserStoreManager extends AbstractUserStoreManager {
     public static final String MEMBER_UID = "memberUid";
     private static final String OBJECT_GUID = "objectGUID";
     protected static final String MEMBERSHIP_ATTRIBUTE_RANGE = "MembershipAttributeRange";
-    protected static final String MEMBERSHIP_ATTRIBUTE_RANGE_DISPLAY_NAME = "Membership Attribute Range";
+    protected static final String MEMBERSHIP_ATTRIBUTE_RANGE_DISPLAY_NAME = "成员属性范围";
     private static final String USER_CACHE_NAME_PREFIX = CachingConstants.LOCAL_CACHE_PREFIX + "UserCache-";
     private static final String USER_CACHE_MANAGER = "UserCacheManager";
     private static Log log = LogFactory.getLog(ReadOnlyLDAPUserStoreManager.class);
     protected static final int MAX_USER_CACHE = 200;
 
-    private static final String MULTI_ATTRIBUTE_SEPARATOR_DESCRIPTION = "This is the separator for multiple claim values";
+    private static final String MULTI_ATTRIBUTE_SEPARATOR_DESCRIPTION = "指定多个声明值的分隔符";
     private static final String MULTI_ATTRIBUTE_SEPARATOR = "MultiAttributeSeparator";
     private static final ArrayList<Property> RO_LDAP_UM_ADVANCED_PROPERTIES = new ArrayList<Property>();
     private static final String PROPERTY_REFERRAL_IGNORE ="ignore";
     private static final String LDAPConnectionTimeout = "LDAPConnectionTimeout";
-    private static final String LDAPConnectionTimeoutDescription = "LDAP Connection Timeout";
+    private static final String LDAPConnectionTimeoutDescription = "LDAP 连接超时";
     private static final String readTimeout = "ReadTimeout";
-    private static final String readTimeoutDescription = "Configure this to define the read timeout for LDAP operations";
+    private static final String readTimeoutDescription = "配置此项以定义LDAP操作的读取超时";
     private static final String RETRY_ATTEMPTS = "RetryAttempts";
-    private static final String LDAPBinaryAttributesDescription = "Configure this to define the LDAP binary attributes " +
-            "seperated by a space. Ex:mpegVideo mySpecialKey";
+    private static final String LDAPBinaryAttributesDescription = "配置此属性以定义由空格分隔的LDAP二进制属性。" +
+            "例如:mpegVideo mySpecialKey";
     protected static final String USER_CACHE_EXPIRY_TIME_ATTRIBUTE_NAME = "User Cache Expiry milliseconds";
     protected static final String USER_DN_CACHE_ENABLED_ATTRIBUTE_NAME = "Enable User DN Cache";
     protected static final String USER_CACHE_EXPIRY_TIME_ATTRIBUTE_DESCRIPTION =
-            "Configure the user cache expiry in milliseconds. "
-                    + "Values  {0: expire immediately, -1: never expire, '': i.e. empty, system default}.";
-    protected static final String USER_DN_CACHE_ENABLED_ATTRIBUTE_DESCRIPTION = "Enables the user cache. Default true,"
-            + " Unless set to false. Empty value is interpreted as true.";
+            "配置用户缓存过期时间(毫秒). "
+                    + "取值为  {0: 立即过期, -1: 永不过期, '': 例如. 空, 系统缺省}.";
+    protected static final String USER_DN_CACHE_ENABLED_ATTRIBUTE_DESCRIPTION = "启用用户缓存. 缺省为 true,"
+            + " 除非设置为 false. 空值被解释为 true.";
     //Authenticating to LDAP via Anonymous Bind
     private static final String USE_ANONYMOUS_BIND = "AnonymousBind";
     protected static final int MEMBERSHIP_ATTRIBUTE_RANGE_VALUE = 0;
@@ -211,7 +211,7 @@ public class ReadOnlyLDAPUserStoreManager extends AbstractUserStoreManager {
             dataSource = DatabaseUtil.getRealmDataSource(realmConfig);
         }
         if (dataSource == null) {
-            throw new UserStoreException("Data Source is null");
+            throw new UserStoreException("数据源为空");
         }
         properties.put(UserCoreConstants.DATA_SOURCE, dataSource);
 
@@ -228,7 +228,7 @@ public class ReadOnlyLDAPUserStoreManager extends AbstractUserStoreManager {
                 log.info("LDAP connection created successfully in read-only mode");
             }
         } catch (Exception e) {
-            String errorMessage = "Cannot create connection to LDAP server. Error message " +
+            String errorMessage = "连接不上LDAP服务器. 错误信息为： " +
                                   e.getMessage();
             if (log.isDebugEnabled()) {
                 log.debug(errorMessage, e);
@@ -292,45 +292,45 @@ public class ReadOnlyLDAPUserStoreManager extends AbstractUserStoreManager {
         if ((connectionURL == null || connectionURL.trim().length() == 0) &&
                 ((DNSURL == null || DNSURL.trim().length() == 0))) {
             throw new UserStoreException(
-                    "Required ConnectionURL property is not set at the LDAP configurations");
+                    "LDAP配置中未设置必需的ConnectionURL属性");
         }
         if (!Boolean.parseBoolean(AnonymousBind)) {
             String connectionName = realmConfig.getUserStoreProperty(LDAPConstants.CONNECTION_NAME);
             if (StringUtils.isEmpty(connectionName)) {
                 throw new UserStoreException(
-                        "Required ConnectionNme property is not set at the LDAP configurations");
+                        "LDAP配置中未设置必需的ConnectionNme属性");
             }
             String connectionPassword =
                     realmConfig.getUserStoreProperty(LDAPConstants.CONNECTION_PASSWORD);
             if (StringUtils.isEmpty(connectionPassword)) {
                 throw new UserStoreException(
-                        "Required ConnectionPassword property is not set at the LDAP configurations");
+                        "LDAP配置中未设置必需的ConnectionPassword属性");
             }
         }
         userSearchBase = realmConfig.getUserStoreProperty(LDAPConstants.USER_SEARCH_BASE);
         if (userSearchBase == null || userSearchBase.trim().length() == 0) {
             throw new UserStoreException(
-                    "Required UserSearchBase property is not set at the LDAP configurations");
+                    "LDAP配置中未设置必需的UserSearchBase属性");
         }
         String usernameListFilter =
                 realmConfig.getUserStoreProperty(LDAPConstants.USER_NAME_LIST_FILTER);
         if (usernameListFilter == null || usernameListFilter.trim().length() == 0) {
             throw new UserStoreException(
-                    "Required UserNameListFilter property is not set at the LDAP configurations");
+                    "LDAP配置中未设置必需的UserNameListFilter属性");
         }
 
         String usernameSearchFilter =
                 realmConfig.getUserStoreProperty(LDAPConstants.USER_NAME_SEARCH_FILTER);
         if (usernameSearchFilter == null || usernameSearchFilter.trim().length() == 0) {
             throw new UserStoreException(
-                    "Required UserNameSearchFilter property is not set at the LDAP configurations");
+                    "LDAP配置中未设置必需的UserNameSearchFilter属性");
         }
 
         String usernameAttribute =
                 realmConfig.getUserStoreProperty(LDAPConstants.USER_NAME_ATTRIBUTE);
         if (usernameAttribute == null || usernameAttribute.trim().length() == 0) {
             throw new UserStoreException(
-                    "Required UserNameAttribute property is not set at the LDAP configurations");
+                    "LDAP配置中未设置必需的UserNameAttribute属性");
         }
 
         writeGroupsEnabled = false;
@@ -353,33 +353,33 @@ public class ReadOnlyLDAPUserStoreManager extends AbstractUserStoreManager {
             groupSearchBase = realmConfig.getUserStoreProperty(LDAPConstants.GROUP_SEARCH_BASE);
             if (groupSearchBase == null || groupSearchBase.trim().length() == 0) {
                 throw new UserStoreException(
-                        "Required GroupSearchBase property is not set at the LDAP configurations");
+                        "LDAP配置中未设置必需的GroupSearchBase属性");
             }
             String groupNameListFilter =
                     realmConfig.getUserStoreProperty(LDAPConstants.GROUP_NAME_LIST_FILTER);
             if (groupNameListFilter == null || groupNameListFilter.trim().length() == 0) {
                 throw new UserStoreException(
-                        "Required GroupNameListFilter property is not set at the LDAP configurations");
+                        "LDAP配置中未设置必需的GroupNameListFilter属性");
             }
 
             String groupNameSearchFilter =
                     realmConfig.getUserStoreProperty(LDAPConstants.ROLE_NAME_FILTER);
             if (groupNameSearchFilter == null || groupNameSearchFilter.trim().length() == 0) {
                 throw new UserStoreException(
-                        "Required GroupNameSearchFilter property is not set at the LDAP configurations");
+                        "LDAP配置中未设置必需的GroupNameSearchFilter属性");
             }
 
             String groupNameAttribute =
                     realmConfig.getUserStoreProperty(LDAPConstants.GROUP_NAME_ATTRIBUTE);
             if (groupNameAttribute == null || groupNameAttribute.trim().length() == 0) {
                 throw new UserStoreException(
-                        "Required GroupNameAttribute property is not set at the LDAP configurations");
+                        "LDAP配置中未设置必需的GroupNameAttribute属性");
             }
             String memebershipAttribute =
                     realmConfig.getUserStoreProperty(LDAPConstants.MEMBERSHIP_ATTRIBUTE);
             if (memebershipAttribute == null || memebershipAttribute.trim().length() == 0) {
                 throw new UserStoreException(
-                        "Required MembershipAttribute property is not set at the LDAP configurations");
+                        "LDAP配置中未设置必需的MembershipAttribute属性");
             }
         }
 
@@ -411,7 +411,7 @@ public class ReadOnlyLDAPUserStoreManager extends AbstractUserStoreManager {
         try {
             credentialObj = Secret.getSecret(credential);
         } catch (UnsupportedSecretTypeException e) {
-            throw new UserStoreException("Unsupported credential type", e);
+            throw new UserStoreException("不支持的凭据类型", e);
         }
 
         if (userName.equals("") || credentialObj.isEmpty()) {
@@ -508,7 +508,7 @@ public class ReadOnlyLDAPUserStoreManager extends AbstractUserStoreManager {
                         }
                     }
                 } catch (NamingException e) {
-                    String errorMessage = "Cannot bind user : " + userName;
+                    String errorMessage = "不能绑定用户 : " + userName;
                     if (log.isDebugEnabled()) {
                         log.debug(errorMessage, e);
                     }
@@ -542,7 +542,7 @@ public class ReadOnlyLDAPUserStoreManager extends AbstractUserStoreManager {
     public Map<String, String> getUserPropertyValues(String userName, String[] propertyNames,
                                                      String profileName) throws UserStoreException {
         if (userName == null) {
-            throw new UserStoreException("userName value is null.");
+            throw new UserStoreException("用户名为空.");
         }
         String userAttributeSeparator = ",";
         String userDN = null;
@@ -1108,7 +1108,7 @@ public class ReadOnlyLDAPUserStoreManager extends AbstractUserStoreManager {
 		 * String rawConnectionURL =
 		 * realmConfig.getUserStoreProperty(LDAPConstants.CONNECTION_URL);
 		 * String portInfo = rawConnectionURL.split(":")[2];
-		 * 
+		 *
 		 * String connectionURL = null;
 		 * String port = null;
 		 * // if the port contains a template string that refers to carbon.xml
@@ -3497,7 +3497,7 @@ public class ReadOnlyLDAPUserStoreManager extends AbstractUserStoreManager {
                             "(&" + searchFilter + "(" + membershipProperty + "=" + membershipValue +
                                     ") (" + roleNameProperty + "=" + escapeSpecialCharactersForFilter(roleName) + "))";
 
-                    // handle multiple search bases 
+                    // handle multiple search bases
                     String[] searchBaseArray = searchBases.split("#");
 
                     for (String searchBase : searchBaseArray) {
