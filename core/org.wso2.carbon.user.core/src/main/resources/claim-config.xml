@@ -1,3 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
 <!--
  ~ Copyright (c) 2005-2011, WSO2 Inc. (http://www.wso2.org) All Rights Reserved.
  ~
@@ -20,48 +21,48 @@
 		<Dialect dialectURI="http://wso2.org/claims">
 			<Claim>
 				<ClaimURI>http://wso2.org/claims/givenname</ClaimURI>
-				<DisplayName>First Name</DisplayName>
+				<DisplayName>名字</DisplayName>
 				<AttributeID>givenName</AttributeID>
-				<Description>First Name</Description>
+				<Description>名字</Description>
 				<Required />
 				<DisplayOrder>1</DisplayOrder>
 				<SupportedByDefault />
 			</Claim>
 			<Claim>
 				<ClaimURI>http://wso2.org/claims/lastname</ClaimURI>
-				<DisplayName>Last Name</DisplayName>
+				<DisplayName>姓氏</DisplayName>
 				<AttributeID>sn</AttributeID>
-				<Description>Last Name</Description>
+				<Description>姓氏</Description>
 				<Required />
 				<DisplayOrder>2</DisplayOrder>
 				<SupportedByDefault />
 			</Claim>
 			<Claim>
 				<ClaimURI>http://wso2.org/claims/organization</ClaimURI>
-				<DisplayName>Organization</DisplayName>
+				<DisplayName>组织</DisplayName>
 				<AttributeID>organizationName</AttributeID>
-				<Description>Organization</Description>
+				<Description>组织</Description>
 				<DisplayOrder>3</DisplayOrder>
 			</Claim>
 			<Claim>
 				<ClaimURI>http://wso2.org/claims/streetaddress</ClaimURI>
-				<DisplayName>Address</DisplayName>
+				<DisplayName>地址</DisplayName>
 				<AttributeID>streetAddress</AttributeID>
-				<Description>Address</Description>
+				<Description>地址</Description>
 				<DisplayOrder>4</DisplayOrder>
 			</Claim>
 			<Claim>
 				<ClaimURI>http://wso2.org/claims/country</ClaimURI>
-				<DisplayName>Country</DisplayName>
+				<DisplayName>国家</DisplayName>
 				<AttributeID>country</AttributeID>
-				<Description>Country</Description>
+				<Description>国家</Description>
 				<DisplayOrder>5</DisplayOrder>
 			</Claim>
 			<Claim>
 				<ClaimURI>http://wso2.org/claims/emailaddress</ClaimURI>
 				<DisplayName>Email</DisplayName>
 				<AttributeID>mail</AttributeID>
-				<Description>Email Address</Description>
+				<Description>Email 地址</Description>
 				<Required />
 				<DisplayOrder>6</DisplayOrder>
 				<SupportedByDefault />
@@ -69,16 +70,16 @@
 			</Claim>
 			<Claim>
 				<ClaimURI>http://wso2.org/claims/telephone</ClaimURI>
-				<DisplayName>Telephone</DisplayName>
+				<DisplayName>电话</DisplayName>
 				<AttributeID>telephoneNumber</AttributeID>
-				<Description>Telephone</Description>
+				<Description>电话</Description>
 				<DisplayOrder>7</DisplayOrder>
 			</Claim>
 			<Claim>
 				<ClaimURI>http://wso2.org/claims/mobile</ClaimURI>
-				<DisplayName>Mobile</DisplayName>
+				<DisplayName>手机</DisplayName>
 				<AttributeID>mobile</AttributeID>
-				<Description>Mobile</Description>
+				<Description>手机</Description>
 				<DisplayOrder>8</DisplayOrder>
 			</Claim>
 			<Claim>
@@ -97,71 +98,71 @@
 			</Claim>
 			<Claim>
 				<ClaimURI>http://wso2.org/claims/gender</ClaimURI>
-				<DisplayName>Gender</DisplayName>
+				<DisplayName>性别</DisplayName>
 				<AttributeID>gender</AttributeID>
-				<Description>Gender</Description>
+				<Description>性别</Description>
 			</Claim>
 			<Claim>
 				<ClaimURI>http://wso2.org/claims/title</ClaimURI>
-				<DisplayName>Title</DisplayName>
+				<DisplayName>职务</DisplayName>
 				<AttributeID>title</AttributeID>
-				<Description>Title</Description>
+				<Description>职务</Description>
 			</Claim>
 			<Claim>
 				<ClaimURI>http://wso2.org/claims/role</ClaimURI>
-				<DisplayName>Role</DisplayName>
+				<DisplayName>角色</DisplayName>
 				<AttributeID>role</AttributeID>
-				<Description>Role</Description>
+				<Description>角色</Description>
 	            <SupportedByDefault />
 	            <ReadOnly />
 			</Claim>
 			<Claim>
 				<ClaimURI>http://wso2.org/claims/postalcode</ClaimURI>
-				<DisplayName>Postal Code</DisplayName>
+				<DisplayName>邮编</DisplayName>
 				<AttributeID>postalcode</AttributeID>
-				<Description>Postal Code</Description>
+				<Description>邮政编码</Description>
 			</Claim>
 			<Claim>
 				<ClaimURI>http://wso2.org/claims/locality</ClaimURI>
-				<DisplayName>Locality</DisplayName>
+				<DisplayName>街道办</DisplayName>
 				<AttributeID>localityName</AttributeID>
-				<Description>Locality</Description>
+				<Description>街道办</Description>
 			</Claim>
 			<Claim>
 				<ClaimURI>http://wso2.org/claims/region</ClaimURI>
-				<DisplayName>Region</DisplayName>
+				<DisplayName>地区</DisplayName>
 				<AttributeID>http://wso2.org/claims/region</AttributeID>
-				<Description>Region</Description>
+				<Description>地区</Description>
 			</Claim>
 			<Claim>
 				<ClaimURI>http://wso2.org/claims/dob</ClaimURI>
-				<DisplayName>Birth Date</DisplayName>
+				<DisplayName>出生日期</DisplayName>
 				<AttributeID>dateOfBirth</AttributeID>
-				<Description>Birth Date</Description>
+				<Description>出生日期</Description>
 			</Claim>
 			<Claim>
 				<ClaimURI>http://wso2.org/claims/nickname</ClaimURI>
-				<DisplayName>Nick Name</DisplayName>
+				<DisplayName>昵称</DisplayName>
 				<AttributeID>nickName</AttributeID>
-				<Description>Nick Name</Description>
+				<Description>昵称</Description>
 			</Claim>
 			<Claim>
 				<ClaimURI>http://wso2.org/claims/stateorprovince</ClaimURI>
-				<DisplayName>State</DisplayName>
+				<DisplayName>省份</DisplayName>
 				<AttributeID>stateOrProvinceName</AttributeID>
-				<Description>State</Description>
+				<Description>省份</Description>
 			</Claim>
 			<Claim>
 				<ClaimURI>http://wso2.org/claims/otherphone</ClaimURI>
-				<DisplayName>Other Phone</DisplayName>
+				<DisplayName>备用电话</DisplayName>
 				<AttributeID>otherPhone</AttributeID>
-				<Description>Other Phone</Description>
+				<Description>备用电话</Description>
 		    </Claim>
 		    <Claim>
 				<ClaimURI>http://wso2.org/claims/fullname</ClaimURI>
-				<DisplayName>Full Name</DisplayName>
+				<DisplayName>全名</DisplayName>
 				<AttributeID>cn</AttributeID>
-				<Description>Full Name</Description>
+				<Description>全名</Description>
 				<SupportedByDefault />				
 		    </Claim>
 		    <!--Claim> 
@@ -211,23 +212,23 @@
 		<Dialect dialectURI="http://schemas.xmlsoap.org/ws/2005/05/identity">
 			<Claim>
 				<ClaimURI>http://schemas.xmlsoap.org/ws/2005/05/identity/claims/givenname</ClaimURI>
-				<DisplayName>First Name</DisplayName>
+				<DisplayName>名字</DisplayName>
 				<AttributeID>givenName</AttributeID>
-				<Description>First Name</Description>
+				<Description>名字</Description>
 				<Required />
 				<SupportedByDefault />
 			</Claim>
 			<Claim>
 				<ClaimURI>http://schemas.xmlsoap.org/ws/2005/05/identity/claims/nickname</ClaimURI>
-				<DisplayName>Nick Name</DisplayName>
+				<DisplayName>昵称</DisplayName>
 				<AttributeID>nickName</AttributeID>
-				<Description>Nick Name</Description>
+				<Description>昵称</Description>
 			</Claim>
 			<Claim>
 				<ClaimURI>http://schemas.xmlsoap.org/ws/2005/05/identity/claims/surname</ClaimURI>
-				<DisplayName>Last Name</DisplayName>
+				<DisplayName>姓氏</DisplayName>
 				<AttributeID>sn</AttributeID>
-				<Description>Last Name</Description>
+				<Description>姓氏</Description>
 				<Required />
 				<SupportedByDefault />
 			</Claim>
@@ -235,72 +236,72 @@
 				<ClaimURI>http://schemas.xmlsoap.org/ws/2005/05/identity/claims/emailaddress</ClaimURI>
 				<DisplayName>Email</DisplayName>
 				<AttributeID>mail</AttributeID>
-				<Description>Email Address</Description>
+				<Description>Email 地址</Description>
 				<Required />
 				<SupportedByDefault />
                 <RegEx>^([a-zA-Z0-9_\.\-])+\@(([a-zA-Z0-9\-])+\.)+([a-zA-Z0-9]{2,4})+$</RegEx>
 			</Claim>
 			<Claim>
 				<ClaimURI>http://schemas.xmlsoap.org/ws/2005/05/identity/claims/dateofbirth</ClaimURI>
-				<DisplayName>DOB</DisplayName>
+				<DisplayName>出生日期</DisplayName>
 				<AttributeID>dateOfBirth</AttributeID>
-				<Description>Date of Birth</Description>
+				<Description>出生日期</Description>
 			</Claim>
 			<Claim>
 				<ClaimURI>http://schemas.xmlsoap.org/ws/2005/05/identity/claims/gender</ClaimURI>
-				<DisplayName>Gender</DisplayName>
+				<DisplayName>性别</DisplayName>
 				<AttributeID>gender</AttributeID>
-				<Description>Gender</Description>
+				<Description>性别</Description>
 			</Claim>
 			<Claim>
 				<ClaimURI>http://schemas.xmlsoap.org/ws/2005/05/identity/claims/country</ClaimURI>
-				<DisplayName>Country</DisplayName>
+				<DisplayName>国家</DisplayName>
 				<AttributeID>country</AttributeID>
-				<Description>Country</Description>
+				<Description>国家</Description>
 				<SupportedByDefault />
 			</Claim>
 			<Claim>
 				<ClaimURI>http://schemas.xmlsoap.org/ws/2005/05/identity/claims/streetaddress</ClaimURI>
-				<DisplayName>Street Address</DisplayName>
+				<DisplayName>街道地址</DisplayName>
 				<AttributeID>streetAddress</AttributeID>
-				<Description>Street Address</Description>
+				<Description>街道地址</Description>
 			</Claim>
 			<Claim>
 				<ClaimURI>http://schemas.xmlsoap.org/ws/2005/05/identity/claims/homephone</ClaimURI>
-				<DisplayName>Home Phone</DisplayName>
+				<DisplayName>家庭电话</DisplayName>
 				<AttributeID>homePhone</AttributeID>
-				<Description>Home Phone</Description>
+				<Description>家庭电话</Description>
 				<SupportedByDefault />
 			</Claim>
 			<Claim>
 				<ClaimURI>http://schemas.xmlsoap.org/ws/2005/05/identity/claims/otherphone</ClaimURI>
-				<DisplayName>Other Phone</DisplayName>
+				<DisplayName>其它电话</DisplayName>
 				<AttributeID>otherPhone</AttributeID>
-				<Description>Other Phone</Description>
+				<Description>其它电话</Description>
 			</Claim>
 			<Claim>
 				<ClaimURI>http://schemas.xmlsoap.org/ws/2005/05/identity/claims/mobile</ClaimURI>
-				<DisplayName>Mobile</DisplayName>
+				<DisplayName>手机</DisplayName>
 				<AttributeID>mobile</AttributeID>
-				<Description>Mobile</Description>
+				<Description>手机</Description>
 			</Claim>
 			<Claim>
 				<ClaimURI>http://schemas.xmlsoap.org/ws/2005/05/identity/claims/locality</ClaimURI>
-				<DisplayName>Locality</DisplayName>
+				<DisplayName>街道办</DisplayName>
 				<AttributeID>localityName</AttributeID>
-				<Description>Locality</Description>
+				<Description>街道办</Description>
 			</Claim>
 			<Claim>
 				<ClaimURI>http://schemas.xmlsoap.org/ws/2005/05/identity/claims/stateorprovince</ClaimURI>
-				<DisplayName>State</DisplayName>
+				<DisplayName>省份</DisplayName>
 				<AttributeID>stateOrProvinceName</AttributeID>
-				<Description>State</Description>
+				<Description>省份</Description>
 			</Claim>
 			<Claim>
 				<ClaimURI>http://schemas.xmlsoap.org/ws/2005/05/identity/claims/postalcode</ClaimURI>
-				<DisplayName>Postalcode</DisplayName>
+				<DisplayName>邮编</DisplayName>
 				<AttributeID>postalCode</AttributeID>
-				<Description>Postalcode</Description>
+				<Description>邮政编码</Description>
 				<SupportedByDefault />
 			</Claim>
 			<Claim>
@@ -315,18 +316,18 @@
 		<Dialect dialectURI="http://schema.openid.net/2007/05/claims">
 			<Claim>
 				<ClaimURI>nickname</ClaimURI>
-				<DisplayName>First Name</DisplayName>
+				<DisplayName>名字</DisplayName>
 				<AttributeID>nickName</AttributeID>
-				<Description>First Name</Description>
+				<Description>名字</Description>
 				<Required />
                                 <DisplayOrder>1</DisplayOrder>
 				<SupportedByDefault />
 			</Claim>
 			<Claim>
 				<ClaimURI>fullname</ClaimURI>
-				<DisplayName>Full Name</DisplayName>
+				<DisplayName>全名</DisplayName>
 				<AttributeID>cn</AttributeID>
-				<Description>Full Name</Description>
+				<Description>全名</Description>
 				<DisplayOrder>2</DisplayOrder>
 				<Required />
 				<SupportedByDefault />
@@ -335,7 +336,7 @@
 				<ClaimURI>email</ClaimURI>
 				<DisplayName>Email</DisplayName>
 				<AttributeID>mail</AttributeID>
-				<Description>Email Address</Description>
+				<Description>Email 地址</Description>
                                 <DisplayOrder>3</DisplayOrder>
 				<Required />
 				<SupportedByDefault />
@@ -343,49 +344,49 @@
 			</Claim>
 			<Claim>
 				<ClaimURI>country</ClaimURI>
-				<DisplayName>Country</DisplayName>
+				<DisplayName>国家</DisplayName>
 				<AttributeID>country</AttributeID>
-				<Description>Country</Description>
+				<Description>国家</Description>
                                 <DisplayOrder>5</DisplayOrder>
 				<SupportedByDefault />
 			</Claim>
 			<Claim>
 				<ClaimURI>timezone</ClaimURI>
-				<DisplayName>Time Zone</DisplayName>
+				<DisplayName>时区</DisplayName>
 				<AttributeID>timeZone</AttributeID>
-				<Description>Time Zone</Description>
+				<Description>时区</Description>
                                 <DisplayOrder>9</DisplayOrder>
 				<SupportedByDefault />
 			</Claim>
 			<Claim>
 				<ClaimURI>dob</ClaimURI>
-				<DisplayName>DOB</DisplayName>
+				<DisplayName>出生日期</DisplayName>
 				<AttributeID>dateOfBirth</AttributeID>
-				<Description>Date of Birth</Description>
+				<Description>出生日期</Description>
                                 <DisplayOrder>6</DisplayOrder>
 				<SupportedByDefault />
 			</Claim>
 			<Claim>
 				<ClaimURI>postcode</ClaimURI>
-				<DisplayName>Postalcode</DisplayName>
+				<DisplayName>邮编</DisplayName>
 				<AttributeID>postalCode</AttributeID>
-				<Description>Postalcode</Description>
+				<Description>邮政编码</Description>
                                 <DisplayOrder>4</DisplayOrder>
 				<SupportedByDefault />
 			</Claim>
 			<Claim>
 				<ClaimURI>gender</ClaimURI>
-				<DisplayName>Gender</DisplayName>
+				<DisplayName>性别</DisplayName>
 				<AttributeID>gender</AttributeID>
-				<Description>Gender</Description>
+				<Description>性别</Description>
                                 <DisplayOrder>8</DisplayOrder>
 				<SupportedByDefault />
 			</Claim>
 			<Claim>
 				<ClaimURI>language</ClaimURI>
-				<DisplayName>Language</DisplayName>
+				<DisplayName>语言</DisplayName>
 				<AttributeID>prefferedLanguage</AttributeID>
-				<Description>Language</Description>
+				<Description>语言</Description>
                 <DisplayOrder>7</DisplayOrder>
 				<SupportedByDefault />
 			</Claim>
@@ -394,17 +395,17 @@
 		<Dialect dialectURI="http://axschema.org">
 			<Claim>
 				<ClaimURI>http://axschema.org/namePerson/first</ClaimURI>
-				<DisplayName>Nick Name</DisplayName>
+				<DisplayName>昵称</DisplayName>
 				<AttributeID>nickName</AttributeID>
-				<Description>Nick Name</Description>
+				<Description>昵称</Description>
 				<Required />
 				<SupportedByDefault />
 			</Claim>
 			<Claim>
 				<ClaimURI>http://axschema.org/namePerson/last</ClaimURI>
-				<DisplayName>Last Name</DisplayName>
+				<DisplayName>姓氏</DisplayName>
 				<AttributeID>sn</AttributeID>
-				<Description>Last Name</Description>
+				<Description>姓氏</Description>
 				<Required />
 				<SupportedByDefault />
 			</Claim>
@@ -412,50 +413,50 @@
 				<ClaimURI>http://axschema.org/contact/email</ClaimURI>
 				<DisplayName>Email</DisplayName>
 				<AttributeID>mail</AttributeID>
-				<Description>Email Address</Description>
+				<Description>Email 地址</Description>
 				<Required />
 				<SupportedByDefault />
                 <RegEx>^([a-zA-Z0-9_\.\-])+\@(([a-zA-Z0-9\-])+\.)+([a-zA-Z0-9]{2,4})+$</RegEx>
 			</Claim>
 			<Claim>
 				<ClaimURI>http://axschema.org/contact/country/home</ClaimURI>
-				<DisplayName>Country</DisplayName>
+				<DisplayName>国家</DisplayName>
 				<AttributeID>country</AttributeID>
-				<Description>Country</Description>
+				<Description>国家</Description>
 				<SupportedByDefault />
 			</Claim>
 			<Claim>
 				<ClaimURI>http://axschema.org/pref/timezone</ClaimURI>
-				<DisplayName>Time Zone</DisplayName>
+				<DisplayName>时区</DisplayName>
 				<AttributeID>timeZone</AttributeID>
-				<Description>Time Zone</Description>
+				<Description>时区</Description>
 			</Claim>
 			<Claim>
 				<ClaimURI>http://axschema.org/birthDate</ClaimURI>
-				<DisplayName>DOB</DisplayName>
+				<DisplayName>出生日期</DisplayName>
 				<AttributeID>dateOfBirth</AttributeID>
-				<Description>Date of Birth</Description>
+				<Description>出生日期</Description>
 				<SupportedByDefault />
 			</Claim>
 			<Claim>
 				<ClaimURI>http://axschema.org/contact/postalCode/home</ClaimURI>
-				<DisplayName>Postalcode</DisplayName>
+				<DisplayName>邮编</DisplayName>
 				<AttributeID>postalCode</AttributeID>
-				<Description>Postalcode</Description>
+				<Description>邮政编码</Description>
 				<SupportedByDefault />
 			</Claim>
 			<Claim>
 				<ClaimURI>http://axschema.org/person/gender</ClaimURI>
-				<DisplayName>Gender</DisplayName>
+				<DisplayName>性别</DisplayName>
 				<AttributeID>gender</AttributeID>
-				<Description>Gender</Description>
+				<Description>性别</Description>
 				<SupportedByDefault />
 			</Claim>
 			<Claim>
 				<ClaimURI>http://axschema.org/pref/language</ClaimURI>
-				<DisplayName>Language</DisplayName>
+				<DisplayName>语言</DisplayName>
 				<AttributeID>prefferedLanguage</AttributeID>
-				<Description>Language</Description>
+				<Description>语言</Description>
 				<SupportedByDefault />
 			</Claim>
 		</Dialect>
@@ -471,189 +472,189 @@
 			</Claim>
 			<Claim>
 				<ClaimURI>urn:scim:schemas:core:1.0:externalId</ClaimURI>
-				<DisplayName>External Id</DisplayName>
+				<DisplayName>外部标识 Id</DisplayName>
 				<AttributeID>externalId</AttributeID>
-				<Description>External Id</Description>
+				<Description>外部标识 Id</Description>
 				<Required />
                 <DisplayOrder>1</DisplayOrder>
 				<SupportedByDefault />
 			</Claim>
 			<Claim>
 				<ClaimURI>urn:scim:schemas:core:1.0:meta.created</ClaimURI>
-				<DisplayName>Meta - Created</DisplayName>
+				<DisplayName>创建日期</DisplayName>
 				<AttributeID>createdDate</AttributeID>
-				<Description>Meta - Created</Description>
+				<Description>创建日期</Description>
 				<Required />
                 <DisplayOrder>1</DisplayOrder>
 				<SupportedByDefault />
 			</Claim>
 			<Claim>
 				<ClaimURI>urn:scim:schemas:core:1.0:meta.lastModified</ClaimURI>
-				<DisplayName>Meta - Last Modified</DisplayName>
+				<DisplayName>修改日期</DisplayName>
 				<AttributeID>lastModifiedDate</AttributeID>
-				<Description>Meta - Last Modified</Description>
+				<Description>修改日期</Description>
 				<Required />
                 <DisplayOrder>1</DisplayOrder>
 				<SupportedByDefault />
 			</Claim>
 			<Claim>
 				<ClaimURI>urn:scim:schemas:core:1.0:meta.location</ClaimURI>
-				<DisplayName>Meta - Location</DisplayName>
+				<DisplayName>位置</DisplayName>
 				<AttributeID>location</AttributeID>
-				<Description>Meta - Location</Description>
+				<Description>位置</Description>
 				<Required />
                 <DisplayOrder>1</DisplayOrder>
 				<SupportedByDefault />
 			</Claim>
             <Claim>
 				<ClaimURI>urn:scim:schemas:core:1.0:userName</ClaimURI>
-				<DisplayName>User Name</DisplayName>
+				<DisplayName>用户名</DisplayName>
 				<AttributeID>uid</AttributeID>
-				<Description>User Name</Description>
+				<Description>用户名</Description>
 				<DisplayOrder>2</DisplayOrder>
 				<Required />
 				<SupportedByDefault />
 			</Claim>
 			<Claim>
 				<ClaimURI>urn:scim:schemas:core:1.0:name.givenName</ClaimURI>
-				<DisplayName>Name - Given Name</DisplayName>
+				<DisplayName>名字</DisplayName>
 				<AttributeID>givenName</AttributeID>
-				<Description>Given Name</Description>
+				<Description>名字</Description>
 				<Required />
                 <DisplayOrder>1</DisplayOrder>
 				<SupportedByDefault />
 			</Claim>
 			<Claim>
 				<ClaimURI>urn:scim:schemas:core:1.0:name.familyName</ClaimURI>
-				<DisplayName>Name - Family Name</DisplayName>
+				<DisplayName>姓氏</DisplayName>
 				<AttributeID>sn</AttributeID>
-				<Description>Family Name</Description>
+				<Description>姓氏</Description>
 				<DisplayOrder>2</DisplayOrder>
 				<Required />
 				<SupportedByDefault />
 			</Claim>
             <Claim>
 				<ClaimURI>urn:scim:schemas:core:1.0:name.formattedName</ClaimURI>
-				<DisplayName>Name - Formatted Name</DisplayName>
+				<DisplayName>格式化名字</DisplayName>
 				<AttributeID>formattedName</AttributeID>
-				<Description>Formatted Name</Description>
+				<Description>格式化名字</Description>
 				<DisplayOrder>2</DisplayOrder>
 				<Required />
 				<SupportedByDefault />
 			</Claim>
             <Claim>
 				<ClaimURI>urn:scim:schemas:core:1.0:name.middleName</ClaimURI>
-				<DisplayName>Name - Middle Name</DisplayName>
+				<DisplayName>中间名</DisplayName>
 				<AttributeID>middleName</AttributeID>
-				<Description>Middle Name</Description>
+				<Description>中间名</Description>
 				<DisplayOrder>2</DisplayOrder>
 				<Required />
 				<SupportedByDefault />
 			</Claim>
             <Claim>
 				<ClaimURI>urn:scim:schemas:core:1.0:name.honorificPrefix</ClaimURI>
-				<DisplayName>Name - Honoric Prefix</DisplayName>
+				<DisplayName>称谓前缀</DisplayName>
 				<AttributeID>honoricPrefix</AttributeID>
-				<Description>Honoric Prefix</Description>
+				<Description>称谓前缀</Description>
 				<DisplayOrder>2</DisplayOrder>
 				<Required />
 				<SupportedByDefault />
 			</Claim>
             <Claim>
 				<ClaimURI>urn:scim:schemas:core:1.0:name.honorificSuffix</ClaimURI>
-				<DisplayName>Name - Honoric Suffix</DisplayName>
+				<DisplayName>称谓后缀</DisplayName>
 				<AttributeID>honoricSuffix</AttributeID>
-				<Description>Honoric Suffix</Description>
+				<Description>称谓后缀</Description>
 				<DisplayOrder>2</DisplayOrder>
 				<Required />
 				<SupportedByDefault />
 			</Claim>
 			<Claim>
 				<ClaimURI>urn:scim:schemas:core:1.0:displayName</ClaimURI>
-				<DisplayName>Display Name</DisplayName>
+				<DisplayName>显示名称</DisplayName>
 				<AttributeID>displayName</AttributeID>
-				<Description>Display Name</Description>
+				<Description>显示名称</Description>
 				<DisplayOrder>2</DisplayOrder>
 				<Required />
 				<SupportedByDefault />
 			</Claim>
             <Claim>
 				<ClaimURI>urn:scim:schemas:core:1.0:nickName</ClaimURI>
-				<DisplayName>Nick Name</DisplayName>
+				<DisplayName>昵称</DisplayName>
 				<AttributeID>nickName</AttributeID>
-				<Description>Nick Name</Description>
+				<Description>昵称</Description>
 				<DisplayOrder>2</DisplayOrder>
 				<Required />
 				<SupportedByDefault />
 			</Claim>
             <Claim>
 				<ClaimURI>urn:scim:schemas:core:1.0:profileUrl</ClaimURI>
-				<DisplayName>Profile URL</DisplayName>
+				<DisplayName>简介 URL</DisplayName>
 				<AttributeID>url</AttributeID>
-				<Description>Profile URL</Description>
+				<Description>简介 URL</Description>
 				<DisplayOrder>2</DisplayOrder>
 				<Required />
 				<SupportedByDefault />
 			</Claim>
             <Claim>
 				<ClaimURI>urn:scim:schemas:core:1.0:title</ClaimURI>
-				<DisplayName>Title</DisplayName>
+				<DisplayName>职务</DisplayName>
 				<AttributeID>title</AttributeID>
-				<Description>Title</Description>
+				<Description>职务</Description>
 				<DisplayOrder>2</DisplayOrder>
 				<Required />
 				<SupportedByDefault />
 			</Claim>
             <Claim>
 				<ClaimURI>urn:scim:schemas:core:1.0:userType</ClaimURI>
-				<DisplayName>User Type</DisplayName>
+				<DisplayName>用户类别</DisplayName>
 				<AttributeID>userType</AttributeID>
-				<Description>User Type</Description>
+				<Description>用户类别</Description>
 				<DisplayOrder>2</DisplayOrder>
 				<Required />
 				<SupportedByDefault />
 			</Claim>
             <Claim>
 				<ClaimURI>urn:scim:schemas:core:1.0:preferredLanguage</ClaimURI>
-				<DisplayName>Preferred Language</DisplayName>
+				<DisplayName>首选语言</DisplayName>
 				<AttributeID>preferredLanguage</AttributeID>
-				<Description>Preferred Language</Description>
+				<Description>首选语言</Description>
 				<DisplayOrder>2</DisplayOrder>
 				<Required />
 				<SupportedByDefault />
 			</Claim>
             <Claim>
 				<ClaimURI>urn:scim:schemas:core:1.0:local</ClaimURI>
-				<DisplayName>Local</DisplayName>
+				<DisplayName>位置</DisplayName>
 				<AttributeID>local</AttributeID>
-				<Description>Local</Description>
+				<Description>位置</Description>
 				<DisplayOrder>2</DisplayOrder>
 				<Required />
 				<SupportedByDefault />
 			</Claim>
             <Claim>
 				<ClaimURI>urn:scim:schemas:core:1.0:timeZone</ClaimURI>
-				<DisplayName>Time Zone</DisplayName>
+				<DisplayName>时区</DisplayName>
 				<AttributeID>timeZone</AttributeID>
-				<Description>Time Zone</Description>
+				<Description>时区</Description>
 				<DisplayOrder>2</DisplayOrder>
 				<Required />
 				<SupportedByDefault />
 			</Claim>
             <Claim>
 				<ClaimURI>urn:scim:schemas:core:1.0:active</ClaimURI>
-				<DisplayName>Active</DisplayName>
+				<DisplayName>活跃的</DisplayName>
 				<AttributeID>active</AttributeID>
-				<Description>Active</Description>
+				<Description>活跃的</Description>
 				<DisplayOrder>2</DisplayOrder>
 				<Required />
 				<SupportedByDefault />
 			</Claim>
 			<Claim>
 				<ClaimURI>urn:scim:schemas:core:1.0:emails</ClaimURI>
-				<DisplayName>Emails</DisplayName>
+				<DisplayName>Email 地址</DisplayName>
 				<AttributeID>mail</AttributeID>
-				<Description>Email Addresses</Description>
+				<Description>Email 地址</Description>
                 <DisplayOrder>3</DisplayOrder>
 				<Required />
 				<SupportedByDefault />
@@ -661,33 +662,33 @@
 			</Claim>
 			<Claim>
 				<ClaimURI>urn:scim:schemas:core:1.0:emails.work</ClaimURI>
-				<DisplayName>Emails - Work Email</DisplayName>
+				<DisplayName>工作邮箱</DisplayName>
 				<AttributeID>workEmail</AttributeID>
-				<Description>Work Email</Description>
+				<Description>工作邮箱</Description>
                 <DisplayOrder>5</DisplayOrder>
 				<SupportedByDefault />
 			</Claim>
 			<Claim>
 				<ClaimURI>urn:scim:schemas:core:1.0:emails.home</ClaimURI>
-				<DisplayName>Emails - Home Email</DisplayName>
+				<DisplayName>私人邮箱</DisplayName>
 				<AttributeID>homeEmail</AttributeID>
-				<Description>Home Email</Description>
+				<Description>私人邮箱</Description>
                 <DisplayOrder>5</DisplayOrder>
 				<SupportedByDefault />
 			</Claim>
             <Claim>
 				<ClaimURI>urn:scim:schemas:core:1.0:emails.other</ClaimURI>
-				<DisplayName>Emails - Other Email</DisplayName>
+				<DisplayName>其它邮箱</DisplayName>
 				<AttributeID>otherEmail</AttributeID>
-				<Description>Other Email</Description>
+				<Description>其它邮箱</Description>
                 <DisplayOrder>5</DisplayOrder>
 				<SupportedByDefault />
 			</Claim>
 			<Claim>
 				<ClaimURI>urn:scim:schemas:core:1.0:phoneNumbers</ClaimURI>
-				<DisplayName>Phone Numbers</DisplayName>
+				<DisplayName>电话号码</DisplayName>
 				<AttributeID>phoneNumbers</AttributeID>
-				<Description>Phone Numbers</Description>
+				<Description>电话号码</Description>
                 <DisplayOrder>3</DisplayOrder>
 				<Required />
 				<SupportedByDefault />
@@ -695,55 +696,55 @@
 			</Claim>
 			<Claim>
 				<ClaimURI>urn:scim:schemas:core:1.0:phoneNumbers.mobile</ClaimURI>
-				<DisplayName>Phone Numbers - Mobile Number</DisplayName>
+				<DisplayName>手机号码</DisplayName>
 				<AttributeID>mobile</AttributeID>
-				<Description>Mobile Number</Description>
+				<Description>手机号码</Description>
                 <DisplayOrder>5</DisplayOrder>
 				<SupportedByDefault />
 			</Claim>
 			<Claim>
 				<ClaimURI>urn:scim:schemas:core:1.0:phoneNumbers.home</ClaimURI>
-				<DisplayName>Phone Numbers - Home Phone Number</DisplayName>
+				<DisplayName>私人手机号码</DisplayName>
 				<AttributeID>homePhone</AttributeID>
-				<Description>Home Phone</Description>
+				<Description>私人手机号码</Description>
                 <DisplayOrder>5</DisplayOrder>
 				<SupportedByDefault />
 			</Claim>
             <Claim>
 				<ClaimURI>urn:scim:schemas:core:1.0:phoneNumbers.work</ClaimURI>
-				<DisplayName>Phone Numbers - Work Phone Number</DisplayName>
+				<DisplayName>工作手机号码</DisplayName>
 				<AttributeID>workPhone</AttributeID>
-				<Description>Work Phone</Description>
+				<Description>工作手机号码</Description>
                 <DisplayOrder>5</DisplayOrder>
 				<SupportedByDefault />
 			</Claim>
             <Claim>
 				<ClaimURI>urn:scim:schemas:core:1.0:phoneNumbers.fax</ClaimURI>
-				<DisplayName>Phone Numbers - Fax Number</DisplayName>
+				<DisplayName>传真号码</DisplayName>
 				<AttributeID>fax</AttributeID>
-				<Description>Fax Number</Description>
+				<Description>传真号码</Description>
                 <DisplayOrder>5</DisplayOrder>
 				<SupportedByDefault />
 			</Claim>
             <Claim>
 				<ClaimURI>urn:scim:schemas:core:1.0:phoneNumbers.pager</ClaimURI>
-				<DisplayName>Phone Numbers - Pager Number</DisplayName>
+				<DisplayName>寻呼机号码</DisplayName>
 				<AttributeID>pager</AttributeID>
-				<Description>Pager Number</Description>
+				<Description>寻呼机号码</Description>
                 <DisplayOrder>5</DisplayOrder>
 				<SupportedByDefault />
 			</Claim>
             <Claim>
 				<ClaimURI>urn:scim:schemas:core:1.0:phoneNumbers.other</ClaimURI>
-				<DisplayName>Phone Numbers - Other</DisplayName>
+				<DisplayName>其它电话号码</DisplayName>
 				<AttributeID>otherPhoneNumber</AttributeID>
-				<Description>Other Phone Number</Description>
+				<Description>其它电话号码</Description>
                 <DisplayOrder>5</DisplayOrder>
 				<SupportedByDefault />
 			</Claim>
 		<Claim>
 				<ClaimURI>urn:scim:schemas:core:1.0:ims</ClaimURI>
-				<DisplayName>IMS</DisplayName>
+				<DisplayName>即时通信IM</DisplayName>
 				<AttributeID>im</AttributeID>
 				<Description>IM</Description>
                 <DisplayOrder>5</DisplayOrder>
@@ -767,113 +768,113 @@
 			</Claim>
 	    <Claim>
 				<ClaimURI>urn:scim:schemas:core:1.0:photos</ClaimURI>
-				<DisplayName>Photo</DisplayName>
+				<DisplayName>照片</DisplayName>
 				<AttributeID>photos</AttributeID>
-				<Description>Photo</Description>
+				<Description>照片</Description>
                 <DisplayOrder>5</DisplayOrder>
 				<SupportedByDefault />
 			</Claim>
             <Claim>
 				<ClaimURI>urn:scim:schemas:core:1.0:photos.photo</ClaimURI>
-				<DisplayName>Photo</DisplayName>
+				<DisplayName>照片</DisplayName>
 				<AttributeID>photoUrl</AttributeID>
-				<Description>Photo</Description>
+				<Description>照片</Description>
                 <DisplayOrder>5</DisplayOrder>
 				<SupportedByDefault />
 			</Claim>
             <Claim>
 				<ClaimURI>urn:scim:schemas:core:1.0:photos.thumbnail</ClaimURI>
-				<DisplayName>Photo - Thumbnail</DisplayName>
+				<DisplayName>照片缩略图</DisplayName>
 				<AttributeID>thumbnail</AttributeID>
-				<Description>Photo - Thumbnail</Description>
+				<Description>照片缩略图</Description>
                 <DisplayOrder>5</DisplayOrder>
 				<SupportedByDefault />
 			</Claim>
             <Claim>
 				<ClaimURI>urn:scim:schemas:core:1.0:addresses</ClaimURI>
-				<DisplayName>Address</DisplayName>
+				<DisplayName>地址</DisplayName>
 				<AttributeID>addresses</AttributeID>
-				<Description>Address</Description>
+				<Description>地址</Description>
                 <DisplayOrder>5</DisplayOrder>
 				<SupportedByDefault />
 			</Claim>
             <Claim>
 				<ClaimURI>urn:scim:schemas:core:1.0:addresses.formatted</ClaimURI>
-				<DisplayName>Address - Formatted</DisplayName>
+				<DisplayName>格式化地址</DisplayName>
 				<AttributeID>formattedAddress</AttributeID>
-				<Description>Address - Formatted</Description>
+				<Description>格式化地址</Description>
                 <DisplayOrder>5</DisplayOrder>
 				<SupportedByDefault />
 			</Claim>
             <Claim>
 				<ClaimURI>urn:scim:schemas:core:1.0:addresses.streetAddress</ClaimURI>
-				<DisplayName>Address - Street</DisplayName>
+				<DisplayName>街道</DisplayName>
 				<AttributeID>streetAddress</AttributeID>
-				<Description>Address - Street</Description>
+				<Description>街道</Description>
                 <DisplayOrder>5</DisplayOrder>
 				<SupportedByDefault />
 			</Claim>
             <Claim>
 				<ClaimURI>urn:scim:schemas:core:1.0:addresses.locality</ClaimURI>
-				<DisplayName>Address - Locality</DisplayName>
+				<DisplayName>城市</DisplayName>
 				<AttributeID>localityAddress</AttributeID>
-				<Description>Address - Locality</Description>
+				<Description>城市</Description>
                 <DisplayOrder>5</DisplayOrder>
 				<SupportedByDefault />
 			</Claim>
             <Claim>
 				<ClaimURI>urn:scim:schemas:core:1.0:addresses.region</ClaimURI>
-				<DisplayName>Address - Region</DisplayName>
+				<DisplayName>地区</DisplayName>
 				<AttributeID>region</AttributeID>
-				<Description>Address - Region</Description>
+				<Description>地区</Description>
                 <DisplayOrder>5</DisplayOrder>
 				<SupportedByDefault />
 			</Claim>
             <Claim>
 				<ClaimURI>urn:scim:schemas:core:1.0:addresses.postalCode</ClaimURI>
-				<DisplayName>Address - Postal Code</DisplayName>
+				<DisplayName>邮编</DisplayName>
 				<AttributeID>postalCode</AttributeID>
-				<Description>Address - Postal Code</Description>
+				<Description>邮政编码</Description>
                 <DisplayOrder>5</DisplayOrder>
 				<SupportedByDefault />
 			</Claim>
             <Claim>
 				<ClaimURI>urn:scim:schemas:core:1.0:addresses.country</ClaimURI>
-				<DisplayName>Address - Country</DisplayName>
+				<DisplayName>国家</DisplayName>
 				<AttributeID>country</AttributeID>
-				<Description>Address - Country</Description>
+				<Description>国家</Description>
                 <DisplayOrder>5</DisplayOrder>
 				<SupportedByDefault />
 			</Claim>
             <Claim>
 				<ClaimURI>urn:scim:schemas:core:1.0:groups</ClaimURI>
-				<DisplayName>Groups</DisplayName>
+				<DisplayName>群组</DisplayName>
 				<AttributeID>groups</AttributeID>
-				<Description>Groups</Description>
+				<Description>群组</Description>
                 <DisplayOrder>5</DisplayOrder>
 				<SupportedByDefault />
 			</Claim>
             <Claim>
 				<ClaimURI>urn:scim:schemas:core:1.0:entitlements</ClaimURI>
-				<DisplayName>Entitlements</DisplayName>
+				<DisplayName>应享权利</DisplayName>
 				<AttributeID>entitlements</AttributeID>
-				<Description>Entitlements</Description>
+				<Description>应享权利</Description>
                 <DisplayOrder>5</DisplayOrder>
 				<SupportedByDefault />
 			</Claim>
             <Claim>
 				<ClaimURI>urn:scim:schemas:core:1.0:roles</ClaimURI>
-				<DisplayName>Roles</DisplayName>
+				<DisplayName>角色</DisplayName>
 				<AttributeID>role</AttributeID>
-				<Description>Roles</Description>
+				<Description>角色</Description>
                 <DisplayOrder>5</DisplayOrder>
 				<SupportedByDefault />
 			</Claim>
             <Claim>
 				<ClaimURI>urn:scim:schemas:core:1.0:x509Certificates</ClaimURI>
-				<DisplayName>X509Certificates</DisplayName>
+				<DisplayName>X509证书</DisplayName>
 				<AttributeID>x509Certificates</AttributeID>
-				<Description>X509Certificates</Description>
+				<Description>X509证书</Description>
                 <DisplayOrder>5</DisplayOrder>
 				<SupportedByDefault />
 			</Claim>
