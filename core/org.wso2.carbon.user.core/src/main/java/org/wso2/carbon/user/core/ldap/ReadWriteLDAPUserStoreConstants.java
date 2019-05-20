@@ -30,79 +30,79 @@ public class ReadWriteLDAPUserStoreConstants {
 
     //For multiple attribute separation
     private static final String MULTI_ATTRIBUTE_SEPARATOR = "MultiAttributeSeparator";
-    private static final String MULTI_ATTRIBUTE_SEPARATOR_DESCRIPTION = "This is the separator for multiple claim values";
-    private static final String DisplayNameAttributeDescription = "Attribute name to display as the Display Name";
+    private static final String MULTI_ATTRIBUTE_SEPARATOR_DESCRIPTION = "指定多个声明值的分隔符";
+    private static final String DisplayNameAttributeDescription = "可作为显示名称的属性名称";
     private static final String DisplayNameAttribute = "DisplayNameAttribute";
     private static final String usernameJavaRegExViolationErrorMsg = "UsernameJavaRegExViolationErrorMsg";
-    private static final String usernameJavaRegExViolationErrorMsgDescription = "Error message when the Username is not " +
-            "matched with UsernameJavaRegEx";
+    private static final String usernameJavaRegExViolationErrorMsgDescription = "用户名与UsernameJavaRegEx不匹配时的错误信息";
+
     private static final String passwordJavaRegEx = "PasswordJavaRegEx";
     private static final String passwordJavaRegExViolationErrorMsg = "PasswordJavaRegExViolationErrorMsg";
-    private static final String passwordJavaRegExViolationErrorMsgDescription = "Error message when the Password is " +
-            "not matched with passwordJavaRegEx";
-    private static final String passwordJavaRegExDescription = "Policy that defines the password format in backend";
+    private static final String passwordJavaRegExViolationErrorMsgDescription = "密码与passwordJavaRegEx不匹配时的错误信息 " ;
+
+    private static final String passwordJavaRegExDescription = "在后端定义密码格式的策略";
     private static final String roleDNPattern = "RoleDNPattern";
-    private static final String roleDNPatternDescription = "The patten for role's DN. It can be defined to improve " +
-            "the LDAP search";
+    private static final String roleDNPatternDescription = "角色DN的模式。可以定义它来改进LDAP搜索";
+
 
 
     static {
 
-        setMandatoryProperty(UserStoreConfigConstants.connectionURL, "Connection URL", "ldap://",
+        setMandatoryProperty(UserStoreConfigConstants.connectionURL, "连接 URL", "ldap://",
                 UserStoreConfigConstants.connectionURLDescription, false);
-        setMandatoryProperty(UserStoreConfigConstants.connectionName, "Connection Name", "uid=," +
+        setMandatoryProperty(UserStoreConfigConstants.connectionName, "连接名称", "uid=," +
                 "ou=", UserStoreConfigConstants.connectionNameDescription, false);
-        setMandatoryProperty(UserStoreConfigConstants.connectionPassword, "Connection Password",
+        setMandatoryProperty(UserStoreConfigConstants.connectionPassword, "连接密码",
                 "", UserStoreConfigConstants.connectionPasswordDescription, true);
-        setMandatoryProperty(UserStoreConfigConstants.userSearchBase, "User Search Base",
+        setMandatoryProperty(UserStoreConfigConstants.userSearchBase, "用户搜索库",
                 "ou=Users,dc=wso2,dc=org", UserStoreConfigConstants.userSearchBaseDescription, false);
         setMandatoryProperty(UserStoreConfigConstants.userEntryObjectClass,
-                "User Entry Object Class", "wso2Person", UserStoreConfigConstants
+                "用户实体对象类", "wso2Person", UserStoreConfigConstants
                         .userEntryObjectClassDescription, false);
-        setMandatoryProperty(UserStoreConfigConstants.userNameAttribute, "Username Attribute",
+        setMandatoryProperty(UserStoreConfigConstants.userNameAttribute, "用户名属性",
                 "uid", UserStoreConfigConstants.userNameAttributeDescription, false);
 
-        setMandatoryProperty(UserStoreConfigConstants.usernameSearchFilter, "User Search Filter",
+        setMandatoryProperty(UserStoreConfigConstants.usernameSearchFilter, "用户搜索过滤条件",
                 "(&(objectClass=person)(uid=?))", UserStoreConfigConstants
                         .usernameSearchFilterDescription, false);
-        setMandatoryProperty(UserStoreConfigConstants.usernameListFilter, "User List Filter",
+        setMandatoryProperty(UserStoreConfigConstants.usernameListFilter, "用户列表过滤条件",
                 "(objectClass=person)", UserStoreConfigConstants.usernameListFilterDescription, false);
 
-        setProperty(UserStoreConfigConstants.userDNPattern, "User DN Pattern", "", UserStoreConfigConstants.userDNPatternDescription);
-        setProperty(DisplayNameAttribute, "Display name attribute", "", DisplayNameAttributeDescription);
-        setProperty(UserStoreConfigConstants.disabled, "Disabled", "false", UserStoreConfigConstants.disabledDescription);
+        setProperty(UserStoreConfigConstants.userDNPattern, "用户 DN 模式", "", UserStoreConfigConstants.userDNPatternDescription);
+        setProperty(DisplayNameAttribute, "显示名属性", "", DisplayNameAttributeDescription);
+        setProperty(UserStoreConfigConstants.disabled, "禁用", "false", UserStoreConfigConstants.disabledDescription);
 
-        setProperty(UserStoreConfigConstants.readGroups, "Read Groups", "true", UserStoreConfigConstants
+        setProperty(UserStoreConfigConstants.readGroups, "允许读取群组", "true", UserStoreConfigConstants
                 .readLDAPGroupsDescription);
-        setProperty(UserStoreConfigConstants.writeGroups, "Write Groups", "true", UserStoreConfigConstants.writeGroupsDescription);
-        setProperty(UserStoreConfigConstants.groupSearchBase, "Group Search Base", "ou=Groups,dc=wso2,dc=org",
+        setProperty(UserStoreConfigConstants.writeGroups, "允许写群组", "true", UserStoreConfigConstants.writeGroupsDescription);
+        setProperty(UserStoreConfigConstants.groupSearchBase, "群组搜索库", "ou=Groups,dc=gds,dc=com",
                 UserStoreConfigConstants.groupSearchBaseDescription);
-        setProperty(UserStoreConfigConstants.groupEntryObjectClass, "Group Entry Object Class", "groupOfNames",
+        setProperty(UserStoreConfigConstants.groupEntryObjectClass, "群组实体对象类", "groupOfNames",
                 UserStoreConfigConstants.groupEntryObjectClassDescription);
-        setProperty(UserStoreConfigConstants.groupNameAttribute, "Group Name Attribute", "cn",
+        setProperty(UserStoreConfigConstants.groupNameAttribute, "群组名称属性", "cn",
                 UserStoreConfigConstants.groupNameAttributeDescription);
-        setProperty(UserStoreConfigConstants.groupNameSearchFilter, "Group Search Filter", "(&(objectClass=groupOfNames)(cn=?))",
+        setProperty(UserStoreConfigConstants.groupNameSearchFilter, "群组搜索过滤条件", "(&(objectClass=groupOfNames)(cn=?))",
                 UserStoreConfigConstants.groupNameSearchFilterDescription);
-        setProperty(UserStoreConfigConstants.groupNameListFilter, "Group List Filter", "(objectClass=groupOfNames)",
+        setProperty(UserStoreConfigConstants.groupNameListFilter, "群组列表过滤条件", "(objectClass=groupOfNames)",
                 UserStoreConfigConstants.groupNameListFilterDescription);
-        setProperty(roleDNPattern, "Role DN Pattern", "", roleDNPatternDescription);
+        setProperty(roleDNPattern, "角色 DN 模式", "", roleDNPatternDescription);
 
-        setProperty(UserStoreConfigConstants.membershipAttribute, "Membership Attribute", "member", UserStoreConfigConstants.membershipAttributeDescription);
-        setProperty(UserStoreConfigConstants.memberOfAttribute, "Member Of Attribute", "", UserStoreConfigConstants.memberOfAttribute);
-        setProperty("BackLinksEnabled", "Enable Back Links", "false",
-                "Whether to allow attributes to be result from references to the object from other objects");
+        setProperty(UserStoreConfigConstants.membershipAttribute, "成员关系属性", "member", UserStoreConfigConstants.membershipAttributeDescription);
+        setProperty(UserStoreConfigConstants.memberOfAttribute, "成员属性", "", UserStoreConfigConstants.memberOfAttribute);
+        setProperty("BackLinksEnabled", "启用属性引用", "false",
+                "是否允许属性由其他对象对对象的引用产生");
 
-        setProperty(UserStoreConfigConstants.usernameJavaRegEx, "Username RegEx (Java)", "[a-zA-Z0-9._-|//]{3,30}$", UserStoreConfigConstants.usernameJavaRegExDescription);
-        setProperty(UserStoreConfigConstants.usernameJavaScriptRegEx, "Username RegEx (Javascript)", "^[\\S]{3,30}$", UserStoreConfigConstants.usernameJavaRegExDescription);
-        setProperty(usernameJavaRegExViolationErrorMsg, "Username RegEx Violation Error Message",
-                "Username pattern policy violated.", usernameJavaRegExViolationErrorMsgDescription);
-        setProperty(passwordJavaRegEx, "Password RegEx (Java)", "^[\\S]{5,30}$", passwordJavaRegExDescription);
-        setProperty(UserStoreConfigConstants.passwordJavaScriptRegEx, "Password RegEx (Javascript)", "^[\\S]{5,30}$",
+        setProperty(UserStoreConfigConstants.usernameJavaRegEx, "用户名正则表达式 (Java)", "[a-zA-Z0-9._-|//]{3,30}$", UserStoreConfigConstants.usernameJavaRegExDescription);
+        setProperty(UserStoreConfigConstants.usernameJavaScriptRegEx, "用户名正则表达式 (Javascript)", "^[\\S]{3,30}$", UserStoreConfigConstants.usernameJavaRegExDescription);
+        setProperty(usernameJavaRegExViolationErrorMsg, "用户名正则表达式冲突错误消息",
+                "用户名正则表达式策略冲突.", usernameJavaRegExViolationErrorMsgDescription);
+        setProperty(passwordJavaRegEx, "密码正则表达式 (Java)", "^[\\S]{5,30}$", passwordJavaRegExDescription);
+        setProperty(UserStoreConfigConstants.passwordJavaScriptRegEx, "密码正则表达式 (Javascript)", "^[\\S]{5,30}$",
                 UserStoreConfigConstants.passwordJavaScriptRegExDescription);
-        setProperty(passwordJavaRegExViolationErrorMsg, "Password RegEx Violation Error Message",
-                "Password pattern policy violated.", passwordJavaRegExViolationErrorMsgDescription);
-        setProperty(UserStoreConfigConstants.roleNameJavaRegEx, "Role Name RegEx (Java)", "[a-zA-Z0-9._-|//]{3,30}$", UserStoreConfigConstants.roleNameJavaRegExDescription);
-        setProperty(UserStoreConfigConstants.roleNameJavaScriptRegEx, "Role Name RegEx (Javascript)", "^[\\S]{3,30}$", UserStoreConfigConstants.roleNameJavaScriptRegExDescription);
+        setProperty(passwordJavaRegExViolationErrorMsg, "密码正则表达式冲突错误消息",
+                "密码正则表达式策略冲突.", passwordJavaRegExViolationErrorMsgDescription);
+        setProperty(UserStoreConfigConstants.roleNameJavaRegEx, "角色名正则表达式 (Java)", "[a-zA-Z0-9._-|//]{3,30}$", UserStoreConfigConstants.roleNameJavaRegExDescription);
+        setProperty(UserStoreConfigConstants.roleNameJavaScriptRegEx, "角色名正则表达式 (Javascript)", "^[\\S]{3,30}$", UserStoreConfigConstants.roleNameJavaScriptRegExDescription);
         setProperty("UniqueID", "", "", "");
 
     }
