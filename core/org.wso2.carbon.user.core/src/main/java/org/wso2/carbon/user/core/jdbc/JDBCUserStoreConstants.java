@@ -30,220 +30,210 @@ public class JDBCUserStoreConstants {
     public static final ArrayList<Property> JDBC_UM_OPTIONAL_PROPERTIES = new ArrayList<Property>();
     public static final ArrayList<Property> JDBC_UM_ADVANCED_PROPERTIES = new ArrayList<Property>();
     private static final String usernameJavaRegExViolationErrorMsg = "UsernameJavaRegExViolationErrorMsg";
-    private static final String usernameJavaRegExViolationErrorMsgDescription = "Error message when the Username is not " +
-            "matched with UsernameJavaRegEx";
+    private static final String usernameJavaRegExViolationErrorMsgDescription = "用户名与用户名正则表达式不匹配时的错误消息";
+
     private static final String passwordJavaRegExViolationErrorMsg = "PasswordJavaRegExViolationErrorMsg";
-    private static final String passwordJavaRegExViolationErrorMsgDescription = "Error message when the Password is " +
-            "not matched with passwordJavaRegEx";
+    private static final String passwordJavaRegExViolationErrorMsgDescription = "密码与密码正则表达式不匹配时的错误消息";
+
     private static final String MULTI_ATTRIBUTE_SEPARATOR = "MultiAttributeSeparator";
-    private static final String MULTI_ATTRIBUTE_SEPARATOR_DESCRIPTION = "This is the separator for multiple claim values";
+    private static final String MULTI_ATTRIBUTE_SEPARATOR_DESCRIPTION = "多个声明的分隔符";
     private static final String VALIDATION_INTERVAL = "validationInterval";
 
     static {
 
         //setMandatoryProperty
-        setMandatoryProperty(JDBCRealmConstants.URL, "Connection URL", "",
-                "URL of the user store database", false);
-        setMandatoryProperty(JDBCRealmConstants.USER_NAME, "Connection Name", "",
-                "Username for the database", false);
-        setMandatoryProperty(JDBCRealmConstants.PASSWORD, "Connection Password", "",
-                "Password for the database", true);
-        setMandatoryProperty(JDBCRealmConstants.DRIVER_NAME, "Driver Name", "",
-                "Full qualified driver name", false);
+        setMandatoryProperty(JDBCRealmConstants.URL, "连接 URL", "",
+                "用户存储数据库的连接URL", false);
+        setMandatoryProperty(JDBCRealmConstants.USER_NAME, "连接名称", "",
+                "数据库用户名", false);
+        setMandatoryProperty(JDBCRealmConstants.PASSWORD, "连接密码", "",
+                "数据库用户的密码", true);
+        setMandatoryProperty(JDBCRealmConstants.DRIVER_NAME, "驱动名称", "",
+                "驱动类全名", false);
 
         //set optional properties
-        setProperty(UserStoreConfigConstants.disabled, "Disabled", "false", UserStoreConfigConstants.disabledDescription);
-        setProperty("ReadOnly", "Read-only", "false", "Indicates whether the user store of this realm operates in the user read only mode or not");
-        setProperty(UserStoreConfigConstants.readGroups, "Read Groups", "true", UserStoreConfigConstants.readLDAPGroupsDescription);
-        setProperty(UserStoreConfigConstants.writeGroups, "Write Groups", "true", UserStoreConfigConstants.writeGroupsDescription);
-        setProperty("UsernameJavaRegEx", "Username RegEx (Java)", "^[\\S]{5,30}$", "A regular expression to validate user names");
-        setProperty("UsernameJavaScriptRegEx", "Username RegEx (Javascript)", "^[\\S]{5,30}$", "The regular expression " +
-                "used by the font-end components for username validation");
-        setProperty(usernameJavaRegExViolationErrorMsg, "Username RegEx Violation Error Message",
-                "Username pattern policy violated.", usernameJavaRegExViolationErrorMsgDescription);
+        setProperty(UserStoreConfigConstants.disabled, "禁用", "false", UserStoreConfigConstants.disabledDescription);
+        setProperty("ReadOnly", "只读", "false", "指示此领域的用户存储是否以用户只读模式运行");
+        setProperty(UserStoreConfigConstants.readGroups, "读取群组", "true", UserStoreConfigConstants.readLDAPGroupsDescription);
+        setProperty(UserStoreConfigConstants.writeGroups, "写入群组", "true", UserStoreConfigConstants.writeGroupsDescription);
+        setProperty("UsernameJavaRegEx", "用户名正则表达式 (Java)", "^[\\S]{5,30}$", "用于验证用户名的正则表达式");
+        setProperty("UsernameJavaScriptRegEx", "用户名正则表达式 (Javascript)", "^[\\S]{5,30}$", "前端组件用于用户名验证的正则表达式");
 
-        setProperty("PasswordJavaRegEx", "Password RegEx (Java)", "^[\\S]{5,30}$", "A regular expression to validate passwords");
-        setProperty("PasswordJavaScriptRegEx", "Password RegEx (Javascript)", "^[\\S]{5,30}$", "The regular expression " +
-                "used by the font-end components for password validation");
-        setProperty(passwordJavaRegExViolationErrorMsg, "Password RegEx Violation Error Message",
+        setProperty(usernameJavaRegExViolationErrorMsg, "用户名正则表达式冲突错误消息",
+                "用户名正则表达式冲突错误消息.", usernameJavaRegExViolationErrorMsgDescription);
+
+        setProperty("PasswordJavaRegEx", "密码正则表达式 (Java)", "^[\\S]{5,30}$", "用于验证密码的正则表达式");
+        setProperty("PasswordJavaScriptRegEx", "密码正则表达式 (Javascript)", "^[\\S]{5,30}$", "前端组件用于密码验证的正则表达式");
+
+        setProperty(passwordJavaRegExViolationErrorMsg, "密码正则表达式冲突错误消息",
                 "Password pattern policy violated.", passwordJavaRegExViolationErrorMsgDescription);
-        setProperty("RolenameJavaRegEx", "Role Name RegEx (Java)", "^[\\S]{5,30}$", "A regular expression to validate role names");
-        setProperty("RolenameJavaScriptRegEx", "Role Name RegEx (Javascript)", "^[\\S]{5,30}$", "The regular expression used by the font-end components for role name validation");
-        setProperty(JDBCCaseInsensitiveConstants.CASE_SENSITIVE_USERNAME, "Case Insensitive Username", "true",
+        setProperty("RolenameJavaRegEx", "角色名正则表达式 (Java)", "^[\\S]{5,30}$", "用于验证角色名称的正则表达式");
+        setProperty("RolenameJavaScriptRegEx", "角色名正则表达式 (Javascript)", "^[\\S]{5,30}$", "前端组件用于角色名称验证的正则表达式");
+        setProperty(JDBCCaseInsensitiveConstants.CASE_SENSITIVE_USERNAME, "用户名不区分大小写", "true",
                 JDBCCaseInsensitiveConstants.CASE_SENSITIVE_USERNAME_DESCRIPTION);
 
         //set Advanced properties
-        setAdvancedProperty(UserStoreConfigConstants.SCIMEnabled, "Enable SCIM", "false", UserStoreConfigConstants.SCIMEnabledDescription);
-        setAdvancedProperty("IsBulkImportSupported", "Is Bulk Import Supported", "false", "Support Bulk User Import " +
-                "Operation for this user store");
-        setAdvancedProperty(JDBCRealmConstants.DIGEST_FUNCTION, "Password Hashing Algorithm", "SHA-256", UserStoreConfigConstants
+        setAdvancedProperty(UserStoreConfigConstants.SCIMEnabled, "启用 SCIM", "false", UserStoreConfigConstants.SCIMEnabledDescription);
+        setAdvancedProperty("IsBulkImportSupported", "支持批导入", "false", "支持用户批导入 " );
+        setAdvancedProperty(JDBCRealmConstants.DIGEST_FUNCTION, "密码哈希算法", "SHA-256", UserStoreConfigConstants
                 .passwordHashMethodDescription);
-        setAdvancedProperty(MULTI_ATTRIBUTE_SEPARATOR, "Multiple Attribute Separator", ",", MULTI_ATTRIBUTE_SEPARATOR_DESCRIPTION);
+        setAdvancedProperty(MULTI_ATTRIBUTE_SEPARATOR, "多值分隔符", ",", MULTI_ATTRIBUTE_SEPARATOR_DESCRIPTION);
 
-        setAdvancedProperty(JDBCRealmConstants.STORE_SALTED_PASSWORDS, "Enable Salted Passwords", "true", "Indicates whether to salt " +
-                "the password");
+        setAdvancedProperty(JDBCRealmConstants.STORE_SALTED_PASSWORDS, "启用盐化密码", "true", "指示是否启用对密码加盐");
 
-        setAdvancedProperty(UserStoreConfigConstants.maxUserNameListLength, "Maximum User List Length", "100", UserStoreConfigConstants
+        setAdvancedProperty(UserStoreConfigConstants.maxUserNameListLength, "用户列表最大长度", "100", UserStoreConfigConstants
                 .maxUserNameListLengthDescription);
-        setAdvancedProperty(UserStoreConfigConstants.maxRoleNameListLength, "Maximum Role List Length", "100", UserStoreConfigConstants
+        setAdvancedProperty(UserStoreConfigConstants.maxRoleNameListLength, "角色列表最大长度", "100", UserStoreConfigConstants
                 .maxRoleNameListLengthDescription);
 
-        setAdvancedProperty(UserStoreConfigConstants.userRolesCacheEnabled, "Enable User Role Cache", "true", UserStoreConfigConstants
+        setAdvancedProperty(UserStoreConfigConstants.userRolesCacheEnabled, "启用用户角色缓存", "true", UserStoreConfigConstants
                 .userRolesCacheEnabledDescription);
 
-        setAdvancedProperty("UserNameUniqueAcrossTenants", "Make Username Unique Across Tenants", "false", "An attribute used for multi-tenancy");
+        setAdvancedProperty("UserNameUniqueAcrossTenants", "确保用户名跨租户唯一", "false", "用于多租户的属性");
 
 
-        setAdvancedProperty(JDBCRealmConstants.VALIDATION_QUERY, "validationQuery for the database", "",
-                "validationQuery is the SQL query that will be used to validate connections. This query MUST be an " +
-                        "SQL SELECT statement that returns at least one row");
-        setAdvancedProperty(VALIDATION_INTERVAL, "Validation Interval(time in milliseconds)", "", "Used to avoid " +
-                "excess validation, only run validation at most at this frequency");
-        setAdvancedProperty("CountRetrieverClass", "Count Implementation",
+        setAdvancedProperty(JDBCRealmConstants.VALIDATION_QUERY, "数据库校验查询", "",
+                "validationQuery是用于验证连接的SQL查询. 该查询必须是一个 " +
+                        "返回至少一行的SQL SELECT语句");
+        setAdvancedProperty(VALIDATION_INTERVAL, "验证间隔(毫秒)", "", "用于避免过度验证，最多只能在此频率运行验证");
+
+        setAdvancedProperty("CountRetrieverClass", "计数实现",
                 "org.wso2.carbon.identity.user.store.count.jdbc.JDBCUserStoreCountRetriever",
-                "Name of the class that implements the count functionality");
+                "实现计数功能的类的名称");
 
         //Advanced Properties (No descriptions added for each property)
-        setAdvancedProperty(JDBCRealmConstants.SELECT_USER, "Select User SQL", JDBCRealmConstants.SELECT_USER_SQL, "");
-        setAdvancedProperty(JDBCCaseInsensitiveConstants.SELECT_USER_CASE_INSENSITIVE, "Select User SQL With " +
-                "Case Insensitivie Username", JDBCCaseInsensitiveConstants.SELECT_USER_SQL_CASE_INSENSITIVE, "");
-        setAdvancedProperty("GetRoleListSQL", "Get Role List SQL", "SELECT UM_ROLE_NAME, UM_TENANT_ID, UM_SHARED_ROLE FROM UM_ROLE WHERE " +
+        setAdvancedProperty(JDBCRealmConstants.SELECT_USER, "查询用户的 SQL", JDBCRealmConstants.SELECT_USER_SQL, "");
+        setAdvancedProperty(JDBCCaseInsensitiveConstants.SELECT_USER_CASE_INSENSITIVE, "不区分大小写用户名的查询用户 SQL ", JDBCCaseInsensitiveConstants.SELECT_USER_SQL_CASE_INSENSITIVE, "");
+
+        setAdvancedProperty("GetRoleListSQL", "查询角色列表的 SQL", "SELECT UM_ROLE_NAME, UM_TENANT_ID, UM_SHARED_ROLE FROM UM_ROLE WHERE " +
                 "UM_ROLE_NAME LIKE ? AND UM_TENANT_ID=? AND UM_SHARED_ROLE ='0' ORDER BY UM_ROLE_NAME", "");
-        setAdvancedProperty(JDBCRealmConstants.GET_SHARED_ROLE_LIST, "Get Shared Role List SQP", JDBCRealmConstants.GET_SHARED_ROLE_LIST_SQL, "");
-        setAdvancedProperty(JDBCRealmConstants.GET_USER_FILTER, "User Filter SQL", JDBCRealmConstants.GET_USER_FILTER_SQL, "");
-        setAdvancedProperty(JDBCCaseInsensitiveConstants.GET_USER_FILTER_CASE_INSENSITIVE, "User Filter SQL With" +
-                        " Case Insensitive Username", JDBCCaseInsensitiveConstants.GET_USER_FILTER_SQL_CASE_INSENSITIVE,
+        setAdvancedProperty(JDBCRealmConstants.GET_SHARED_ROLE_LIST, "查询共享角色列表的 SQL", JDBCRealmConstants.GET_SHARED_ROLE_LIST_SQL, "");
+        setAdvancedProperty(JDBCRealmConstants.GET_USER_FILTER, "用户筛选SQL", JDBCRealmConstants.GET_USER_FILTER_SQL, "");
+        setAdvancedProperty(JDBCCaseInsensitiveConstants.GET_USER_FILTER_CASE_INSENSITIVE, "不区分大小写用户名的用户筛选SQL ", JDBCCaseInsensitiveConstants.GET_USER_FILTER_SQL_CASE_INSENSITIVE,
                 "");
-        setAdvancedProperty(JDBCRealmConstants.GET_USER_ROLE, "User Role SQL", JDBCRealmConstants.GET_USER_ROLE_SQL, "");
-        setAdvancedProperty(JDBCCaseInsensitiveConstants.GET_USER_ROLE_CASE_INSENSITIVE, "User Role SQL With " +
-                "Case Insensitive Username", JDBCCaseInsensitiveConstants.GET_USER_ROLE_SQL_CASE_INSENSITIVE, "");
-        setAdvancedProperty(JDBCRealmConstants.GET_SHARED_ROLES_FOR_USER, "User Shared Role SQL", JDBCRealmConstants.GET_SHARED_ROLES_FOR_USER_SQL, "");
-        setAdvancedProperty(JDBCCaseInsensitiveConstants.GET_SHARED_ROLES_FOR_USER_CASE_INSENSITIVE, "User " +
-                "Shared Role SQL With Case Insensitive Username", JDBCCaseInsensitiveConstants
+        setAdvancedProperty(JDBCRealmConstants.GET_USER_ROLE, "查询用户角色的 SQL", JDBCRealmConstants.GET_USER_ROLE_SQL, "");
+        setAdvancedProperty(JDBCCaseInsensitiveConstants.GET_USER_ROLE_CASE_INSENSITIVE, "不区分大小写用户名的用户角色查询 SQL", JDBCCaseInsensitiveConstants.GET_USER_ROLE_SQL_CASE_INSENSITIVE, "");
+        setAdvancedProperty(JDBCRealmConstants.GET_SHARED_ROLES_FOR_USER, "查询共享角色的 SQL", JDBCRealmConstants.GET_SHARED_ROLES_FOR_USER_SQL, "");
+        setAdvancedProperty(JDBCCaseInsensitiveConstants.GET_SHARED_ROLES_FOR_USER_CASE_INSENSITIVE, "不区分大小写用户名的" +
+                "查询共享角色的 SQL", JDBCCaseInsensitiveConstants
                 .GET_SHARED_ROLES_FOR_USER_SQL_CASE_INSENSITIVE, "");
 
 
-        setAdvancedProperty(JDBCRealmConstants.GET_IS_ROLE_EXISTING, "Is Role Existing SQL", JDBCRealmConstants.GET_IS_ROLE_EXISTING_SQL, "");
-        setAdvancedProperty(JDBCRealmConstants.GET_USERS_IN_ROLE, "Get User List Of Role SQL", JDBCRealmConstants.GET_USERS_IN_ROLE_SQL, "");
-        setAdvancedProperty(JDBCRealmConstants.GET_USERS_IN_SHARED_ROLE, "Get User List Of Shared Role SQL", JDBCRealmConstants.GET_USERS_IN_SHARED_ROLE_SQL, "");
+        setAdvancedProperty(JDBCRealmConstants.GET_IS_ROLE_EXISTING, "判断角色存在的 SQL", JDBCRealmConstants.GET_IS_ROLE_EXISTING_SQL, "");
+        setAdvancedProperty(JDBCRealmConstants.GET_USERS_IN_ROLE, "查询角色的用户列表的 SQL", JDBCRealmConstants.GET_USERS_IN_ROLE_SQL, "");
+        setAdvancedProperty(JDBCRealmConstants.GET_USERS_IN_SHARED_ROLE, "查询共享角色的用户列表的 SQL", JDBCRealmConstants.GET_USERS_IN_SHARED_ROLE_SQL, "");
 
-        setAdvancedProperty(JDBCRealmConstants.GET_IS_USER_EXISTING, "Is User Existing SQL", JDBCRealmConstants.GET_IS_USER_EXISTING_SQL, "");
-        setAdvancedProperty(JDBCCaseInsensitiveConstants.GET_IS_USER_EXISTING_CASE_INSENSITIVE, "Is User " +
-                "Existing SQL With Case Insensitive Username", JDBCCaseInsensitiveConstants
+        setAdvancedProperty(JDBCRealmConstants.GET_IS_USER_EXISTING, "判断用户存在的 SQL", JDBCRealmConstants.GET_IS_USER_EXISTING_SQL, "");
+        setAdvancedProperty(JDBCCaseInsensitiveConstants.GET_IS_USER_EXISTING_CASE_INSENSITIVE, "不区分大小写用户名的判断用户存在的 SQL", JDBCCaseInsensitiveConstants
                 .GET_IS_USER_EXISTING_SQL_CASE_INSENSITIVE, "");
-        setAdvancedProperty(JDBCRealmConstants.GET_PROPS_FOR_PROFILE, "Get User Properties for Profile SQL", JDBCRealmConstants.GET_PROPS_FOR_PROFILE_SQL, "");
-        setAdvancedProperty(JDBCCaseInsensitiveConstants.GET_PROPS_FOR_PROFILE_CASE_INSENSITIVE, "Get User " +
-                "Properties for Profile SQL With Case Insensitive Username", JDBCCaseInsensitiveConstants
+        setAdvancedProperty(JDBCRealmConstants.GET_PROPS_FOR_PROFILE, "获取个人资料用户属性的 SQL", JDBCRealmConstants.GET_PROPS_FOR_PROFILE_SQL, "");
+        setAdvancedProperty(JDBCCaseInsensitiveConstants.GET_PROPS_FOR_PROFILE_CASE_INSENSITIVE, "不区分大小写用户名的" +
+                "获取个人资料用户属性的 SQL", JDBCCaseInsensitiveConstants
                 .GET_PROPS_FOR_PROFILE_SQL_CASE_INSENSITIVE, "");
-        setAdvancedProperty(JDBCRealmConstants.GET_PROP_FOR_PROFILE, "Get User Property for Profile SQL", JDBCRealmConstants.GET_PROP_FOR_PROFILE_SQL, "");
-        setAdvancedProperty(JDBCCaseInsensitiveConstants.GET_PROP_FOR_PROFILE_CASE_INSENSITIVE, "Get User " +
-                "Property for Profile SQL With Case Insensitive Username", JDBCCaseInsensitiveConstants
-                .GET_PROP_FOR_PROFILE_SQL_CASE_INSENSITIVE, "");
-        setAdvancedProperty(JDBCRealmConstants.GET_USERS_FOR_PROP, "Get User List for Property SQL", JDBCRealmConstants.GET_USERS_FOR_PROP_SQL, "");
-        setAdvancedProperty(JDBCRealmConstants.GET_PROFILE_NAMES, "Get Profile Names SQL", JDBCRealmConstants.GET_PROFILE_NAMES_SQL, "");
-        setAdvancedProperty(JDBCRealmConstants.GET_PROFILE_NAMES_FOR_USER, "Get User Profile Names SQL", JDBCRealmConstants.GET_PROFILE_NAMES_FOR_USER_SQL, "");
-        setAdvancedProperty(JDBCCaseInsensitiveConstants.GET_PROFILE_NAMES_FOR_USER_CASE_INSENSITIVE, "Get User " +
-                "Profile Names SQL With Case Insensitive Username", JDBCCaseInsensitiveConstants
+        // setAdvancedProperty(JDBCRealmConstants.GET_PROP_FOR_PROFILE, "获取个人资料用户属性的 SQL", JDBCRealmConstants.GET_PROP_FOR_PROFILE_SQL, "");
+        // setAdvancedProperty(JDBCCaseInsensitiveConstants.GET_PROP_FOR_PROFILE_CASE_INSENSITIVE, "Get User " +
+        //         "Property for Profile SQL With Case Insensitive Username", JDBCCaseInsensitiveConstants
+        //         .GET_PROP_FOR_PROFILE_SQL_CASE_INSENSITIVE, "");
+        setAdvancedProperty(JDBCRealmConstants.GET_USERS_FOR_PROP, "获取用户列表属性的 SQL", JDBCRealmConstants.GET_USERS_FOR_PROP_SQL, "");
+        setAdvancedProperty(JDBCRealmConstants.GET_PROFILE_NAMES, "得到个人资料名称的 SQL", JDBCRealmConstants.GET_PROFILE_NAMES_SQL, "");
+        setAdvancedProperty(JDBCRealmConstants.GET_PROFILE_NAMES_FOR_USER, "得到用户个人资料名称的 SQL", JDBCRealmConstants.GET_PROFILE_NAMES_FOR_USER_SQL, "");
+        setAdvancedProperty(JDBCCaseInsensitiveConstants.GET_PROFILE_NAMES_FOR_USER_CASE_INSENSITIVE, "不区分大小写用户名的得到用户个人资料名称的 SQL", JDBCCaseInsensitiveConstants
                 .GET_PROFILE_NAMES_FOR_USER_SQL_CASE_INSENSITIVE, "");
-        setAdvancedProperty(JDBCRealmConstants.GET_USERID_FROM_USERNAME, "Get User ID From Username SQL", JDBCRealmConstants.GET_USERID_FROM_USERNAME_SQL, "");
-        setAdvancedProperty(JDBCCaseInsensitiveConstants.GET_USERID_FROM_USERNAME_CASE_INSENSITIVE, "Get User ID" +
-                " From Username SQL With Case Insensitive Username", JDBCCaseInsensitiveConstants
+        setAdvancedProperty(JDBCRealmConstants.GET_USERID_FROM_USERNAME, "根据用户名称得到用户ID的 SQL", JDBCRealmConstants.GET_USERID_FROM_USERNAME_SQL, "");
+        setAdvancedProperty(JDBCCaseInsensitiveConstants.GET_USERID_FROM_USERNAME_CASE_INSENSITIVE, "不区分大小写用户名的根据用户名称得到用户ID的 SQL", JDBCCaseInsensitiveConstants
                 .GET_USERID_FROM_USERNAME_SQL_CASE_INSENSITIVE, "");
-        setAdvancedProperty(JDBCRealmConstants.GET_USERNAME_FROM_TENANT_ID, "Get Username From Tenant ID SQL", JDBCRealmConstants.GET_USERNAME_FROM_TENANT_ID_SQL, "");
-        setAdvancedProperty(JDBCRealmConstants.GET_TENANT_ID_FROM_USERNAME, "Get Tenant ID From Username SQL", JDBCRealmConstants.GET_TENANT_ID_FROM_USERNAME_SQL, "");
-        setAdvancedProperty(JDBCCaseInsensitiveConstants.GET_TENANT_ID_FROM_USERNAME_CASE_INSENSITIVE, "Get " +
-                "Tenant ID From Username SQL With Case Insensitive Username", JDBCCaseInsensitiveConstants
+        setAdvancedProperty(JDBCRealmConstants.GET_USERNAME_FROM_TENANT_ID, "根据租户ID得到用户名的 SQL", JDBCRealmConstants.GET_USERNAME_FROM_TENANT_ID_SQL, "");
+        setAdvancedProperty(JDBCRealmConstants.GET_TENANT_ID_FROM_USERNAME, "根据用户名得到租户ID的 SQL", JDBCRealmConstants.GET_TENANT_ID_FROM_USERNAME_SQL, "");
+        setAdvancedProperty(JDBCCaseInsensitiveConstants.GET_TENANT_ID_FROM_USERNAME_CASE_INSENSITIVE, "不区分大小写用户名的根据用户名得到租户ID的 SQL", JDBCCaseInsensitiveConstants
                 .GET_TENANT_ID_FROM_USERNAME_SQL_CASE_INSENSITIVE, "");
 
-        setAdvancedProperty(JDBCRealmConstants.ADD_USER, "Add User SQL", JDBCRealmConstants.ADD_USER_SQL, "");
-        setAdvancedProperty(JDBCRealmConstants.ADD_USER_TO_ROLE, "Add User To Role SQL", JDBCRealmConstants.ADD_USER_TO_ROLE_SQL, "");
-        setAdvancedProperty(JDBCCaseInsensitiveConstants.ADD_USER_TO_ROLE_CASE_INSENSITIVE, "Add User To Role " +
-                "SQL With Case Insensitive Username", JDBCCaseInsensitiveConstants
+        setAdvancedProperty(JDBCRealmConstants.ADD_USER, "添加用户的 SQL", JDBCRealmConstants.ADD_USER_SQL, "");
+        setAdvancedProperty(JDBCRealmConstants.ADD_USER_TO_ROLE, "添加用户到角色的 SQL", JDBCRealmConstants.ADD_USER_TO_ROLE_SQL, "");
+        setAdvancedProperty(JDBCCaseInsensitiveConstants.ADD_USER_TO_ROLE_CASE_INSENSITIVE, "不区分大小写用户名的添加用户到角色的 SQL", JDBCCaseInsensitiveConstants
                 .ADD_USER_TO_ROLE_SQL_CASE_INSENSITIVE, "");
-        setAdvancedProperty(JDBCRealmConstants.ADD_ROLE, "Add Role SQL", JDBCRealmConstants.ADD_ROLE_SQL, "");
-        setAdvancedProperty(JDBCRealmConstants.ADD_SHARED_ROLE, "Add Shared Role SQL", JDBCRealmConstants.ADD_SHARED_ROLE_SQL, "");
-        setAdvancedProperty(JDBCRealmConstants.ADD_ROLE_TO_USER, "Add Role To User SQL", JDBCRealmConstants.ADD_ROLE_TO_USER_SQL, "");
-        setAdvancedProperty(JDBCRealmConstants.ADD_SHARED_ROLE_TO_USER, "Add Shared Role To User SQL",
+        setAdvancedProperty(JDBCRealmConstants.ADD_ROLE, "添加角色的 SQL", JDBCRealmConstants.ADD_ROLE_SQL, "");
+        setAdvancedProperty(JDBCRealmConstants.ADD_SHARED_ROLE, "添加共享角色的 SQL", JDBCRealmConstants.ADD_SHARED_ROLE_SQL, "");
+        setAdvancedProperty(JDBCRealmConstants.ADD_ROLE_TO_USER, "添加角色到用户的 SQL", JDBCRealmConstants.ADD_ROLE_TO_USER_SQL, "");
+        setAdvancedProperty(JDBCRealmConstants.ADD_SHARED_ROLE_TO_USER, "添加共享角色到用户的 SQL",
                 JDBCRealmConstants.ADD_SHARED_ROLE_TO_USER_SQL, "");
-        setAdvancedProperty(JDBCCaseInsensitiveConstants.ADD_SHARED_ROLE_TO_USER_CASE_INSENSITIVE, "Add Shared " +
-                "Role To User SQL With Case Insensitive Username", JDBCCaseInsensitiveConstants
+        setAdvancedProperty(JDBCCaseInsensitiveConstants.ADD_SHARED_ROLE_TO_USER_CASE_INSENSITIVE, "不区分大小写用户名的添加共享角色到用户的 SQL", JDBCCaseInsensitiveConstants
                 .ADD_SHARED_ROLE_TO_USER_SQL_CASE_INSENSITIVE, "");
 
-        setAdvancedProperty(JDBCRealmConstants.REMOVE_USER_FROM_SHARED_ROLE, "Remove User From Shared Roles SQL", JDBCRealmConstants.REMOVE_USER_FROM_SHARED_ROLE_SQL, "");
-        setAdvancedProperty(JDBCCaseInsensitiveConstants.REMOVE_USER_FROM_ROLE_CASE_INSENSITIVE, "Remove User " +
-                "From Role SQL With Case Insensitive Username", JDBCCaseInsensitiveConstants
+        setAdvancedProperty(JDBCRealmConstants.REMOVE_USER_FROM_SHARED_ROLE, "移除共享角色的用户的 SQL", JDBCRealmConstants.REMOVE_USER_FROM_SHARED_ROLE_SQL, "");
+        setAdvancedProperty(JDBCCaseInsensitiveConstants.REMOVE_USER_FROM_ROLE_CASE_INSENSITIVE, "不区分大小写用户名的" +
+                "从角色移除用户的 SQL", JDBCCaseInsensitiveConstants
                 .REMOVE_USER_FROM_ROLE_SQL_CASE_INSENSITIVE, "");
 
-        setAdvancedProperty(JDBCRealmConstants.REMOVE_USER_FROM_ROLE, "Remove User From Role SQL", JDBCRealmConstants.REMOVE_USER_FROM_ROLE_SQL, "");
-        setAdvancedProperty(JDBCCaseInsensitiveConstants.REMOVE_USER_FROM_ROLE_CASE_INSENSITIVE, "Remove User " +
-                "From Role SQL With Case Insensitive Username", JDBCCaseInsensitiveConstants
+        setAdvancedProperty(JDBCRealmConstants.REMOVE_USER_FROM_ROLE, "从角色移除用户的 SQL", JDBCRealmConstants.REMOVE_USER_FROM_ROLE_SQL, "");
+        setAdvancedProperty(JDBCCaseInsensitiveConstants.REMOVE_USER_FROM_ROLE_CASE_INSENSITIVE, "不区分大小写用户名的" +
+                "从角色移除用户的 SQL", JDBCCaseInsensitiveConstants
                 .REMOVE_USER_FROM_ROLE_SQL_CASE_INSENSITIVE, "");
 
-        setAdvancedProperty(JDBCRealmConstants.REMOVE_ROLE_FROM_USER, "Remove Role From User SQL", JDBCRealmConstants.REMOVE_ROLE_FROM_USER_SQL, "");
-        setAdvancedProperty(JDBCCaseInsensitiveConstants.REMOVE_ROLE_FROM_USER_CASE_INSENSITIVE, "Remove Role " +
-                "From User SQL With Case Insensitive Username", JDBCCaseInsensitiveConstants
+        setAdvancedProperty(JDBCRealmConstants.REMOVE_ROLE_FROM_USER, "移除用户的角色的 SQL", JDBCRealmConstants.REMOVE_ROLE_FROM_USER_SQL, "");
+        setAdvancedProperty(JDBCCaseInsensitiveConstants.REMOVE_ROLE_FROM_USER_CASE_INSENSITIVE, "不区分大小写用户名的" +
+                "移除用户的角色的 SQL", JDBCCaseInsensitiveConstants
                 .REMOVE_ROLE_FROM_USER_SQL_CASE_INSENSITIVE, "");
 
-        setAdvancedProperty(JDBCRealmConstants.DELETE_ROLE, "Delete Roles SQL", JDBCRealmConstants.DELETE_ROLE_SQL, "");
-        setAdvancedProperty(JDBCRealmConstants.ON_DELETE_ROLE_REMOVE_USER_ROLE, "On Delete Role Remove User Role Mapping SQL", JDBCRealmConstants.ON_DELETE_ROLE_REMOVE_USER_ROLE_SQL, "");
-        setAdvancedProperty("DeleteUserSQL", "Delete User SQL", "DELETE FROM UM_USER WHERE UM_USER_NAME = ? AND UM_TENANT_ID=?", "");
-        setAdvancedProperty(JDBCCaseInsensitiveConstants.DELETE_USER_CASE_INSENSITIVE, "Delete User SQL With " +
-                "Case Insensitive Username", JDBCCaseInsensitiveConstants.DELETE_USER_SQL_CASE_INSENSITIVE, "");
-        setAdvancedProperty(JDBCRealmConstants.ON_DELETE_USER_REMOVE_USER_ROLE, "On Delete User Remove User Role Mapping SQL", JDBCRealmConstants.ON_DELETE_USER_REMOVE_USER_ROLE_SQL, "");
-        setAdvancedProperty(JDBCRealmConstants.ON_DELETE_USER_REMOVE_ATTRIBUTE, "On Delete User Remove User Attribute SQL", JDBCRealmConstants.ON_DELETE_USER_REMOVE_ATTRIBUTE_SQL, "");
-        setAdvancedProperty(JDBCCaseInsensitiveConstants.ON_DELETE_USER_REMOVE_ATTRIBUTE_CASE_INSENSITIVE, "On " +
-                        "Delete User Remove User Attribute SQL With Case Insensitive Username",
+        setAdvancedProperty(JDBCRealmConstants.DELETE_ROLE, "删除角色的 SQL", JDBCRealmConstants.DELETE_ROLE_SQL, "");
+        setAdvancedProperty(JDBCRealmConstants.ON_DELETE_ROLE_REMOVE_USER_ROLE, "删除角色并删除用户角色映射的 SQL", JDBCRealmConstants.ON_DELETE_ROLE_REMOVE_USER_ROLE_SQL, "");
+        setAdvancedProperty("DeleteUserSQL", "删除用户的 SQL", "DELETE FROM UM_USER WHERE UM_USER_NAME = ? AND UM_TENANT_ID=?", "");
+        setAdvancedProperty(JDBCCaseInsensitiveConstants.DELETE_USER_CASE_INSENSITIVE, "不区分大小写用户名的" +
+                "删除用户的 SQL", JDBCCaseInsensitiveConstants.DELETE_USER_SQL_CASE_INSENSITIVE, "");
+        setAdvancedProperty(JDBCRealmConstants.ON_DELETE_USER_REMOVE_USER_ROLE, "删除用户并删除用户角色映射的 SQL", JDBCRealmConstants.ON_DELETE_USER_REMOVE_USER_ROLE_SQL, "");
+        setAdvancedProperty(JDBCRealmConstants.ON_DELETE_USER_REMOVE_ATTRIBUTE, "删除用户并删除用户属性的 SQL", JDBCRealmConstants.ON_DELETE_USER_REMOVE_ATTRIBUTE_SQL, "");
+        setAdvancedProperty(JDBCCaseInsensitiveConstants.ON_DELETE_USER_REMOVE_ATTRIBUTE_CASE_INSENSITIVE, "不区分大小写用户名的" +
+                        "删除用户并删除用户属性的 SQL",
                 JDBCCaseInsensitiveConstants.ON_DELETE_USER_REMOVE_ATTRIBUTE_SQL_CASE_INSENSITIVE, "");
 
-        setAdvancedProperty(JDBCRealmConstants.UPDATE_USER_PASSWORD, "Update User Password SQL", JDBCRealmConstants.UPDATE_USER_PASSWORD_SQL, "");
-        setAdvancedProperty(JDBCCaseInsensitiveConstants.UPDATE_USER_PASSWORD_CASE_INSENSITIVE, "Update User " +
-                "Password SQL With Case Insensitive Username", JDBCCaseInsensitiveConstants
+        setAdvancedProperty(JDBCRealmConstants.UPDATE_USER_PASSWORD, "修改用户密码的 SQL", JDBCRealmConstants.UPDATE_USER_PASSWORD_SQL, "");
+        setAdvancedProperty(JDBCCaseInsensitiveConstants.UPDATE_USER_PASSWORD_CASE_INSENSITIVE, "不区分大小写用户名的" +
+                "修改用户密码的 SQL", JDBCCaseInsensitiveConstants
                 .UPDATE_USER_PASSWORD_SQL_CASE_INSENSITIVE, "");
-        setAdvancedProperty(JDBCRealmConstants.UPDATE_ROLE_NAME, "Update Role Name SQL", JDBCRealmConstants.UPDATE_ROLE_NAME_SQL, "");
+        setAdvancedProperty(JDBCRealmConstants.UPDATE_ROLE_NAME, "修改角色名称的 SQL", JDBCRealmConstants.UPDATE_ROLE_NAME_SQL, "");
 
-        setAdvancedProperty(JDBCRealmConstants.ADD_USER_PROPERTY, "Add User Property SQL", JDBCRealmConstants.ADD_USER_PROPERTY_SQL, "");
-        setAdvancedProperty(JDBCRealmConstants.UPDATE_USER_PROPERTY, "Update User Property SQL", JDBCRealmConstants.UPDATE_USER_PROPERTY_SQL, "");
-        setAdvancedProperty(JDBCCaseInsensitiveConstants.UPDATE_USER_PROPERTY_CASE_INSENSITIVE, "Update User " +
-                "Property SQL With Case Insensitive Username", JDBCCaseInsensitiveConstants
+        setAdvancedProperty(JDBCRealmConstants.ADD_USER_PROPERTY, "添加用户属性的 SQL", JDBCRealmConstants.ADD_USER_PROPERTY_SQL, "");
+        setAdvancedProperty(JDBCRealmConstants.UPDATE_USER_PROPERTY, "修改用户属性的 SQL", JDBCRealmConstants.UPDATE_USER_PROPERTY_SQL, "");
+        setAdvancedProperty(JDBCCaseInsensitiveConstants.UPDATE_USER_PROPERTY_CASE_INSENSITIVE, "不区分大小写用户名的" +
+                "修改用户属性的 SQL", JDBCCaseInsensitiveConstants
                 .UPDATE_USER_PROPERTY_SQL_CASE_INSENSITIVE, "");
-        setAdvancedProperty(JDBCRealmConstants.DELETE_USER_PROPERTY, "Delete User Property SQL", JDBCRealmConstants.UPDATE_USER_PROPERTY_SQL, "");
-        setAdvancedProperty(JDBCCaseInsensitiveConstants.DELETE_USER_PROPERTY_CASE_INSENSITIVE, "Delete User " +
-                "Property SQL With Case Insensitive Username", JDBCCaseInsensitiveConstants
+        setAdvancedProperty(JDBCRealmConstants.DELETE_USER_PROPERTY, "删除用户属性的 SQL", JDBCRealmConstants.UPDATE_USER_PROPERTY_SQL, "");
+        setAdvancedProperty(JDBCCaseInsensitiveConstants.DELETE_USER_PROPERTY_CASE_INSENSITIVE, "不区分大小写用户名的" +
+                "删除用户属性的 SQL", JDBCCaseInsensitiveConstants
                 .DELETE_USER_PROPERTY_SQL_CASE_INSENSITIVE, "");
-        setAdvancedProperty(JDBCRealmConstants.USER_NAME_UNIQUE, "User Name Unique Across Tenant SQL", JDBCRealmConstants.USER_NAME_UNIQUE_SQL, "");
-        setAdvancedProperty(JDBCCaseInsensitiveConstants.USER_NAME_UNIQUE_CASE_INSENSITIVE, "User Name Unique " +
-                "Across Tenant SQL With Case Insensitive Username", JDBCCaseInsensitiveConstants
+        setAdvancedProperty(JDBCRealmConstants.USER_NAME_UNIQUE, "用户名跨租户唯一的 SQL", JDBCRealmConstants.USER_NAME_UNIQUE_SQL, "");
+        setAdvancedProperty(JDBCCaseInsensitiveConstants.USER_NAME_UNIQUE_CASE_INSENSITIVE, "不区分大小写用户名的" +
+                "用户名跨租户唯一的 SQL", JDBCCaseInsensitiveConstants
                 .USER_NAME_UNIQUE_SQL_CASE_INSENSITIVE, "");
 
-        setAdvancedProperty(JDBCRealmConstants.IS_DOMAIN_EXISTING, "Is Domain Existing SQL", JDBCRealmConstants.IS_DOMAIN_EXISTING_SQL, "");
-        setAdvancedProperty(JDBCRealmConstants.ADD_DOMAIN, "Add Domain SQL", JDBCRealmConstants.ADD_DOMAIN_SQL, "");
+        setAdvancedProperty(JDBCRealmConstants.IS_DOMAIN_EXISTING, "判断Domain存在的 SQL", JDBCRealmConstants.IS_DOMAIN_EXISTING_SQL, "");
+        setAdvancedProperty(JDBCRealmConstants.ADD_DOMAIN, "添加 Domain SQL", JDBCRealmConstants.ADD_DOMAIN_SQL, "");
 
         // mssql
-        setAdvancedProperty(JDBCRealmConstants.ADD_USER_TO_ROLE_MSSQL, "Add User To Role SQL (MSSQL)", JDBCRealmConstants.ADD_USER_TO_ROLE_MSSQL_SQL, "");
-        setAdvancedProperty(JDBCRealmConstants.ADD_ROLE_TO_USER_MSSQL, "Add Role To User SQL (MSSQL)", JDBCRealmConstants.ADD_ROLE_TO_USER_MSSQL_SQL, "");
-        setAdvancedProperty(JDBCRealmConstants.ADD_USER_PROPERTY_MSSQL, "Add User Property (MSSQL)", JDBCRealmConstants.ADD_USER_PROPERTY_MSSQL_SQL, "");
-        setAdvancedProperty(JDBCCaseInsensitiveConstants.ADD_USER_TO_ROLE_CASE_INSENSITIVE_MSSQL, "Add User To " +
-                "Role SQL With Case Insensitive Username (MSSQL)", JDBCCaseInsensitiveConstants
+        setAdvancedProperty(JDBCRealmConstants.ADD_USER_TO_ROLE_MSSQL, "添加用户到角色的 SQL (MSSQL)", JDBCRealmConstants.ADD_USER_TO_ROLE_MSSQL_SQL, "");
+        setAdvancedProperty(JDBCRealmConstants.ADD_ROLE_TO_USER_MSSQL, "添加角色到用户的 SQL (MSSQL)", JDBCRealmConstants.ADD_ROLE_TO_USER_MSSQL_SQL, "");
+        setAdvancedProperty(JDBCRealmConstants.ADD_USER_PROPERTY_MSSQL, "添加用户属性的 SQL (MSSQL)", JDBCRealmConstants.ADD_USER_PROPERTY_MSSQL_SQL, "");
+        setAdvancedProperty(JDBCCaseInsensitiveConstants.ADD_USER_TO_ROLE_CASE_INSENSITIVE_MSSQL, "不区分大小写用户名的" +
+                "添加用户到角色的 SQL (MSSQL)", JDBCCaseInsensitiveConstants
                 .ADD_USER_TO_ROLE_MSSQL_SQL_CASE_INSENSITIVE, "");
-        setAdvancedProperty(JDBCCaseInsensitiveConstants.ADD_ROLE_TO_USER_CASE_INSENSITIVE_MSSQL, "Add Role To " +
-                "User SQL With Case Insensitive Username (MSSQL)", JDBCCaseInsensitiveConstants
+        setAdvancedProperty(JDBCCaseInsensitiveConstants.ADD_ROLE_TO_USER_CASE_INSENSITIVE_MSSQL, "不区分大小写用户名的" +
+                "添加角色到用户的 (MSSQL)", JDBCCaseInsensitiveConstants
                 .ADD_ROLE_TO_USER_MSSQL_SQL_CASE_INSENSITIVE, "");
-        setAdvancedProperty(JDBCCaseInsensitiveConstants.ADD_USER_PROPERTY_CASE_INSENSITIVE_MSSQL, "Add User " +
-                "Property With Case Insensitive Username (MSSQL)", JDBCCaseInsensitiveConstants
+        setAdvancedProperty(JDBCCaseInsensitiveConstants.ADD_USER_PROPERTY_CASE_INSENSITIVE_MSSQL, "不区分大小写用户名的" +
+                "添加用户属性的 SQL (MSSQL)", JDBCCaseInsensitiveConstants
                 .ADD_USER_PROPERTY_MSSQL_SQL_CASE_INSENSITIVE, "");
 
         //openedge
-        setAdvancedProperty(JDBCRealmConstants.ADD_USER_TO_ROLE_OPENEDGE, "Add User To Role SQL (OpenEdge)", JDBCRealmConstants.ADD_USER_TO_ROLE_OPENEDGE_SQL, "");
-        setAdvancedProperty(JDBCRealmConstants.ADD_ROLE_TO_USER_OPENEDGE, "Add Role To User SQL (OpenEdge)", JDBCRealmConstants.ADD_ROLE_TO_USER_OPENEDGE_SQL, "");
-        setAdvancedProperty(JDBCRealmConstants.ADD_USER_PROPERTY_OPENEDGE, "Add User Property (OpenEdge)", JDBCRealmConstants.ADD_USER_PROPERTY_OPENEDGE_SQL, "");
-        setAdvancedProperty(JDBCCaseInsensitiveConstants.ADD_USER_TO_ROLE_CASE_INSENSITIVE_OPENEDGE, "Add User " +
-                "To Role SQL With Case Insensitive Username (OpenEdge)", JDBCCaseInsensitiveConstants
+        setAdvancedProperty(JDBCRealmConstants.ADD_USER_TO_ROLE_OPENEDGE, "添加用户到角色的 SQL (OpenEdge)", JDBCRealmConstants.ADD_USER_TO_ROLE_OPENEDGE_SQL, "");
+        setAdvancedProperty(JDBCRealmConstants.ADD_ROLE_TO_USER_OPENEDGE, "添加角色到用户的 SQL (OpenEdge)", JDBCRealmConstants.ADD_ROLE_TO_USER_OPENEDGE_SQL, "");
+        setAdvancedProperty(JDBCRealmConstants.ADD_USER_PROPERTY_OPENEDGE, "添加用户属性的 (OpenEdge)", JDBCRealmConstants.ADD_USER_PROPERTY_OPENEDGE_SQL, "");
+        setAdvancedProperty(JDBCCaseInsensitiveConstants.ADD_USER_TO_ROLE_CASE_INSENSITIVE_OPENEDGE, "不区分大小写用户名的" +
+                "添加用户到角色的 SQL (OpenEdge)", JDBCCaseInsensitiveConstants
                 .ADD_USER_TO_ROLE_OPENEDGE_SQL_CASE_INSENSITIVE, "");
-        setAdvancedProperty(JDBCCaseInsensitiveConstants.ADD_ROLE_TO_USER_CASE_INSENSITIVE_OPENEDGE, "Add Role " +
-                "To User SQL With Case Insensitive Username (OpenEdge)", JDBCCaseInsensitiveConstants
+        setAdvancedProperty(JDBCCaseInsensitiveConstants.ADD_ROLE_TO_USER_CASE_INSENSITIVE_OPENEDGE, "不区分大小写用户名的" +
+                "添加角色到用户的 SQL (OpenEdge)", JDBCCaseInsensitiveConstants
                 .ADD_ROLE_TO_USER_OPENEDGE_SQL_CASE_INSENSITIVE, "");
-        setAdvancedProperty(JDBCCaseInsensitiveConstants.ADD_USER_PROPERTY_CASE_INSENSITIVE_OPENEDGE, "Add User " +
-                "Property With Case Insensitive Username (OpenEdge)", JDBCCaseInsensitiveConstants
+        setAdvancedProperty(JDBCCaseInsensitiveConstants.ADD_USER_PROPERTY_CASE_INSENSITIVE_OPENEDGE, "不区分大小写用户名的" +
+                "添加用户属性的 (OpenEdge)", JDBCCaseInsensitiveConstants
                 .ADD_USER_PROPERTY_OPENEDGE_SQL_CASE_INSENSITIVE, "");
         setAdvancedProperty(UserStoreConfigConstants.claimOperationsSupported, UserStoreConfigConstants.getClaimOperationsSupportedDisplayName, "true",
                 UserStoreConfigConstants.claimOperationsSupportedDescription);
