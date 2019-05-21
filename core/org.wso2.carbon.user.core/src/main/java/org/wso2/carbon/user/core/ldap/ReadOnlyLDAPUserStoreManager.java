@@ -118,8 +118,8 @@ public class ReadOnlyLDAPUserStoreManager extends AbstractUserStoreManager {
     private static final String RETRY_ATTEMPTS = "RetryAttempts";
     private static final String LDAPBinaryAttributesDescription = "配置此属性以定义由空格分隔的LDAP二进制属性。" +
             "例如:mpegVideo mySpecialKey";
-    protected static final String USER_CACHE_EXPIRY_TIME_ATTRIBUTE_NAME = "User Cache Expiry milliseconds";
-    protected static final String USER_DN_CACHE_ENABLED_ATTRIBUTE_NAME = "Enable User DN Cache";
+    protected static final String USER_CACHE_EXPIRY_TIME_ATTRIBUTE_NAME = "用户缓存过期(毫秒)";
+    protected static final String USER_DN_CACHE_ENABLED_ATTRIBUTE_NAME = "启用用户 DN 缓存";
     protected static final String USER_CACHE_EXPIRY_TIME_ATTRIBUTE_DESCRIPTION =
             "配置用户缓存过期时间(毫秒). "
                     + "取值为  {0: 立即过期, -1: 永不过期, '': 例如. 空, 系统缺省}.";

@@ -88,7 +88,7 @@ public class ReadWriteLDAPUserStoreConstants {
         setProperty(roleDNPattern, "角色 DN 模式", "", roleDNPatternDescription);
 
         setProperty(UserStoreConfigConstants.membershipAttribute, "成员关系属性", "member", UserStoreConfigConstants.membershipAttributeDescription);
-        setProperty(UserStoreConfigConstants.memberOfAttribute, "成员属性", "", UserStoreConfigConstants.memberOfAttribute);
+        setProperty(UserStoreConfigConstants.memberOfAttribute, "成员属性", "", UserStoreConfigConstants.memberOfAttributeDescription);
         setProperty("BackLinksEnabled", "启用属性引用", "false",
                 "是否允许属性由其他对象对对象的引用产生");
 
