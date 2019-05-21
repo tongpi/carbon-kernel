@@ -606,7 +606,7 @@ public class ReadOnlyLDAPUserStoreManager extends AbstractUserStoreManager {
                     answer = dirContext.search(escapeDNForSearch(userDN), searchFilter, searchCtls);
                 } catch (PartialResultException e) {
                     // can be due to referrals in AD. so just ignore error
-                    String errorMessage = "Error occurred while searching directory context for user : " + userDN + " searchFilter : " + searchFilter;
+                    String errorMessage = "在目录上下文中搜索用户时出错 : " + userDN + " 刷选器 : " + searchFilter;
                     if (isIgnorePartialResultException()) {
                         if (log.isDebugEnabled()) {
                             log.debug(errorMessage, e);
@@ -615,7 +615,7 @@ public class ReadOnlyLDAPUserStoreManager extends AbstractUserStoreManager {
                         throw new UserStoreException(errorMessage, e);
                     }
                 } catch (NamingException e) {
-                    String errorMessage = "Error occurred while searching directory context for user : " + userDN + " searchFilter : " + searchFilter;
+                    String errorMessage = "在目录上下文中搜索用户时出错 : " + userDN + " 刷选器 : " + searchFilter;
                     if (log.isDebugEnabled()) {
                         log.debug(errorMessage, e);
                     }
@@ -695,7 +695,7 @@ public class ReadOnlyLDAPUserStoreManager extends AbstractUserStoreManager {
             }
 
         } catch (NamingException e) {
-            String errorMessage = "Error occurred while getting user property values for user : " + userName;
+            String errorMessage = "获取用户的用户属性值时出错 : " + userName;
             if (log.isDebugEnabled()) {
                 log.debug(errorMessage, e);
             }
@@ -845,7 +845,7 @@ public class ReadOnlyLDAPUserStoreManager extends AbstractUserStoreManager {
                 }
             }
         } catch (Exception e) {
-            String errorMessage = "Error occurred while checking existence of user : " + userName;
+            String errorMessage = "检查用户是否存在时出错 : " + userName;
             if (log.isDebugEnabled()) {
                 log.debug(errorMessage, e);
             }
@@ -896,7 +896,7 @@ public class ReadOnlyLDAPUserStoreManager extends AbstractUserStoreManager {
 
         if (filter.contains("?") || filter.contains("**")) {
             throw new UserStoreException(
-                    "Invalid character sequence entered for user serch. Please enter valid sequence.");
+                    "为用户搜索输入的字符序列无效。请输入有效序列.");
         }
 
         StringBuffer searchFilter =
@@ -1012,7 +1012,7 @@ public class ReadOnlyLDAPUserStoreManager extends AbstractUserStoreManager {
         } catch (PartialResultException e) {
             // can be due to referrals in AD. so just ignore error
             String errorMessage =
-                    "Error occurred while getting user list for filter : " + filter + "max limit : " + maxItemLimit;
+                    "在得到列表用户时出错，筛选器为 : " + filter + "最大限制 : " + maxItemLimit;
             if (isIgnorePartialResultException()) {
                 if (log.isDebugEnabled()) {
                     log.debug(errorMessage, e);
@@ -1022,7 +1022,7 @@ public class ReadOnlyLDAPUserStoreManager extends AbstractUserStoreManager {
             }
         } catch (NamingException e) {
             String errorMessage =
-                    "Error occurred while getting user list for filter : " + filter + "max limit : " + maxItemLimit;
+                    "在得到列表用户时出错，筛选器为: " + filter + "最大限制 : " + maxItemLimit;
             if (log.isDebugEnabled()) {
                 log.debug(errorMessage, e);
             }
@@ -1302,7 +1302,7 @@ public class ReadOnlyLDAPUserStoreManager extends AbstractUserStoreManager {
             }
         } catch (PartialResultException e) {
             // can be due to referrals in AD. so just ignore error
-            String errorMessage ="Error occurred while search user for filter : " + searchFilter;
+            String errorMessage ="在用户中搜索时出错，筛选器为 : " + searchFilter;
             if (isIgnorePartialResultException()) {
                 if (log.isDebugEnabled()) {
                     log.debug(errorMessage, e);
@@ -1311,7 +1311,7 @@ public class ReadOnlyLDAPUserStoreManager extends AbstractUserStoreManager {
                 throw new UserStoreException(errorMessage, e);
             }
         } catch (NamingException e) {
-            String errorMessage ="Error occurred while search user for filter : " + searchFilter;
+            String errorMessage ="在用户中搜索时出错，筛选器为: " + searchFilter;
             if (log.isDebugEnabled()) {
                 log.debug(errorMessage, e);
             }
@@ -1327,7 +1327,7 @@ public class ReadOnlyLDAPUserStoreManager extends AbstractUserStoreManager {
     public void doAddRole(String roleName, String[] userList, boolean shared)
             throws UserStoreException {
         throw new UserStoreException(
-                "User store is operating in read only mode. Cannot write into the user store.");
+                "用户存储正在以只读模式运行。无法写入用户存储区.");
     }
 
     /**
@@ -1335,7 +1335,7 @@ public class ReadOnlyLDAPUserStoreManager extends AbstractUserStoreManager {
      */
     public void doUpdateRoleName(String roleName, String newRoleName) throws UserStoreException {
         throw new UserStoreException(
-                "User store is operating in read only mode. Cannot write into the user store.");
+                "用户存储正在以只读模式运行。无法写入用户存储区.");
     }
 
      /**
@@ -1356,7 +1356,7 @@ public class ReadOnlyLDAPUserStoreManager extends AbstractUserStoreManager {
      */
     public void doDeleteRole(String roleName) throws UserStoreException {
         throw new UserStoreException(
-                "User store is operating in read only mode. Cannot write into the user store.");
+                "用户存储正在以只读模式运行。无法写入用户存储区.");
     }
 
     /**
@@ -1427,7 +1427,7 @@ public class ReadOnlyLDAPUserStoreManager extends AbstractUserStoreManager {
             }
         } catch (PartialResultException e) {
             // can be due to referrals in AD. so just ignore error
-            String errorMessage = "Error occurred while getting LDAP role names. SearchBase: " + searchBase + " ConstructedFilter: " +
+            String errorMessage = "获取LDAP角色名时出错。搜索库: " + searchBase + " 过滤器: " +
             finalFilter.toString();
             if (isIgnorePartialResultException()) {
                 if (log.isDebugEnabled()) {
@@ -1437,7 +1437,7 @@ public class ReadOnlyLDAPUserStoreManager extends AbstractUserStoreManager {
                 throw new UserStoreException(errorMessage, e);
             }
         } catch (NamingException e) {
-            String errorMessage = "Error occurred while getting LDAP role names. SearchBase: " + searchBase + " ConstructedFilter: " +
+            String errorMessage = "获取LDAP角色名时出错。搜索库: " + searchBase + " 过滤器: " +
                                   finalFilter.toString();
             if (log.isDebugEnabled()) {
                 log.debug(errorMessage, e);
@@ -1766,7 +1766,7 @@ public class ReadOnlyLDAPUserStoreManager extends AbstractUserStoreManager {
                             if (answer.hasMore()) { // to check if there is a result
                                 while (answer.hasMore()) { // to check if there are more than one group
                                     if (count > 0) {
-                                        throw new UserStoreException("More than one group exist with name");
+                                        throw new UserStoreException("存在多个同名的组");
                                     }
                                     sr = answer.next();
                                     count++;
@@ -1904,7 +1904,7 @@ public class ReadOnlyLDAPUserStoreManager extends AbstractUserStoreManager {
 
         } catch (PartialResultException e) {
             // can be due to referrals in AD. so just ignore error
-            String errorMessage = "Error in reading user information in the user store for filter : " + filter;
+            String errorMessage = "读取筛选器的用户存储中的用户信息时出错 : " + filter;
             if (isIgnorePartialResultException()) {
                 if (log.isDebugEnabled()) {
                     log.debug(errorMessage, e);
@@ -1913,7 +1913,7 @@ public class ReadOnlyLDAPUserStoreManager extends AbstractUserStoreManager {
                 throw new UserStoreException(errorMessage, e);
             }
         } catch (NamingException e) {
-            String errorMessage = "Error in reading user information in the user store for filter : " + filter;
+            String errorMessage = "读取筛选器的用户存储中的用户信息时出错 : " + filter;
             if (log.isDebugEnabled()) {
                 log.debug(errorMessage, e);
             }
@@ -1973,7 +1973,7 @@ public class ReadOnlyLDAPUserStoreManager extends AbstractUserStoreManager {
     protected String[] getLDAPRoleListOfUser(String userName, String filter, String searchBase,
                                              boolean shared) throws UserStoreException {
         if (userName == null) {
-            throw new UserStoreException("userName value is null.");
+            throw new UserStoreException("用户名为空.");
         }
         boolean debug = log.isDebugEnabled();
         List<String> list = new ArrayList<String>();
@@ -2093,7 +2093,7 @@ public class ReadOnlyLDAPUserStoreManager extends AbstractUserStoreManager {
 
                 if (membershipProperty == null || membershipProperty.length() < 1) {
                     throw new UserStoreException(
-                            "Please set member of attribute or membership attribute");
+                            "请指定成员关系属性或成员属性");
                 }
 
                 String membershipValue;
@@ -2109,7 +2109,7 @@ public class ReadOnlyLDAPUserStoreManager extends AbstractUserStoreManager {
                         }
                     } catch (InvalidNameException e) {
                         log.error("Error while creating LDAP name from: " + nameInSpace);
-                        throw new UserStoreException("Invalid naming exception for : " + nameInSpace, e);
+                        throw new UserStoreException("无效的命名异常 : " + nameInSpace, e);
                     }
                 } else {
                     return new String[0];
@@ -2189,7 +2189,7 @@ public class ReadOnlyLDAPUserStoreManager extends AbstractUserStoreManager {
         if (userName != null) {
             ldn = getFromUserCache(userName);
         } else {
-            throw new UserStoreException("userName value is null.");
+            throw new UserStoreException("用户名为空.");
         }
         if (ldn != null) {
             return ldn.toString();
@@ -2238,7 +2238,7 @@ public class ReadOnlyLDAPUserStoreManager extends AbstractUserStoreManager {
         boolean debug = log.isDebugEnabled();
 
         if (userName == null) {
-            throw new UserStoreException("userName value is null.");
+            throw new UserStoreException("用户名为空.");
         }
         Object cachedDn = getFromUserCache(userName);
         if ( cachedDn != null) {
@@ -2361,7 +2361,7 @@ public class ReadOnlyLDAPUserStoreManager extends AbstractUserStoreManager {
             while (answer.hasMore()) {
                 if (count > 0) {
                     log.error("More than element user exist with name");
-                    throw new UserStoreException("More than element user exist with name");
+                    throw new UserStoreException("存在多个同名用户");
                 }
                 SearchResult sr = (SearchResult) answer.next();
                 count++;
@@ -2379,8 +2379,8 @@ public class ReadOnlyLDAPUserStoreManager extends AbstractUserStoreManager {
 
         } catch (PartialResultException e) {
             // can be due to referrals in AD. so just ignore error
-            String errorMessage = "Error occurred while GetAttributeListOfOneElementWithPrimarGroup. SearchBase: " +
-                                  searchBase + " SearchFilter: " + searchFilter;
+            String errorMessage = "当执行GetAttributeListOfOneElementWithPrimarGroup时发生错误. 搜索库为: " +
+                                  searchBase + " 搜索过滤器: " + searchFilter;
             if (isIgnorePartialResultException()) {
                 if (log.isDebugEnabled()) {
                     log.debug(errorMessage, e);
@@ -2429,7 +2429,7 @@ public class ReadOnlyLDAPUserStoreManager extends AbstractUserStoreManager {
                         while (answer.hasMore()) {
                             if (count > 0) {
                                 log.error("More than element user exist with name");
-                                throw new UserStoreException("More than element user exist with name");
+                                throw new UserStoreException("存在多个同名用户");
                             }
                             SearchResult sr = (SearchResult) answer.next();
                             count++;
@@ -2627,8 +2627,8 @@ public class ReadOnlyLDAPUserStoreManager extends AbstractUserStoreManager {
 
 		} catch (NamingException e) {
             String errorMessage =
-                    "Error occurred while getting user list from property : " + property + " & value : " + value +
-                    " & profile name : " + profileName;
+                    "从属性获取用户列表时出错。属性: " + property + " & 值 : " + value +
+                    " & 资料名 : " + profileName;
             if (log.isDebugEnabled()) {
                 log.debug(errorMessage, e);
             }
@@ -3415,7 +3415,7 @@ public class ReadOnlyLDAPUserStoreManager extends AbstractUserStoreManager {
                     realmConfig.getUserStoreProperty(LDAPConstants.MEMBERSHIP_ATTRIBUTE);
 
             if (membershipProperty == null || membershipProperty.length() < 1) {
-                throw new UserStoreException("Please set member of attribute or membership attribute");
+                throw new UserStoreException("请设置成员关系属性或成员属性");
             }
 
             String roleNameProperty =
@@ -3435,7 +3435,7 @@ public class ReadOnlyLDAPUserStoreManager extends AbstractUserStoreManager {
                     membershipValue = escapeLdapNameForFilter(ldn);
                 } catch (InvalidNameException e) {
                     log.error("Error while creating LDAP name from: " + nameInSpace);
-                    throw new UserStoreException("Invalid naming exception for : " + nameInSpace, e);
+                    throw new UserStoreException("无效的命名异常 : " + nameInSpace, e);
                 }
             } else {
                 return false;
@@ -3552,7 +3552,7 @@ public class ReadOnlyLDAPUserStoreManager extends AbstractUserStoreManager {
      *
      */
     public int getTenantId(String username) throws UserStoreException {
-        throw new UserStoreException("Invalid operation");
+        throw new UserStoreException("无效的操作");
     }
 
     /**
@@ -3564,7 +3564,7 @@ public class ReadOnlyLDAPUserStoreManager extends AbstractUserStoreManager {
      * @deprecated
      */
     public int getUserId(String username) throws UserStoreException {
-        throw new UserStoreException("Invalid operation");
+        throw new UserStoreException("无效的操作");
     }
 
     /**
@@ -3573,7 +3573,7 @@ public class ReadOnlyLDAPUserStoreManager extends AbstractUserStoreManager {
     public void doDeleteUserClaimValue(String userName, String claimURI, String profileName)
             throws UserStoreException {
         throw new UserStoreException(
-                "User store is operating in read only mode. Cannot write into the user store.");
+                "用户存储正在以只读模式运行。无法写入用户存储区.");
 
     }
 
@@ -3583,7 +3583,7 @@ public class ReadOnlyLDAPUserStoreManager extends AbstractUserStoreManager {
     public void doDeleteUserClaimValues(String userName, String[] claims, String profileName)
             throws UserStoreException {
         throw new UserStoreException(
-                "User store is operating in read only mode. Cannot write into the user store.");
+                "用户存储正在以只读模式运行。无法写入用户存储区.");
 
     }
 
@@ -3598,7 +3598,7 @@ public class ReadOnlyLDAPUserStoreManager extends AbstractUserStoreManager {
     public void doAddUser(String userName, Object credential, String[] roleList,
                           Map<String, String> claims, String profileName) throws UserStoreException {
         throw new UserStoreException(
-                "User store is operating in read only mode. Cannot write into the user store.");
+                "用户存储正在以只读模式运行。无法写入用户存储区.");
     }
 
     /**
@@ -3608,7 +3608,7 @@ public class ReadOnlyLDAPUserStoreManager extends AbstractUserStoreManager {
                           Map<String, String> claims, String profileName,
                           boolean requirePasswordChange) throws UserStoreException {
         throw new UserStoreException(
-                "User store is operating in read only mode. Cannot write into the user store.");
+                "用户存储正在以只读模式运行。无法写入用户存储区.");
     }
 
     /**
@@ -3616,7 +3616,7 @@ public class ReadOnlyLDAPUserStoreManager extends AbstractUserStoreManager {
      */
     public void doDeleteUser(String userName) throws UserStoreException {
         throw new UserStoreException(
-                "User store is operating in read only mode. Cannot write into the user store.");
+                "用户存储正在以只读模式运行。无法写入用户存储区.");
     }
 
     /**
@@ -3625,7 +3625,7 @@ public class ReadOnlyLDAPUserStoreManager extends AbstractUserStoreManager {
     public void doSetUserClaimValue(String userName, String claimURI, String claimValue,
                                     String profileName) throws UserStoreException {
         throw new UserStoreException(
-                "User store is operating in read only mode. Cannot write into the user store.");
+                "用户存储正在以只读模式运行。无法写入用户存储区.");
     }
 
     /**
@@ -3634,7 +3634,7 @@ public class ReadOnlyLDAPUserStoreManager extends AbstractUserStoreManager {
     public void doSetUserClaimValues(String userName, Map<String, String> claims, String profileName)
             throws UserStoreException {
         throw new UserStoreException(
-                "User store is operating in read only mode. Cannot write into the user store.");
+                "用户存储正在以只读模式运行。无法写入用户存储区.");
 
     }
 
@@ -3644,7 +3644,7 @@ public class ReadOnlyLDAPUserStoreManager extends AbstractUserStoreManager {
     public void doUpdateCredential(String userName, Object newCredential, Object oldCredential)
             throws UserStoreException {
         throw new UserStoreException(
-                "User store is operating in read only mode. Cannot write into the user store.");
+                "用户存储正在以只读模式运行。无法写入用户存储区.");
     }
 
     /**
@@ -3653,7 +3653,7 @@ public class ReadOnlyLDAPUserStoreManager extends AbstractUserStoreManager {
     public void doUpdateCredentialByAdmin(String userName, Object newCredential)
             throws UserStoreException {
         throw new UserStoreException(
-                "User store is operating in read only mode. Cannot write into the user store.");
+                "用户存储正在以只读模式运行。无法写入用户存储区.");
 
     }
 
@@ -3668,7 +3668,7 @@ public class ReadOnlyLDAPUserStoreManager extends AbstractUserStoreManager {
     public void doUpdateRoleListOfUser(String userName, String[] deletedRoles, String[] newRoles)
             throws UserStoreException {
         throw new UserStoreException(
-                "User store is operating in read only mode. Cannot write into the user store.");
+                "用户存储正在以只读模式运行。无法写入用户存储区.");
     }
 
     /**
@@ -3677,7 +3677,7 @@ public class ReadOnlyLDAPUserStoreManager extends AbstractUserStoreManager {
     public void doUpdateUserListOfRole(String roleName, String[] deletedUsers, String[] newUsers)
             throws UserStoreException {
         throw new UserStoreException(
-                "User store is operating in read only mode. Cannot write into the user store.");
+                "用户存储正在以只读模式运行。无法写入用户存储区.");
     }
 
     /**
@@ -4150,36 +4150,35 @@ public class ReadOnlyLDAPUserStoreManager extends AbstractUserStoreManager {
         //Set Advanced Properties
 
         RO_LDAP_UM_ADVANCED_PROPERTIES.clear();
-        setAdvancedProperty(UserStoreConfigConstants.SCIMEnabled, "Enable SCIM", "false", UserStoreConfigConstants
+        setAdvancedProperty(UserStoreConfigConstants.SCIMEnabled, "启用SCIM", "false", UserStoreConfigConstants
                 .SCIMEnabledDescription);
 
-        setAdvancedProperty(UserStoreConfigConstants.passwordHashMethod, "Password Hashing Algorithm", "PLAIN_TEXT",
+        setAdvancedProperty(UserStoreConfigConstants.passwordHashMethod, "密码哈希算法", "PLAIN_TEXT",
                 UserStoreConfigConstants.passwordHashMethodDescription);
-        setAdvancedProperty(MULTI_ATTRIBUTE_SEPARATOR, "Multiple Attribute Separator", ",", MULTI_ATTRIBUTE_SEPARATOR_DESCRIPTION);
+        setAdvancedProperty(MULTI_ATTRIBUTE_SEPARATOR, "多值分隔符", ",", MULTI_ATTRIBUTE_SEPARATOR_DESCRIPTION);
 
-        setAdvancedProperty(UserStoreConfigConstants.maxUserNameListLength, "Maximum User List Length", "100", UserStoreConfigConstants
+        setAdvancedProperty(UserStoreConfigConstants.maxUserNameListLength, "用户列表最大长度", "100", UserStoreConfigConstants
                 .maxUserNameListLengthDescription);
-        setAdvancedProperty(UserStoreConfigConstants.maxRoleNameListLength, "Maximum Role List Length", "100", UserStoreConfigConstants
+        setAdvancedProperty(UserStoreConfigConstants.maxRoleNameListLength, "角色列表最大长度", "100", UserStoreConfigConstants
                 .maxRoleNameListLengthDescription);
 
-        setAdvancedProperty(UserStoreConfigConstants.userRolesCacheEnabled, "Enable User Role Cache", "true", UserStoreConfigConstants
+        setAdvancedProperty(UserStoreConfigConstants.userRolesCacheEnabled, "启用用户角色缓存", "true", UserStoreConfigConstants
                 .userRolesCacheEnabledDescription);
 
-        setAdvancedProperty(UserStoreConfigConstants.connectionPoolingEnabled, "Enable LDAP Connection Pooling", "false",
+        setAdvancedProperty(UserStoreConfigConstants.connectionPoolingEnabled, "启用LDAP连接池", "false",
                 UserStoreConfigConstants.connectionPoolingEnabledDescription);
-        setAdvancedProperty(LDAPConnectionTimeout, "LDAP Connection Timeout", "5000", LDAPConnectionTimeoutDescription);
+        setAdvancedProperty(LDAPConnectionTimeout, "LDAP 连接超时", "5000", LDAPConnectionTimeoutDescription);
 
-        setAdvancedProperty(readTimeout, "LDAP Read Timeout", "5000", readTimeoutDescription);
-        setAdvancedProperty(RETRY_ATTEMPTS, "Retry Attempts", "0", "Number of retries for" +
-                " authentication in case ldap read timed out.");
-        setAdvancedProperty("CountRetrieverClass", "Count Implementation", "",
-                "Name of the class that implements the count functionality");
-        setAdvancedProperty(LDAPConstants.LDAP_ATTRIBUTES_BINARY, "LDAP binary attributes", " ",
+        setAdvancedProperty(readTimeout, "LDAP 读取超时", "5000", readTimeoutDescription);
+        setAdvancedProperty(RETRY_ATTEMPTS, "重试次数", "0", "LDAP读取超时情况下的身份验证重试次数.");
+        setAdvancedProperty("CountRetrieverClass", "计数实现", "",
+                "实现计数功能的类的名称");
+        setAdvancedProperty(LDAPConstants.LDAP_ATTRIBUTES_BINARY, "LDAP 二进制属性", " ",
                 LDAPBinaryAttributesDescription);
         setAdvancedProperty(UserStoreConfigConstants.claimOperationsSupported, UserStoreConfigConstants
                 .getClaimOperationsSupportedDisplayName, "false", UserStoreConfigConstants.claimOperationsSupportedDescription);
         setAdvancedProperty(MEMBERSHIP_ATTRIBUTE_RANGE, MEMBERSHIP_ATTRIBUTE_RANGE_DISPLAY_NAME,
-                String.valueOf(MEMBERSHIP_ATTRIBUTE_RANGE_VALUE), "Number of maximum users of role returned by the LDAP");
+                String.valueOf(MEMBERSHIP_ATTRIBUTE_RANGE_VALUE), "LDAP返回的角色的最大用户数");
         setAdvancedProperty(LDAPConstants.USER_CACHE_EXPIRY_MILLISECONDS, USER_CACHE_EXPIRY_TIME_ATTRIBUTE_NAME, "",
                 USER_CACHE_EXPIRY_TIME_ATTRIBUTE_DESCRIPTION);
         setAdvancedProperty(LDAPConstants.USER_DN_CACHE_ENABLED, USER_DN_CACHE_ENABLED_ATTRIBUTE_NAME, "true",
@@ -4229,7 +4228,7 @@ public class ReadOnlyLDAPUserStoreManager extends AbstractUserStoreManager {
                     log.debug("Tenant domain : " + tenantDomain + " found for the tenant ID : " + tenantId);
                 }
             } catch (org.wso2.carbon.user.api.UserStoreException e) {
-                throw new UserStoreException("Could not get the tenant domain for tenant id : " + tenantId, e);
+                throw new UserStoreException("无法获取租户ID的租户域 : " + tenantId, e);
             }
         }
 

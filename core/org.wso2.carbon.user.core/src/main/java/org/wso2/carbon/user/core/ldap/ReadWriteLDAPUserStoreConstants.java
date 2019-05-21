@@ -34,11 +34,11 @@ public class ReadWriteLDAPUserStoreConstants {
     private static final String DisplayNameAttributeDescription = "可作为显示名称的属性名称";
     private static final String DisplayNameAttribute = "DisplayNameAttribute";
     private static final String usernameJavaRegExViolationErrorMsg = "UsernameJavaRegExViolationErrorMsg";
-    private static final String usernameJavaRegExViolationErrorMsgDescription = "用户名与UsernameJavaRegEx不匹配时的错误信息";
+    private static final String usernameJavaRegExViolationErrorMsgDescription = "用户名与用户名正则表达式不匹配时的错误信息";
 
     private static final String passwordJavaRegEx = "PasswordJavaRegEx";
     private static final String passwordJavaRegExViolationErrorMsg = "PasswordJavaRegExViolationErrorMsg";
-    private static final String passwordJavaRegExViolationErrorMsgDescription = "密码与passwordJavaRegEx不匹配时的错误信息 " ;
+    private static final String passwordJavaRegExViolationErrorMsgDescription = "密码与密码正则表达式不匹配时的错误信息 " ;
 
     private static final String passwordJavaRegExDescription = "在后端定义密码格式的策略";
     private static final String roleDNPattern = "RoleDNPattern";
@@ -55,7 +55,7 @@ public class ReadWriteLDAPUserStoreConstants {
         setMandatoryProperty(UserStoreConfigConstants.connectionPassword, "连接密码",
                 "", UserStoreConfigConstants.connectionPasswordDescription, true);
         setMandatoryProperty(UserStoreConfigConstants.userSearchBase, "用户搜索库",
-                "ou=Users,dc=wso2,dc=org", UserStoreConfigConstants.userSearchBaseDescription, false);
+                "ou=Users,dc=gds,dc=org", UserStoreConfigConstants.userSearchBaseDescription, false);
         setMandatoryProperty(UserStoreConfigConstants.userEntryObjectClass,
                 "用户实体对象类", "wso2Person", UserStoreConfigConstants
                         .userEntryObjectClassDescription, false);

@@ -1,13 +1,13 @@
 /*
  * Copyright (c) 2005-2010, WSO2 Inc. (http://www.wso2.org) All Rights Reserved.
- * 
+ *
  * WSO2 Inc. licenses this file to you under the Apache License,
  * Version 2.0 (the "License"); you may not use this file except
  * in compliance with the License.
  * You may obtain a copy of the License at
- * 
+ *
  * http://www.apache.org/licenses/LICENSE-2.0
- * 
+ *
  * Unless required by applicable law or agreed to in writing,
  * software distributed under the License is distributed on an
  * "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
@@ -66,16 +66,15 @@ public class ActiveDirectoryUserStoreManager extends ReadWriteLDAPUserStoreManag
     private String userAccountControl = "512";
     private String userAttributeSeparator = ",";
     private static final String MULTI_ATTRIBUTE_SEPARATOR = "MultiAttributeSeparator";
-    private static final String MULTI_ATTRIBUTE_SEPARATOR_DESCRIPTION = "This is the separator for multiple claim values";
+    private static final String MULTI_ATTRIBUTE_SEPARATOR_DESCRIPTION = "多个声明的分隔符";
     private static final ArrayList<Property> ACTIVE_DIRECTORY_UM_ADVANCED_PROPERTIES = new ArrayList<Property>();
     private static final String LDAPConnectionTimeout = "LDAPConnectionTimeout";
-    private static final String LDAPConnectionTimeoutDescription = "LDAP Connection Timeout";
+    private static final String LDAPConnectionTimeoutDescription = "LDAP 连接超时";
     private static final String BULK_IMPORT_SUPPORT = "BulkImportSupported";
     private static final String readTimeout = "ReadTimeout";
-    private static final String readTimeoutDescription = "Configure this to define the read timeout for LDAP operations";
+    private static final String readTimeoutDescription = "配置此项以定义LDAP操作的读取超时";
     private static final String RETRY_ATTEMPTS = "RetryAttempts";
-    private static final String LDAPBinaryAttributesDescription = "Configure this to define the LDAP binary attributes " +
-            "seperated by a space. Ex:mpegVideo mySpecialKey";
+    private static final String LDAPBinaryAttributesDescription = "配置此属性以定义由空间分隔的LDAP二进制属性。例如:mpegVideo mySpecialKey";
 
     // For AD's this value is 1500 by default, hence overriding the default value.
     protected static final int MEMBERSHIP_ATTRIBUTE_RANGE_VALUE = 1500;
@@ -157,7 +156,7 @@ public class ActiveDirectoryUserStoreManager extends ReadWriteLDAPUserStoreManag
         try {
             credentialObj = Secret.getSecret(credential);
         } catch (UnsupportedSecretTypeException e) {
-            throw new UserStoreException("Unsupported credential type", e);
+            throw new UserStoreException("不支持的凭据类型", e);
         }
 
         Name compoundName = null;
@@ -192,15 +191,15 @@ public class ActiveDirectoryUserStoreManager extends ReadWriteLDAPUserStoreManag
             dirContext.modifyAttributes(compoundName, mods);
 
         } catch (NamingException e) {
-            String errorMessage = "Error while adding the user to the Active Directory for user : " + userName;
+            String errorMessage = "将用户添加到Active Directory时出错，用户为: " + userName;
             if (isUserBinded) {
                 try {
                     dirContext.unbind(compoundName);
                 } catch (NamingException e1) {
-                    errorMessage = "Error while accessing the Active Directory for user : " + userName;
+                    errorMessage = "访问Active Directory时出错，用户为 : " + userName;
                     throw new UserStoreException(errorMessage, e);
                 }
-                errorMessage = "Error while enabling the user account. Please check password policy at DC for user : " +
+                errorMessage = "启用用户帐户时出错。请检查用户在DC的密码策略 : " +
                                userName;
             }
             throw new UserStoreException(errorMessage, e);
@@ -239,7 +238,7 @@ public class ActiveDirectoryUserStoreManager extends ReadWriteLDAPUserStoreManag
                 try {
                     attributeName = getClaimAtrribute(claimURI, userName, null);
                 } catch (org.wso2.carbon.user.api.UserStoreException e) {
-                    String errorMessage = "Error in obtaining claim mapping.";
+                    String errorMessage = "获取声明映射时发生错误.";
                     throw new UserStoreException(errorMessage, e);
                 }
 
@@ -280,7 +279,7 @@ public class ActiveDirectoryUserStoreManager extends ReadWriteLDAPUserStoreManag
         try {
             credentialObj = Secret.getSecret(newCredential);
         } catch (UnsupportedSecretTypeException e) {
-            throw new UserStoreException("Unsupported credential type", e);
+            throw new UserStoreException("不支持的凭据类型", e);
         }
 
         try {
@@ -292,14 +291,14 @@ public class ActiveDirectoryUserStoreManager extends ReadWriteLDAPUserStoreManag
             while (searchResults.hasMore()) {
                 if (count > 0) {
                     throw new UserStoreException(
-                            "There are more than one result in the user store " + "for user: "
+                            "用户存储区中有多个结果 " + "用户为: "
                                     + userName);
                 }
                 user = searchResults.next();
                 count++;
             }
             if (user == null) {
-                throw new UserStoreException("User :" + userName + " does not Exist");
+                throw new UserStoreException("用户 :" + userName + " 不存在");
             }
 
             ModificationItem[] mods = null;
@@ -315,7 +314,7 @@ public class ActiveDirectoryUserStoreManager extends ReadWriteLDAPUserStoreManag
             subDirContext.modifyAttributes(user.getName(), mods);
 
         } catch (NamingException e) {
-            String error = "Can not access the directory service for user : " + userName;
+            String error = "无法访问目录服务，用户为: " + userName;
             if (logger.isDebugEnabled()) {
                 logger.debug(error, e);
             }
@@ -354,14 +353,14 @@ public class ActiveDirectoryUserStoreManager extends ReadWriteLDAPUserStoreManag
             int count = 0;
             while (searchResults.hasMore()) {
                 if (count > 0) {
-                    throw new UserStoreException("There are more than one result in the user store " + "for user: "
+                    throw new UserStoreException("用户存储区中有多个结果。" + "用户为: "
                             + userName);
                 }
                 user = searchResults.next();
                 count++;
             }
             if (user == null) {
-                throw new UserStoreException("User :" + userName + " does not Exist");
+                throw new UserStoreException("用户 :" + userName + " 不存在");
             }
 
             ModificationItem[] mods;
@@ -371,7 +370,7 @@ public class ActiveDirectoryUserStoreManager extends ReadWriteLDAPUserStoreManag
                 try {
                     credentialObj = Secret.getSecret(newCredential);
                 } catch (UnsupportedSecretTypeException e) {
-                    throw new UserStoreException("Unsupported credential type", e);
+                    throw new UserStoreException("不支持的凭据类型", e);
                 }
 
                 try {
@@ -388,7 +387,7 @@ public class ActiveDirectoryUserStoreManager extends ReadWriteLDAPUserStoreManag
             }
 
         } catch (NamingException e) {
-            String error = "Can not access the directory service for user : " + userName;
+            String error = "无法访问目录服务，用户为 : " + userName;
             if (logger.isDebugEnabled()) {
                 logger.debug(error, e);
             }
@@ -511,7 +510,7 @@ public class ActiveDirectoryUserStoreManager extends ReadWriteLDAPUserStoreManag
             returnedUserEntry = returnedResultList.next().getName();
 
         } catch (NamingException e) {
-            String errorMessage = "Results could not be retrieved from the directory context for user : " + userName;
+            String errorMessage = "无法从目录上下文中检索结果，用户为 : " + userName;
             if (logger.isDebugEnabled()) {
                 logger.debug(errorMessage, e);
             }
@@ -631,7 +630,7 @@ public class ActiveDirectoryUserStoreManager extends ReadWriteLDAPUserStoreManag
             // TODO:what if more than one user is returned
             returnedUserEntry = returnedResultList.next().getName();
         } catch (NamingException e) {
-            String errorMessage = "Results could not be retrieved from the directory context for user : " + userName;
+            String errorMessage = "无法从目录上下文中检索结果，用户为 : " + userName;
             if (logger.isDebugEnabled()) {
                 logger.debug(errorMessage, e);
             }
@@ -706,34 +705,32 @@ public class ActiveDirectoryUserStoreManager extends ReadWriteLDAPUserStoreManag
 
     private void handleException(Exception e, String userName) throws UserStoreException{
         if (e instanceof InvalidAttributeValueException) {
-            String errorMessage = "One or more attribute values provided are incompatible for user : " + userName
+            String errorMessage = "提供的一个或多个属性值不兼容，用户为 : " + userName
                                   + "Please check and try again.";
             if (logger.isDebugEnabled()) {
                 logger.debug(errorMessage, e);
             }
             throw new UserStoreException(errorMessage, e);
         } else if (e instanceof InvalidAttributeIdentifierException) {
-            String errorMessage = "One or more attributes you are trying to add/update are not "
-                                  + "supported by underlying LDAP for user : " + userName;
+            String errorMessage = "基础LDAP不支持您试图添加/更新一个或多个属性。 用户为 : " + userName;
             if (logger.isDebugEnabled()) {
                 logger.debug(errorMessage, e);
             }
             throw new UserStoreException(errorMessage, e);
         } else if (e instanceof NoSuchAttributeException) {
-            String errorMessage = "One or more attributes you are trying to add/update are not "
-                                  + "supported by underlying LDAP for user : " + userName;
+            String errorMessage = "基础LDAP不支持您试图添加/更新的一个或多个属性。用户为 : " + userName;
             if (logger.isDebugEnabled()) {
                 logger.debug(errorMessage, e);
             }
             throw new UserStoreException(errorMessage, e);
         } else if (e instanceof NamingException) {
-            String errorMessage = "Profile information could not be updated in LDAP user store for user : " + userName;
+            String errorMessage = "无法在LDAP用户存储中更新用户资料，用户为 : " + userName;
             if (logger.isDebugEnabled()) {
                 logger.debug(errorMessage, e);
             }
             throw new UserStoreException(errorMessage, e);
         } else if (e instanceof org.wso2.carbon.user.api.UserStoreException) {
-            String errorMessage = "Error in obtaining claim mapping for user : " + userName;
+            String errorMessage = "获取声明映射时发生错误，用户为 : " + userName;
             if (logger.isDebugEnabled()) {
                 logger.debug(errorMessage, e);
             }
@@ -889,42 +886,41 @@ public class ActiveDirectoryUserStoreManager extends ReadWriteLDAPUserStoreManag
         //Set Advanced Properties
 
         ACTIVE_DIRECTORY_UM_ADVANCED_PROPERTIES.clear();
-        setAdvancedProperty(UserStoreConfigConstants.SCIMEnabled, "Enable SCIM", "false", UserStoreConfigConstants
+        setAdvancedProperty(UserStoreConfigConstants.SCIMEnabled, "启用 SCIM", "false", UserStoreConfigConstants
                 .SCIMEnabledDescription);
 
-        setAdvancedProperty(BULK_IMPORT_SUPPORT, "Bulk Import Support", "true", "Bulk Import Supported");
-        setAdvancedProperty(UserStoreConfigConstants.emptyRolesAllowed, "Allow Empty Roles", "true", UserStoreConfigConstants
+        setAdvancedProperty(BULK_IMPORT_SUPPORT, "支持批导入", "true", "支持批导入");
+        setAdvancedProperty(UserStoreConfigConstants.emptyRolesAllowed, "允许空角色", "true", UserStoreConfigConstants
                 .emptyRolesAllowedDescription);
 
 
-        setAdvancedProperty(UserStoreConfigConstants.passwordHashMethod, "Password Hashing Algorithm", "PLAIN_TEXT",
+        setAdvancedProperty(UserStoreConfigConstants.passwordHashMethod, "密码哈希算法", "PLAIN_TEXT",
                 UserStoreConfigConstants.passwordHashMethodDescription);
-        setAdvancedProperty(MULTI_ATTRIBUTE_SEPARATOR, "Multiple Attribute Separator", ",", MULTI_ATTRIBUTE_SEPARATOR_DESCRIPTION);
-        setAdvancedProperty("isADLDSRole", "Is ADLDS Role", "false", "Whether an Active Directory Lightweight Directory Services role");
-        setAdvancedProperty("userAccountControl", "User Account Control", "512", "Flags that control the behavior of the user account");
+        setAdvancedProperty(MULTI_ATTRIBUTE_SEPARATOR, "多值分隔符", ",", MULTI_ATTRIBUTE_SEPARATOR_DESCRIPTION);
+        setAdvancedProperty("isADLDSRole", "是 ADLDS 角色", "false", "是否为Active Directory轻量级目录服务角色");
+        setAdvancedProperty("userAccountControl", "用户账号控制", "512", "控制用户帐户行为的标志");
 
 
-        setAdvancedProperty(UserStoreConfigConstants.maxUserNameListLength, "Maximum User List Length", "100", UserStoreConfigConstants
+        setAdvancedProperty(UserStoreConfigConstants.maxUserNameListLength, "用户列表最大长度", "100", UserStoreConfigConstants
                 .maxUserNameListLengthDescription);
-        setAdvancedProperty(UserStoreConfigConstants.maxRoleNameListLength, "Maximum Role List Length", "100", UserStoreConfigConstants
+        setAdvancedProperty(UserStoreConfigConstants.maxRoleNameListLength, "角色列表最大长度", "100", UserStoreConfigConstants
                 .maxRoleNameListLengthDescription);
 
-        setAdvancedProperty("kdcEnabled", "Enable KDC", "false", "Whether key distribution center enabled");
-        setAdvancedProperty("defaultRealmName", "Default Realm Name", "WSO2.ORG", "Default name for the realm");
+        setAdvancedProperty("kdcEnabled", "启用 KDC", "false", "是否启用密钥分发中心(KDC)");
+        setAdvancedProperty("defaultRealmName", "默认领域名称", "GDS.ORG", "默认领域名称");
 
-        setAdvancedProperty(UserStoreConfigConstants.userRolesCacheEnabled, "Enable User Role Cache", "true", UserStoreConfigConstants
+        setAdvancedProperty(UserStoreConfigConstants.userRolesCacheEnabled, "启用用户角色缓存", "true", UserStoreConfigConstants
                 .userRolesCacheEnabledDescription);
 
-        setAdvancedProperty(UserStoreConfigConstants.connectionPoolingEnabled, "Enable LDAP Connection Pooling", "false",
+        setAdvancedProperty(UserStoreConfigConstants.connectionPoolingEnabled, "启用LDAP连接池", "false",
                 UserStoreConfigConstants.connectionPoolingEnabledDescription);
 
-        setAdvancedProperty(LDAPConnectionTimeout, "LDAP Connection Timeout", "5000", LDAPConnectionTimeoutDescription);
-        setAdvancedProperty(readTimeout, "LDAP Read Timeout", "5000", readTimeoutDescription);
-        setAdvancedProperty(RETRY_ATTEMPTS, "Retry Attempts", "0", "Number of retries for" +
-                " authentication in case ldap read timed out.");
-        setAdvancedProperty("CountRetrieverClass", "Count Implementation", "",
-                "Name of the class that implements the count functionality");
-        setAdvancedProperty(LDAPConstants.LDAP_ATTRIBUTES_BINARY, "LDAP binary attributes", " ",
+        setAdvancedProperty(LDAPConnectionTimeout, "LDAP 连接超时", "5000", LDAPConnectionTimeoutDescription);
+        setAdvancedProperty(readTimeout, "LDAP 读取超时", "5000", readTimeoutDescription);
+        setAdvancedProperty(RETRY_ATTEMPTS, "重试次数", "0", "LDAP读取超时情况下的身份验证重试次数.");
+        setAdvancedProperty("CountRetrieverClass", "计数实现", "",
+                "实现计数功能的类的名称");
+        setAdvancedProperty(LDAPConstants.LDAP_ATTRIBUTES_BINARY, "LDAP 二进制属性", " ",
                 LDAPBinaryAttributesDescription);
         setAdvancedProperty(UserStoreConfigConstants.claimOperationsSupported, UserStoreConfigConstants
                 .getClaimOperationsSupportedDisplayName, "true", UserStoreConfigConstants.claimOperationsSupportedDescription);
@@ -932,7 +928,7 @@ public class ActiveDirectoryUserStoreManager extends ReadWriteLDAPUserStoreManag
                 ActiveDirectoryUserStoreConstants.TRANSFORM_OBJECTGUID_TO_UUID_DESC , "true",
                 ActiveDirectoryUserStoreConstants.TRANSFORM_OBJECTGUID_TO_UUID_DESC);
         setAdvancedProperty(MEMBERSHIP_ATTRIBUTE_RANGE, MEMBERSHIP_ATTRIBUTE_RANGE_DISPLAY_NAME,
-                String.valueOf(MEMBERSHIP_ATTRIBUTE_RANGE_VALUE), "Number of maximum users of role returned by the AD");
+                String.valueOf(MEMBERSHIP_ATTRIBUTE_RANGE_VALUE), "AD返回的角色的最大用户数");
 
         setAdvancedProperty(LDAPConstants.USER_CACHE_EXPIRY_MILLISECONDS, USER_CACHE_EXPIRY_TIME_ATTRIBUTE_NAME, "",
                 USER_CACHE_EXPIRY_TIME_ATTRIBUTE_DESCRIPTION);

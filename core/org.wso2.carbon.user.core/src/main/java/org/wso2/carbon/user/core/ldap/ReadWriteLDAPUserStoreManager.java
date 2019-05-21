@@ -1,13 +1,13 @@
-/*
+﻿/*
  * Copyright (c) 2005-2010, WSO2 Inc. (http://www.wso2.org) All Rights Reserved.
- * 
+ *
  * WSO2 Inc. licenses this file to you under the Apache License,
  * Version 2.0 (the "License"); you may not use this file except
  * in compliance with the License.
  * You may obtain a copy of the License at
- * 
+ *
  * http://www.apache.org/licenses/LICENSE-2.0
- * 
+ *
  * Unless required by applicable law or agreed to in writing,
  * software distributed under the License is distributed on an
  * "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
@@ -84,17 +84,16 @@ public class ReadWriteLDAPUserStoreManager extends ReadOnlyLDAPUserStoreManager 
     protected static final String KRB5_PRINCIPAL_NAME_ATTRIBUTE = "krb5PrincipalName";
     protected static final String KRB5_KEY_VERSION_NUMBER_ATTRIBUTE = "krb5KeyVersionNumber";
     protected static final String EMPTY_ATTRIBUTE_STRING = "";
-    private static final String MULTI_ATTRIBUTE_SEPARATOR_DESCRIPTION = "This is the separator for multiple claim values";
+    private static final String MULTI_ATTRIBUTE_SEPARATOR_DESCRIPTION = "这是多个声明值的分隔符";
 
     private static final String MULTI_ATTRIBUTE_SEPARATOR = "MultiAttributeSeparator";
     private static final ArrayList<Property> RW_LDAP_UM_ADVANCED_PROPERTIES = new ArrayList<Property>();
     private static final String LDAPConnectionTimeout = "LDAPConnectionTimeout";
-    private static final String LDAPConnectionTimeoutDescription = "LDAP Connection Timeout";
+    private static final String LDAPConnectionTimeoutDescription = "LDAP连接超时";
     private static final String readTimeout = "ReadTimeout";
-    private static final String readTimeoutDescription = "Configure this to define the read timeout for LDAP operations";
+    private static final String readTimeoutDescription = "配置此项以定义LDAP操作的读取超时";
     private static final String RETRY_ATTEMPTS = "RetryAttempts";
-    private static final String LDAPBinaryAttributesDescription = "Configure this to define the LDAP binary attributes " +
-            "seperated by a space. Ex:mpegVideo mySpecialKey";
+    private static final String LDAPBinaryAttributesDescription = "配置此属性以定义由空间分隔的LDAP二进制属性。示例:mpegVideo mySpecialKey";
 
     /* To track whether this is the first time startup of the server. */
     protected static boolean isFirstStartup = true;
@@ -140,7 +139,7 @@ public class ReadWriteLDAPUserStoreManager extends ReadOnlyLDAPUserStoreManager 
             dataSource = DatabaseUtil.getRealmDataSource(realmConfig);
         }
         if (dataSource == null) {
-            throw new UserStoreException("Data Source is null");
+            throw new UserStoreException("数据源为空");
         }
         properties.put(UserCoreConstants.DATA_SOURCE, dataSource);
 
@@ -164,7 +163,7 @@ public class ReadWriteLDAPUserStoreManager extends ReadOnlyLDAPUserStoreManager 
             dirContext = connectionSource.getContext();
             log.info("LDAP connection created successfully in read-write mode");
         } catch (Exception e) {
-            throw new UserStoreException("Cannot create connection to LDAP server. Error message "
+            throw new UserStoreException("无法创建到LDAP服务器的连接。错误信息： "
                     + e.getMessage());
         } finally {
             JNDIUtil.closeContext(dirContext);
@@ -286,8 +285,7 @@ public class ReadWriteLDAPUserStoreManager extends ReadOnlyLDAPUserStoreManager 
             }
             dirContext.bind(compoundName, null, basicAttributes);
         } catch (NamingException e) {
-            String errorMessage = "Cannot access the directory context or "
-                                  + "user already exists in the system for user :" + userName;
+            String errorMessage = "无法访问目录上下文，或者用户的系统中已存在用户 :" + userName;
             if (log.isDebugEnabled()) {
                 log.debug(errorMessage, e);
             }
@@ -306,7 +304,7 @@ public class ReadWriteLDAPUserStoreManager extends ReadOnlyLDAPUserStoreManager 
                     log.debug("Roles are added for user  : " + userName + " successfully.");
                 }
             } catch (UserStoreException e) {
-                String errorMessage = "User is added. But error while updating role list of user : " + userName;
+                String errorMessage = "用户已添加。但更新用户角色列表时出错 : " + userName;
                 if (log.isDebugEnabled()) {
                     log.debug(errorMessage, e);
                 }
@@ -327,18 +325,18 @@ public class ReadWriteLDAPUserStoreManager extends ReadOnlyLDAPUserStoreManager 
 
         if (!checkUserNameValid(userName)) {
             throw new UserStoreException(
-                    "User name not valid. User name must be a non null string with following format, "
+                    "用户名无效。用户名必须是具有以下格式的非空字符串, "
                             + realmConfig
                             .getUserStoreProperty(UserCoreConstants.RealmConfig.PROPERTY_USER_NAME_JAVA_REG_EX));
         }
         if (!checkUserPasswordValid(credential)) {
             throw new UserStoreException(
-                    "Credential not valid. Credential must be a non null string with following format, "
+                    "凭据无效。凭据必须是具有以下格式的非空字符串, "
                             + realmConfig
                             .getUserStoreProperty(UserCoreConstants.RealmConfig.PROPERTY_JAVA_REG_EX));
         }
         if (isExistingUser(userName)) {
-            throw new UserStoreException("User " + userName + " already exist in the LDAP");
+            throw new UserStoreException("用户 " + userName + " 已存在于LDAP中");
         }
     }
 
@@ -356,8 +354,8 @@ public class ReadWriteLDAPUserStoreManager extends ReadOnlyLDAPUserStoreManager 
         try {
             return (DirContext) mainDirContext.lookup(searchBase);
         } catch (NamingException e) {
-            String errorMessage = "Can not access the directory context or"
-                    + "user already exists in the system";
+            String errorMessage = "无法访问目录上下文或系统中已存在用户";
+
             if (log.isDebugEnabled()) {
                 log.debug(errorMessage, e);
             }
@@ -447,7 +445,7 @@ public class ReadWriteLDAPUserStoreManager extends ReadOnlyLDAPUserStoreManager 
         if (claims != null) {
             for (Map.Entry<String, String> entry : claims.entrySet()) {
 				/*
-				 * LDAP does not allow for empty values. If an attribute has a value it’s stored
+				 * LDAP does not allow for empty values. If an attribute has a value itâ€™s stored
 				 * with the entry, otherwise it is not. Hence needs to check for empty values before
 				 * storing the attribute.
 				 */
@@ -465,7 +463,7 @@ public class ReadWriteLDAPUserStoreManager extends ReadOnlyLDAPUserStoreManager 
                 try {
                     attributeName = getClaimAtrribute(claimURI, userName, null);
                 } catch (org.wso2.carbon.user.api.UserStoreException e) {
-                    String errorMessage = "Error in obtaining claim mapping.";
+                    String errorMessage = "获取声明映射时发生错误.";
                     throw new UserStoreException(errorMessage, e);
                 }
 
@@ -573,9 +571,8 @@ public class ReadWriteLDAPUserStoreManager extends ReadOnlyLDAPUserStoreManager 
                         groupResult = groupResults.next();
                     }
                     if (isOnlyUserInRole(userDN, groupResult) && !emptyRolesAllowed) {
-                        String errorMessage = "User: " + userName + " is the only user " + "in "
-                                + role + "." + "There should be at " + "least one user"
-                                + " in the role. Hence can" + " not delete the user.";
+                        String errorMessage = "用户: " + userName + " 是角色"
+                                + role + "的唯一用户." + "角色应该至少有一个用户. 所以不能删除用户.";
                         throw new UserStoreException(errorMessage);
                     }
                 }
@@ -595,7 +592,7 @@ public class ReadWriteLDAPUserStoreManager extends ReadOnlyLDAPUserStoreManager 
             }
             removeFromUserCache(userName);
         } catch (NamingException e) {
-            String errorMessage = "Error occurred while deleting the user : " + userName;
+            String errorMessage = "当输出用户时发生错误 : " + userName;
             if (log.isDebugEnabled()) {
                 log.debug(errorMessage, e);
             }
@@ -663,7 +660,7 @@ public class ReadWriteLDAPUserStoreManager extends ReadOnlyLDAPUserStoreManager 
             }
 
         } catch (NamingException e) {
-            String errorMessage = "Can not access the directory service for user : " + userName;
+            String errorMessage = "不能访问目录服务，用户 : " + userName;
             if (log.isDebugEnabled()) {
                 log.debug(errorMessage, e);
             }
@@ -752,7 +749,7 @@ public class ReadWriteLDAPUserStoreManager extends ReadOnlyLDAPUserStoreManager 
             }
 
         } catch (NamingException e) {
-            String errorMessage = "Can not access the directory service for user : " + userName;
+            String errorMessage = "不能访问目录服务，用户 : " + userName;
             if (log.isDebugEnabled()) {
                 log.debug(errorMessage, e);
             }
@@ -774,12 +771,12 @@ public class ReadWriteLDAPUserStoreManager extends ReadOnlyLDAPUserStoreManager 
     protected void doUpdateCredentialsValidityChecks(String userName, Object newCredential)
             throws UserStoreException {
         if (!isExistingUser(userName)) {
-            throw new UserStoreException("User " + userName + " does not exisit in the user store");
+            throw new UserStoreException("用户 " + userName + " 在用户存储中不存在");
         }
 
         if (!checkUserPasswordValid(newCredential)) {
             throw new UserStoreException(
-                    "Credential not valid. Credential must be a non null string with following format, "
+                    "凭据无效。凭据必须是具有以下格式的非空字符串, "
                             + realmConfig
                             .getUserStoreProperty(UserCoreConstants.RealmConfig.PROPERTY_JAVA_REG_EX));
         }
@@ -859,7 +856,7 @@ public class ReadWriteLDAPUserStoreManager extends ReadOnlyLDAPUserStoreManager 
             }
 
         } catch (NamingException e) {
-            String errorMessage = "Results could not be retrieved from the directory context for user : " + userName;
+            String errorMessage = "无法从用户的目录上下文中检索结果 : " + userName;
             if (log.isDebugEnabled()) {
                 log.debug(errorMessage, e);
             }
@@ -983,7 +980,7 @@ public class ReadWriteLDAPUserStoreManager extends ReadOnlyLDAPUserStoreManager 
             returnedUserEntry = returnedResultList.next().getName();
 
         } catch (NamingException e) {
-            String errorMessage = "Results could not be retrieved from the directory context for user : " + userName;
+            String errorMessage = "无法从用户的目录上下文中检索结果 : " + userName;
             if (log.isDebugEnabled()) {
                 log.debug(errorMessage, e);
             }
@@ -1074,7 +1071,7 @@ public class ReadWriteLDAPUserStoreManager extends ReadOnlyLDAPUserStoreManager 
             returnedUserEntry = returnedResultList.next().getName();
 
         } catch (NamingException e) {
-            String errorMessage = "Results could not be retrieved from the directory context for user : " + userName;
+            String errorMessage = "无法从用户的目录上下文中检索结果 : " + userName;
             if (log.isDebugEnabled()) {
                 log.debug(errorMessage, e);
             }
@@ -1133,7 +1130,7 @@ public class ReadWriteLDAPUserStoreManager extends ReadOnlyLDAPUserStoreManager 
             returnedUserEntry = returnedResultList.next().getName();
 
         } catch (NamingException e) {
-            String errorMessage = "Results could not be retrieved from the directory context for user : " + userName;
+            String errorMessage = "无法从用户的目录上下文中检索结果 : " + userName;
             if (log.isDebugEnabled()) {
                 log.debug(errorMessage, e);
             }
@@ -1198,8 +1195,8 @@ public class ReadWriteLDAPUserStoreManager extends ReadOnlyLDAPUserStoreManager 
         String searchBase = ((LDAPRoleContext) context).getSearchBase();
 
         if ((userList == null || userList.length == 0) && !emptyRolesAllowed) {
-            String errorMessage = "Can not create empty role. There should be at least "
-                    + "one user for the role.";
+            String errorMessage = "无法创建空角色。角色应该至少有一个用户.";
+
             throw new UserStoreException(errorMessage);
         } else if (userList == null && emptyRolesAllowed || userList != null && userList.length > 0
                 && !emptyRolesAllowed || emptyRolesAllowed) {
@@ -1246,8 +1243,8 @@ public class ReadWriteLDAPUserStoreManager extends ReadOnlyLDAPUserStoreManager 
                         if (results.hasMore()) {
                             userResult = results.next();
                         } else {
-                            String errorMsg = "There is no user with the user name: " + userName
-                                    + " to be added to this role.";
+                            String errorMsg = "没有用户名为: " + userName
+                                    + " 的用户被添加到该角色.";
                             logger.error(errorMsg);
                             throw new UserStoreException(errorMsg);
                         }
@@ -1269,13 +1266,13 @@ public class ReadWriteLDAPUserStoreManager extends ReadOnlyLDAPUserStoreManager 
                 groupContext.bind(compoundGroupName, null, groupAttributes);
 
             } catch (NamingException e) {
-                String errorMsg = "Role: " + roleName + " could not be added.";
+                String errorMsg = "角色: " + roleName + " 不能被添加.";
                 if (log.isDebugEnabled()) {
                     log.debug(errorMsg, e);
                 }
                 throw new UserStoreException(errorMsg, e);
             } catch (Exception e) {
-                String errorMsg = "Role: " + roleName + " could not be added.";
+                String errorMsg = "角色: " + roleName + " 不能被添加.";
                 if (log.isDebugEnabled()) {
                     log.debug(errorMsg, e);
                 }
@@ -1344,8 +1341,8 @@ public class ReadWriteLDAPUserStoreManager extends ReadOnlyLDAPUserStoreManager 
                     if (resultedGroup != null && isOnlyUserInRole(userNameDN, resultedGroup) &&
                             !emptyRolesAllowed) {
                         errorMessage =
-                                userName + " is the only user in the role: " + deletedRole +
-                                        ". Hence can not delete user from role.";
+                                userName + " 是角色: " + deletedRole +
+                                        "的唯一用户. 所以不能删除.";
                         throw new UserStoreException(errorMessage);
                     }
 
@@ -1381,8 +1378,8 @@ public class ReadWriteLDAPUserStoreManager extends ReadOnlyLDAPUserStoreManager 
                                         searchBase);
                             } else {
                                 errorMessage =
-                                        "User: " + URLEncoder.encode(userName, String.valueOf
-                                                (StandardCharsets.UTF_8)) + " does not belongs to role: " +
+                                        "用户: " + URLEncoder.encode(userName, String.valueOf
+                                                (StandardCharsets.UTF_8)) + " 不属于角色: " +
                                                 URLEncoder.encode(deletedRole, String.valueOf(StandardCharsets.UTF_8));
                                 throw new UserStoreException(errorMessage);
                             }
@@ -1394,8 +1391,8 @@ public class ReadWriteLDAPUserStoreManager extends ReadOnlyLDAPUserStoreManager 
                             userRealm.getAuthorizationManager().clearUserAuthorization(userName);
 
                         } else {
-                            errorMessage = "The role: " + URLEncoder.encode(deletedRole, String.valueOf
-                                    (StandardCharsets.UTF_8)) + " does not exist.";
+                            errorMessage = "角色: " + URLEncoder.encode(deletedRole, String.valueOf
+                                    (StandardCharsets.UTF_8)) + " 不存在.";
                             throw new UserStoreException(errorMessage);
                         }
                     }
@@ -1433,7 +1430,7 @@ public class ReadWriteLDAPUserStoreManager extends ReadOnlyLDAPUserStoreManager 
                                         searchBase);
                             } else {
                                 errorMessage =
-                                        "User: " + userName + " already belongs to role: " +
+                                        "用户: " + userName + " 已经属于角色: " +
                                                 groupDN;
                                 throw new UserStoreException(errorMessage);
                             }
@@ -1441,7 +1438,7 @@ public class ReadWriteLDAPUserStoreManager extends ReadOnlyLDAPUserStoreManager 
                             JNDIUtil.closeNamingEnumeration(groupResults);
 
                         } else {
-                            errorMessage = "The role: " + URLEncoder.encode(newRole, String.valueOf(StandardCharsets.UTF_8)) + " does not exist.";
+                            errorMessage = "角色: " + URLEncoder.encode(newRole, String.valueOf(StandardCharsets.UTF_8)) + " 不存在.";
                             throw new UserStoreException(errorMessage);
                         }
                     }
@@ -1449,13 +1446,13 @@ public class ReadWriteLDAPUserStoreManager extends ReadOnlyLDAPUserStoreManager 
             }
 
         } catch (NamingException e) {
-            errorMessage = "Error occurred while modifying the role list of user: " + userName;
+            errorMessage = "修改用户的角色列表时出错: " + userName;
             if (log.isDebugEnabled()) {
                 log.debug(errorMessage, e);
             }
             throw new UserStoreException(errorMessage, e);
         } catch (UnsupportedEncodingException e) {
-            errorMessage = "Error occurred while encoding the role value.";
+            errorMessage = "编码角色值时出错.";
             if (log.isDebugEnabled()) {
                 log.debug(errorMessage, e);
             }
@@ -1517,8 +1514,8 @@ public class ReadWriteLDAPUserStoreManager extends ReadOnlyLDAPUserStoreManager 
                 if (!emptyRolesAllowed &&
                         newUsers.length - deletedUsers.length + returnedMemberAttribute.size() == 0) {
                     errorMessage =
-                            "There should be at least one member in the role. "
-                                    + "Hence can not delete all the members.";
+                            "角色中应至少有一个成员。因此不能删除所有成员.";
+
                     throw new UserStoreException(errorMessage);
 
                 } else {
@@ -1544,9 +1541,9 @@ public class ReadWriteLDAPUserStoreManager extends ReadOnlyLDAPUserStoreManager 
                         }
                         if (!StringUtils.isEmpty(invalidUserList) || !StringUtils.isEmpty(existingUserList)) {
                             errorMessage = (StringUtils.isEmpty(invalidUserList) ? "" : "'" + invalidUserList
-                                    + "' not in the user store. ")
+                                    + "' 不在用户存储中. ")
                                     + (StringUtils.isEmpty(existingUserList) ? "" : "'" + existingUserList
-                                    + "' already belong to the role : " + roleName);
+                                    + "' 已经属于角色 : " + roleName);
                             throw new UserStoreException(errorMessage);
                         }
                     }
@@ -1565,7 +1562,7 @@ public class ReadWriteLDAPUserStoreManager extends ReadOnlyLDAPUserStoreManager 
                             }
                         }
                         if (!StringUtils.isEmpty(invalidUserList)) {
-                            errorMessage = "'" + invalidUserList + "' not in the user store.";
+                            errorMessage = "'" + invalidUserList + "' 不在用户存储中.";
                             throw new UserStoreException(errorMessage);
                         }
 
@@ -1582,7 +1579,7 @@ public class ReadWriteLDAPUserStoreManager extends ReadOnlyLDAPUserStoreManager 
                     }
                 }
             } catch (NamingException e) {
-                errorMessage = "Error occurred while modifying the user list of role: " + roleName;
+                errorMessage = "修改角色的用户列表时出错: " + roleName;
                 if (log.isDebugEnabled()) {
                     log.debug(errorMessage, e);
                 }
@@ -1592,7 +1589,7 @@ public class ReadWriteLDAPUserStoreManager extends ReadOnlyLDAPUserStoreManager 
                 JNDIUtil.closeContext(mainDirContext);
             }
         } else {
-            errorMessage = "The role: " + roleName + " does not exist.";
+            errorMessage = "角色: " + roleName + " 不存在.";
             if (log.isDebugEnabled()) {
                 log.debug(errorMessage);
             }
@@ -1633,8 +1630,8 @@ public class ReadWriteLDAPUserStoreManager extends ReadOnlyLDAPUserStoreManager 
                         + groupRDN);
             }
         } catch (NamingException e) {
-            String errorMessage = "Error occurred while modifying user entry: " + userNameDN
-                    + " in LDAP role: " + groupRDN;
+            String errorMessage = "修改用户实体时发生错误: " + userNameDN
+                    + " 在LDAP 角色: " + groupRDN;
             if (log.isDebugEnabled()) {
                 log.debug(errorMessage, e);
             }
@@ -1683,7 +1680,7 @@ public class ReadWriteLDAPUserStoreManager extends ReadOnlyLDAPUserStoreManager 
                 attributes.close();
             }
         } catch (NamingException e) {
-            String errorMessage = "Error occurred while looping through attributes set of group: "
+            String errorMessage = "在群组的属性集中循环时出错: "
                     + groupEntry.getNameInNamespace();
             if (log.isDebugEnabled()) {
                 log.debug(errorMessage, e);
@@ -1725,7 +1722,7 @@ public class ReadWriteLDAPUserStoreManager extends ReadOnlyLDAPUserStoreManager 
 
             }
         } catch (NamingException e) {
-            String errorMessage = "Error occurred while looping through attributes set of group: "
+            String errorMessage = "在群组的属性集中循环时出错: "
                     + groupEntry.getNameInNamespace();
             if (log.isDebugEnabled()) {
                 log.debug(errorMessage, e);
@@ -1758,8 +1755,8 @@ public class ReadWriteLDAPUserStoreManager extends ReadOnlyLDAPUserStoreManager 
             }
 
             if (resultedGroup == null) {
-                throw new UserStoreException("Could not find user role " + roleName
-                        + " in LDAP server.");
+                throw new UserStoreException("LDAP服务器上不能找到用户角色 " + roleName
+                        + " .");
             }
 
             String groupNameRDN = resultedGroup.getName();
@@ -1774,7 +1771,7 @@ public class ReadWriteLDAPUserStoreManager extends ReadOnlyLDAPUserStoreManager 
             this.userRealm.getAuthorizationManager().resetPermissionOnUpdateRole(
                     roleNameWithDomain, newRoleNameWithDomain);
         } catch (NamingException e) {
-            String errorMessage = "Error occurred while modifying the name of role: " + roleName;
+            String errorMessage = "修改角色名称时出错了: " + roleName;
             if (log.isDebugEnabled()) {
                 log.debug(errorMessage, e);
             }
@@ -1821,7 +1818,7 @@ public class ReadWriteLDAPUserStoreManager extends ReadOnlyLDAPUserStoreManager 
             }
 
             if (resultedGroup == null) {
-                throw new UserStoreException("Could not find specified group/role - " + roleName);
+                throw new UserStoreException("找不到指定的群组/角色 - " + roleName);
             }
 
             String groupName = resultedGroup.getName();
@@ -1834,7 +1831,7 @@ public class ReadWriteLDAPUserStoreManager extends ReadOnlyLDAPUserStoreManager 
                 groupContext.destroySubcontext(groupName);
             }
         } catch (NamingException e) {
-            String errorMessage = "Error occurred while deleting the role: " + roleName;
+            String errorMessage = "删除角色时发生错误: " + roleName;
             if (log.isDebugEnabled()) {
                 log.debug(errorMessage, e);
             }
@@ -1891,7 +1888,7 @@ public class ReadWriteLDAPUserStoreManager extends ReadOnlyLDAPUserStoreManager 
         try {
             userSearchResults = rootContext.search(escapeDNForSearch(userBase), searchFilter, userSearchControl);
         } catch (NamingException e) {
-            String errorMessage = "Error occurred while searching in user base.";
+            String errorMessage = "搜索用户库时发生错误.";
             if (log.isDebugEnabled()) {
                 log.debug(errorMessage, e);
             }
@@ -1923,7 +1920,7 @@ public class ReadWriteLDAPUserStoreManager extends ReadOnlyLDAPUserStoreManager 
         try {
             groupSearchResults = rootContext.search(escapeDNForSearch(searchBase), searchFilter, userSearchControl);
         } catch (NamingException e) {
-            String errorMessage = "Error occurred while searching in group base.";
+            String errorMessage = "搜索群组库时发生错误.";
             if (log.isDebugEnabled()) {
                 log.debug(errorMessage, e);
             }
@@ -1948,7 +1945,7 @@ public class ReadWriteLDAPUserStoreManager extends ReadOnlyLDAPUserStoreManager 
                 .getUserStoreProperty(LDAPConstants.USER_ENTRY_OBJECT_CLASS);
         if (userObjectClass == null || userObjectClass.equals("")) {
             throw new UserStoreException(
-                    "Required UserEntryObjectClass property is not set at the LDAP configurations");
+                    "在LDAP配置中没有设置必需的用户实体对象类(UserEntryObjectClass)属性");
         }
 
         if (realmConfig.getUserStoreProperty(UserCoreConstants.RealmConfig.WRITE_GROUPS_ENABLED) != null) {
@@ -1983,7 +1980,7 @@ public class ReadWriteLDAPUserStoreManager extends ReadOnlyLDAPUserStoreManager 
                 .getUserStoreProperty(LDAPConstants.GROUP_ENTRY_OBJECT_CLASS);
         if (groupEntryObjectClass == null || groupEntryObjectClass.equals("")) {
             throw new UserStoreException(
-                    "Required GroupEntryObjectClass property is not set at the LDAP configurations");
+                    "在LDAP配置中没有设置必需的群组实体对象类(GroupEntryObjectClass)属性");
         }
 
         userSearchBase = realmConfig.getUserStoreProperty(LDAPConstants.USER_SEARCH_BASE);
@@ -1996,44 +1993,44 @@ public class ReadWriteLDAPUserStoreManager extends ReadOnlyLDAPUserStoreManager 
         //Set Advanced Properties
 
         RW_LDAP_UM_ADVANCED_PROPERTIES.clear();
-        setAdvancedProperty(UserStoreConfigConstants.SCIMEnabled, "Enable SCIM", "false", UserStoreConfigConstants
+        setAdvancedProperty(UserStoreConfigConstants.SCIMEnabled, "启用SCIM", "false", UserStoreConfigConstants
                 .SCIMEnabledDescription);
 
-        setAdvancedProperty(BULK_IMPORT_SUPPORT, "Bulk Import Support", "true", "Bulk Import Supported");
-        setAdvancedProperty(UserStoreConfigConstants.emptyRolesAllowed, "Allow Empty Roles", "true", UserStoreConfigConstants
+        setAdvancedProperty(BULK_IMPORT_SUPPORT, "支持批导入", "true", "支持批导入");
+        setAdvancedProperty(UserStoreConfigConstants.emptyRolesAllowed, "允许空角色", "true", UserStoreConfigConstants
                 .emptyRolesAllowedDescription);
 
 
-        setAdvancedProperty(UserStoreConfigConstants.passwordHashMethod, "Password Hashing Algorithm", "PLAIN_TEXT",
+        setAdvancedProperty(UserStoreConfigConstants.passwordHashMethod, "密码哈希算法", "PLAIN_TEXT",
                 UserStoreConfigConstants.passwordHashMethodDescription);
-        setAdvancedProperty(MULTI_ATTRIBUTE_SEPARATOR, "Multiple Attribute Separator", ",", MULTI_ATTRIBUTE_SEPARATOR_DESCRIPTION);
+        setAdvancedProperty(MULTI_ATTRIBUTE_SEPARATOR, "多值分隔符", ",", MULTI_ATTRIBUTE_SEPARATOR_DESCRIPTION);
 
 
-        setAdvancedProperty(UserStoreConfigConstants.maxUserNameListLength, "Maximum User List Length", "100", UserStoreConfigConstants
+        setAdvancedProperty(UserStoreConfigConstants.maxUserNameListLength, "用户列表最大长度", "100", UserStoreConfigConstants
                 .maxUserNameListLengthDescription);
-        setAdvancedProperty(UserStoreConfigConstants.maxRoleNameListLength, "Maximum Role List Length", "100", UserStoreConfigConstants
+        setAdvancedProperty(UserStoreConfigConstants.maxRoleNameListLength, "角色列表最大长度", "100", UserStoreConfigConstants
                 .maxRoleNameListLengthDescription);
-        setAdvancedProperty("kdcEnabled", "Enable KDC", "false", "Whether key distribution center enabled");
-        setAdvancedProperty("defaultRealmName", "Default Realm Name", "WSO2.ORG", "Default name for the realm");
+        setAdvancedProperty("kdcEnabled", "启用 KDC", "false", "是否启用密钥分发中心(KDC)");
+        setAdvancedProperty("defaultRealmName", "默认领域名称", "GDS.ORG", "默认领域名称");
 
-        setAdvancedProperty(UserStoreConfigConstants.userRolesCacheEnabled, "Enable User Role Cache", "true", UserStoreConfigConstants
+        setAdvancedProperty(UserStoreConfigConstants.userRolesCacheEnabled, "启用用户角色缓存", "true", UserStoreConfigConstants
                 .userRolesCacheEnabledDescription);
 
-        setAdvancedProperty(UserStoreConfigConstants.connectionPoolingEnabled, "Enable LDAP Connection Pooling", "false",
+        setAdvancedProperty(UserStoreConfigConstants.connectionPoolingEnabled, "启用LDAP连接池", "false",
                 UserStoreConfigConstants.connectionPoolingEnabledDescription);
 
-        setAdvancedProperty(LDAPConnectionTimeout, "LDAP Connection Timeout", "5000", LDAPConnectionTimeoutDescription);
-        setAdvancedProperty(readTimeout, "LDAP Read Timeout", "5000", readTimeoutDescription);
-        setAdvancedProperty(RETRY_ATTEMPTS, "Retry Attempts", "0", "Number of retries for" +
-                " authentication in case ldap read timed out.");
-        setAdvancedProperty("CountRetrieverClass", "Count Implementation", "",
-                "Name of the class that implements the count functionality");
-        setAdvancedProperty(LDAPConstants.LDAP_ATTRIBUTES_BINARY, "LDAP binary attributes", " ",
+        setAdvancedProperty(LDAPConnectionTimeout, "LDAP 连接超时", "5000", LDAPConnectionTimeoutDescription);
+        setAdvancedProperty(readTimeout, "LDAP 读取超时", "5000", readTimeoutDescription);
+        setAdvancedProperty(RETRY_ATTEMPTS, "重试次数", "0", "LDAP读取超时情况下的身份验证重试次数.");
+
+        setAdvancedProperty("CountRetrieverClass", "计数实现", "",
+                "实现计数功能的类的名称");
+        setAdvancedProperty(LDAPConstants.LDAP_ATTRIBUTES_BINARY, "LDAP 二进制属性", " ",
                 LDAPBinaryAttributesDescription);
         setAdvancedProperty(UserStoreConfigConstants.claimOperationsSupported, UserStoreConfigConstants
                 .getClaimOperationsSupportedDisplayName, "true", UserStoreConfigConstants.claimOperationsSupportedDescription);
         setAdvancedProperty(MEMBERSHIP_ATTRIBUTE_RANGE, MEMBERSHIP_ATTRIBUTE_RANGE_DISPLAY_NAME,
-                String.valueOf(MEMBERSHIP_ATTRIBUTE_RANGE_VALUE), "Number of maximum users of role returned by the LDAP");
+                String.valueOf(MEMBERSHIP_ATTRIBUTE_RANGE_VALUE), "LDAP返回的角色的最大用户数");
         setAdvancedProperty(LDAPConstants.USER_CACHE_EXPIRY_MILLISECONDS, USER_CACHE_EXPIRY_TIME_ATTRIBUTE_NAME, "",
                 USER_CACHE_EXPIRY_TIME_ATTRIBUTE_DESCRIPTION);
         setAdvancedProperty(LDAPConstants.USER_DN_CACHE_ENABLED, USER_DN_CACHE_ENABLED_ATTRIBUTE_NAME, "true",
@@ -2104,34 +2101,33 @@ public class ReadWriteLDAPUserStoreManager extends ReadOnlyLDAPUserStoreManager 
 
     private void handleException(Exception e, String userName) throws UserStoreException{
         if (e instanceof InvalidAttributeValueException) {
-            String errorMessage = "One or more attribute values provided are incompatible for user : " + userName
-                                  + "Please check and try again.";
+            String errorMessage = "提供的一个或多个属性值对用户不兼容 : " + userName
+                                  + "请检查后重试.";
             if (logger.isDebugEnabled()) {
                 logger.debug(errorMessage, e);
             }
             throw new UserStoreException(errorMessage, e);
         } else if (e instanceof InvalidAttributeIdentifierException) {
-            String errorMessage = "One or more attributes you are trying to add/update are not "
-                                  + "supported by underlying LDAP for user : " + userName;
+            String errorMessage = "用户的基础LDAP不支持您尝试添加/更新一个或多个属性 : " + userName;
+
             if (logger.isDebugEnabled()) {
                 logger.debug(errorMessage, e);
             }
             throw new UserStoreException(errorMessage, e);
         } else if (e instanceof NoSuchAttributeException) {
-            String errorMessage = "One or more attributes you are trying to add/update are not "
-                                  + "supported by underlying LDAP for user : " + userName;
+            String errorMessage = "用户的基础LDAP不支持您尝试添加/更新一个或多个属性  : " + userName;
             if (logger.isDebugEnabled()) {
                 logger.debug(errorMessage, e);
             }
             throw new UserStoreException(errorMessage, e);
         } else if (e instanceof NamingException) {
-            String errorMessage = "Profile information could not be updated in LDAP user store for user : " + userName;
+            String errorMessage = "无法在LDAP用户存储中为用户更新配置资料 : " + userName;
             if (logger.isDebugEnabled()) {
                 logger.debug(errorMessage, e);
             }
             throw new UserStoreException(errorMessage, e);
         } else if (e instanceof org.wso2.carbon.user.api.UserStoreException) {
-            String errorMessage = "Error in obtaining claim mapping for user : " + userName;
+            String errorMessage = "获取用户的声明映射时出错 : " + userName;
             if (logger.isDebugEnabled()) {
                 logger.debug(errorMessage, e);
             }
