@@ -1,4 +1,4 @@
-﻿/*
+/*
  * Copyright (c) 2005-2010, WSO2 Inc. (http://www.wso2.org) All Rights Reserved.
  *
  * WSO2 Inc. licenses this file to you under the Apache License,
@@ -177,8 +177,8 @@ public class ReadWriteLDAPUserStoreManager extends ReadOnlyLDAPUserStoreManager 
                     !isInitSetupDone());
         }
         /*
-		 * Initialize user roles cache as implemented in AbstractUserStoreManager
-		 */
+         * Initialize user roles cache as implemented in AbstractUserStoreManager
+         */
         initUserRolesCache();
 
         initUserCache();
@@ -255,10 +255,10 @@ public class ReadWriteLDAPUserStoreManager extends ReadOnlyLDAPUserStoreManager 
                           Map<String, String> claims, String profileName, boolean requirePasswordChange)
             throws UserStoreException {
 
-		/* getting search base directory context */
+        /* getting search base directory context */
         DirContext dirContext = getSearchBaseDirectoryContext();
 
-		/* getting add user basic attributes */
+        /* getting add user basic attributes */
         BasicAttributes basicAttributes = getAddUserBasicAttributes(userName);
 
         BasicAttribute userPassword = new BasicAttribute("userPassword");
@@ -271,7 +271,7 @@ public class ReadWriteLDAPUserStoreManager extends ReadOnlyLDAPUserStoreManager 
         userPassword.add(passwordToStore);
         basicAttributes.put(userPassword);
 
-		/* setting claims */
+        /* setting claims */
         setUserClaims(claims, basicAttributes, userName);
 
         try {
@@ -435,20 +435,20 @@ public class ReadWriteLDAPUserStoreManager extends ReadOnlyLDAPUserStoreManager 
         boolean debug = log.isDebugEnabled();
 
         log.debug("Processing user claims");
-		/*
-		 * we keep boolean values to know whether compulsory attributes 'sn' and 'cn' are set during
-		 * setting claims.
-		 */
+        /*
+         * we keep boolean values to know whether compulsory attributes 'sn' and 'cn' are set during
+         * setting claims.
+         */
         boolean isSNExists = false;
         boolean isCNExists = false;
 
         if (claims != null) {
             for (Map.Entry<String, String> entry : claims.entrySet()) {
-				/*
-				 * LDAP does not allow for empty values. If an attribute has a value itâ€™s stored
-				 * with the entry, otherwise it is not. Hence needs to check for empty values before
-				 * storing the attribute.
-				 */
+                /*
+                 * LDAP does not allow for empty values. If an attribute has a value it’s stored
+                 * with the entry, otherwise it is not. Hence needs to check for empty values before
+                 * storing the attribute.
+                 */
                 if (EMPTY_ATTRIBUTE_STRING.equals(entry.getValue())) {
                     continue;
                 }
@@ -905,7 +905,7 @@ public class ReadWriteLDAPUserStoreManager extends ReadOnlyLDAPUserStoreManager 
 //                    claimEntry.setValue(escapeISSpecialCharacters(uidName));
                 }
                 Attribute currentUpdatedAttribute = new BasicAttribute(attributeName);
-				/* if updated attribute value is null, remove its values. */
+                /* if updated attribute value is null, remove its values. */
                 if (EMPTY_ATTRIBUTE_STRING.equals(claimEntry.getValue())) {
                     currentUpdatedAttribute.clear();
                 } else {
@@ -998,7 +998,7 @@ public class ReadWriteLDAPUserStoreManager extends ReadOnlyLDAPUserStoreManager 
             attributeName = getClaimAtrribute(claimURI, userName, null);
 
             Attribute currentUpdatedAttribute = new BasicAttribute(attributeName);
-			/* if updated attribute value is null, remove its values. */
+            /* if updated attribute value is null, remove its values. */
             if (EMPTY_ATTRIBUTE_STRING.equals(value)) {
                 currentUpdatedAttribute.clear();
             } else {
@@ -1306,9 +1306,9 @@ public class ReadWriteLDAPUserStoreManager extends ReadOnlyLDAPUserStoreManager 
         String membershipAttribute =
                 realmConfig.getUserStoreProperty(LDAPConstants.MEMBERSHIP_ATTRIBUTE);
 
-		/*
-		 * check deleted roles and delete member entries from relevant groups.
-		 */
+        /*
+         * check deleted roles and delete member entries from relevant groups.
+         */
         String errorMessage = null;
         String roleSearchFilter = null;
 
@@ -2038,54 +2038,54 @@ public class ReadWriteLDAPUserStoreManager extends ReadOnlyLDAPUserStoreManager 
     }
 
 //
-//	/**
-//	 * Check and add the initial data to the user store for user manager to start properly.
-//	 */
-//	private void addInitialAdminData() throws UserStoreException {
+//  /**
+//   * Check and add the initial data to the user store for user manager to start properly.
+//   */
+//  private void addInitialAdminData() throws UserStoreException {
 //
-//		if (realmConfig.getAdminUserName() == null || realmConfig.getAdminRoleName() == null) {
-//			throw new UserStoreException(
-//					"Admin user name or role name is not valid. Please provide valid values.");
-//		}
+//      if (realmConfig.getAdminUserName() == null || realmConfig.getAdminRoleName() == null) {
+//          throw new UserStoreException(
+//                  "Admin user name or role name is not valid. Please provide valid values.");
+//      }
 //
-//		String adminUserName = UserCoreUtil.removeDomainFromName(realmConfig.getAdminUserName());
-//		String adminRoleName = UserCoreUtil.removeDomainFromName(realmConfig.getAdminRoleName());
+//      String adminUserName = UserCoreUtil.removeDomainFromName(realmConfig.getAdminUserName());
+//      String adminRoleName = UserCoreUtil.removeDomainFromName(realmConfig.getAdminRoleName());
 //
-//		// add admin user if not already added - if it is the first start up
-//		// only. this will not affect MT environment. since TenantManager
-//		// creates the tenant admin, before initializing UserStoreManager
-//		// for the tenant.
-//		if (!doCheckExistingUser(adminUserName)) {
-//			if (log.isDebugEnabled()) {
-//				log.debug("Admin user does not exist. Hence creating the user.");
-//			}
-//			this.doAddUser(adminUserName, realmConfig.getAdminPassword(), null, null, null);
-//		}
+//      // add admin user if not already added - if it is the first start up
+//      // only. this will not affect MT environment. since TenantManager
+//      // creates the tenant admin, before initializing UserStoreManager
+//      // for the tenant.
+//      if (!doCheckExistingUser(adminUserName)) {
+//          if (log.isDebugEnabled()) {
+//              log.debug("Admin user does not exist. Hence creating the user.");
+//          }
+//          this.doAddUser(adminUserName, realmConfig.getAdminPassword(), null, null, null);
+//      }
 //
-//		// add admin role, if not already added.
-//		if (!isExistingRole(realmConfig.getAdminRoleName())) {
-//			if (log.isDebugEnabled()) {
-//				log.debug("Admin role does not exist. Hence creating the role.");
-//			}
+//      // add admin role, if not already added.
+//      if (!isExistingRole(realmConfig.getAdminRoleName())) {
+//          if (log.isDebugEnabled()) {
+//              log.debug("Admin role does not exist. Hence creating the role.");
+//          }
 //
-//			try {
-//				this.addRole(realmConfig.getAdminRoleName(),
-//						new String[] { realmConfig.getAdminUserName() }, null, false);
-//			} catch (org.wso2.carbon.user.api.UserStoreException e) {
-//				throw new UserStoreException(e);
-//			}
-//		}
-//		/* since this is at startup, admin user name is sent without domain */
-//		if (!super.isUserInRole(adminUserName, adminRoleName)) {
-//			// this is when the admin role is changed in the user-mgt.xml
-//			if (log.isDebugEnabled()) {
-//				log.debug("Admin user is not in the Admin role. Adding the Admin user"
-//						+ " to the Admin role");
-//			}
-//			String[] roles = { realmConfig.getAdminRoleName() };
-//			this.updateRoleListOfUser(realmConfig.getAdminUserName(), null, roles);
-//		}
-//	}
+//          try {
+//              this.addRole(realmConfig.getAdminRoleName(),
+//                      new String[] { realmConfig.getAdminUserName() }, null, false);
+//          } catch (org.wso2.carbon.user.api.UserStoreException e) {
+//              throw new UserStoreException(e);
+//          }
+//      }
+//      /* since this is at startup, admin user name is sent without domain */
+//      if (!super.isUserInRole(adminUserName, adminRoleName)) {
+//          // this is when the admin role is changed in the user-mgt.xml
+//          if (log.isDebugEnabled()) {
+//              log.debug("Admin user is not in the Admin role. Adding the Admin user"
+//                      + " to the Admin role");
+//          }
+//          String[] roles = { realmConfig.getAdminRoleName() };
+//          this.updateRoleListOfUser(realmConfig.getAdminUserName(), null, roles);
+//      }
+//  }
 
     @Override
     public Properties getDefaultUserStoreProperties() {
