@@ -23,7 +23,7 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 
-<h1>Carbon i18n Test page</h1>
+<h1>Carbon i18n 测试页面</h1>
 
 <c:if test="${!empty param.locale}">
   <fmt:setLocale value="${param.locale}" scope="session"/>
@@ -35,33 +35,33 @@
 
 <table>
 <tr>
-  <td><b>Set application-based locale:</b></td>
+  <td><b>设置基于应用的区域:</b></td>
   <td>
-<a href='?locale=se&fallback=<c:out value="${param.fallback}"/>'>Swedish</a> &#149;
-<a href='?locale=fr&fallback=<c:out value="${param.fallback}"/>'>French</a> &#149;
-<a href='?locale=de&fallback=<c:out value="${param.fallback}"/>'>German</a> &#149;
-<a href='?locale=es&fallback=<c:out value="${param.fallback}"/>'>Spanish (no bundle)</a> &#149;
-<a href='?locale=&fallback=<c:out value="${param.fallback}"/>'>None</a>
+<a href='?locale=se&fallback=<c:out value="${param.fallback}"/>'>瑞典</a> &#149;
+<a href='?locale=fr&fallback=<c:out value="${param.fallback}"/>'>法国</a> &#149;
+<a href='?locale=de&fallback=<c:out value="${param.fallback}"/>'>德国</a> &#149;
+<a href='?locale=es&fallback=<c:out value="${param.fallback}"/>'>西班牙</a> &#149;
+<a href='?locale=&fallback=<c:out value="${param.fallback}"/>'>无</a>
   </td>
 </tr>
 <tr>
-  <td align="right"><b>Set fallback locale:</b></td>
+  <td align="right"><b>设置回退区域:</b></td>
   <td>
-<a href='?locale=<c:out value="${param.locale}"/>&fallback=se'>Swedish</a> &#149;  
-<a href='?locale=<c:out value="${param.locale}"/>&fallback=fr'>French</a> &#149;
-<a href='?locale=<c:out value="${param.locale}"/>&fallback=de'>German</a> &#149;
-<a href='?locale=<c:out value="${param.locale}"/>&fallback=es'>Spanish (no bundle)</a> &#149;
-<a href='?locale=<c:out value="${param.locale}"/>&fallback='>None</a>
+<a href='?locale=<c:out value="${param.locale}"/>&fallback=se'>瑞典</a> &#149;  
+<a href='?locale=<c:out value="${param.locale}"/>&fallback=fr'>法国</a> &#149;
+<a href='?locale=<c:out value="${param.locale}"/>&fallback=de'>德国</a> &#149;
+<a href='?locale=<c:out value="${param.locale}"/>&fallback=es'>西班牙</a> &#149;
+<a href='?locale=<c:out value="${param.locale}"/>&fallback='>无</a>
   </td>
 </table>
 <p>
 
 Request parameter "locale": <c:out value="${param.locale}"/><br>
-<i>(This value is used to set the application based locale for this example)</i>
+<i>(此值用于为此示例设置基于应用程序的区域设置)</i>
 <p>
 
-Application based locale: <%=Config.find(pageContext, Config.FMT_LOCALE)%><br>
-<i>(javax.servlet.jsp.jstl.fmt.locale configuration setting)</i>
+基于应用程序的区域设置: <%=Config.find(pageContext, Config.FMT_LOCALE)%><br>
+<i>(javax.servlet.jsp.jstl.fmt.locale 配置设置)</i>
 <p>
 
 Browser-Based locales: 
@@ -74,11 +74,11 @@ Browser-Based locales:
   }
 %>
 <br>
-<i>(ServletRequest.getLocales() on the incoming request)</i>
+<i>(ServletRequest.getLocales() 到来的请求)</i>
 <p>
 
-Fallback locale: <%=Config.find(pageContext, Config.FMT_FALLBACK_LOCALE)%><br>
-<i>(javax.servlet.jsp.jstl.fmt.fallbackLocale configuration setting)</i>
+回退区域: <%=Config.find(pageContext, Config.FMT_FALLBACK_LOCALE)%><br>
+<i>(javax.servlet.jsp.jstl.fmt.fallbackLocale 配置设置)</i>
 <p>
 
 <jsp:useBean id="now" class="java.util.Date" />
@@ -92,15 +92,15 @@ Fallback locale: <%=Config.find(pageContext, Config.FMT_FALLBACK_LOCALE)%><br>
 <fmt:bundle basename="org.wso2.carbon.i18n.Resources">
 <table cellpadding="5" border="1">
   <tr>
-    <th align="left">KEY</th>
-    <th align="left">VALUE</th>
+    <th align="left">键</th>
+    <th align="left">值</th>
   </tr>
   <tr>
-    <td>greetingMorning</td>
+    <td>早上好</td>
     <td><fmt:message key="greetingMorning"/></td>
   </tr>
   <tr>
-    <td>greetingEvening</td>
+    <td>晚上好</td>
     <td><fmt:message key="greetingEvening"/></td>
   </tr>
   <tr>
@@ -112,11 +112,11 @@ Fallback locale: <%=Config.find(pageContext, Config.FMT_FALLBACK_LOCALE)%><br>
     </td>
   </tr>
   <tr>
-    <td>serverInfo</td>
+    <td>服务器信息</td>
     <td><fmt:message key="serverInfo"/></td>
   </tr>
   <tr>
-    <td>undefinedKey</td>
+    <td>未定义的键</td>
     <td><fmt:message key="undefinedKey"/></td>
   </tr>
 </table>

@@ -227,7 +227,7 @@ if (CharacterEncoder.getSafeText(request.getParameter("skipLoginPage"))!=null){
                                     </td>
                                     <td>
                                     	<input type="checkbox" name="rememberMe" 
-                                        				value="rememberMe" tabindex="3"/>
+                                        				value="记住我" tabindex="3"/>
                                         <label for="txtRememberMe"><fmt:message
                                                 key="rememberMe"/></label>
                                     </td>
@@ -260,7 +260,7 @@ if (CharacterEncoder.getSafeText(request.getParameter("skipLoginPage"))!=null){
             if (loginStatus == 'true') {
             } else if (loginStatus == 'null') {
             } else if (loginStatus == 'false') {
-                wso2.wsf.Util.alertWarning("Login failed. Please recheck the user name and password and try again")
+                wso2.wsf.Util.alertWarning("登录失败。请重新检查用户名和密码，然后重试")
             } 
         }
         document.getElementById('txtUserName').focus();

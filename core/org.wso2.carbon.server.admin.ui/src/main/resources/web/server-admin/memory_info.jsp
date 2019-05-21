@@ -15,24 +15,25 @@
  ~ specific language governing permissions and limitations
  ~ under the License.
  -->
+ <%@ page contentType="text/html;charset=UTF-8" pageEncoding="UTF-8" %>
 <%@ page import="java.lang.management.*" %>
 <%@ page import="java.util.*" %>
 
 <table border="0" width="100%" width="100%" class="styledLeft">
     <thead>
     <tr>
-        <td colspan="2" align="center">Memory Statistics</td>
+        <td colspan="2" align="center">内存统计</td>
     </tr>
     </thead>
     <tr>
-        <td width="25%">Heap Memory Usage</td>
+        <td width="25%">堆内存使用率</td>
         <td><%=
         ManagementFactory.getMemoryMXBean().getHeapMemoryUsage()
         %>
         </td>
     </tr>
     <tr>
-        <td>Non-Heap Memory Usage</td>
+        <td>非堆内存使用率</td>
         <td><%=
         ManagementFactory.getMemoryMXBean().getNonHeapMemoryUsage()
         %>
@@ -42,7 +43,7 @@
         <td colspan="2">&nbsp;</td>
     </tr>
     <tr>
-        <td colspan="2" align="center"><h3>Memory Pool MXBeans</h3></td>
+        <td colspan="2" align="center"><h3>内存池 MXBeans</h3></td>
     </tr>
     <%
         for (Iterator iter = ManagementFactory.getMemoryPoolMXBeans().iterator(); iter.hasNext();) {
@@ -56,22 +57,22 @@
                     </b></td>
                 </tr>
                 <tr>
-                    <td width="25%">Type</td>
+                    <td width="25%">类型</td>
                     <td><%= item.getType() %>
                     </td>
                 </tr>
                 <tr>
-                    <td>Usage</td>
+                    <td>使用率</td>
                     <td><%= item.getUsage() %>
                     </td>
                 </tr>
                 <tr>
-                    <td>Peak Usage</td>
+                    <td>使用率峰值</td>
                     <td><%= item.getPeakUsage() %>
                     </td>
                 </tr>
                 <tr>
-                    <td>Collection Usage</td>
+                    <td>收集器使用情况</td>
                     <td><%= item.getCollectionUsage() %>
                     </td>
                 </tr>

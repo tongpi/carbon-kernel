@@ -73,12 +73,12 @@
     <%
         if (authFailure) {
     %>
-    <h2><img src='../dialog/img/error.gif'/> Authorization Failure</h2>
+    <h2><img src='../dialog/img/error.gif'/> 认证失败</h2>
     <% } else if(sessionTimedOut) {
            session.invalidate();
            return;
     } else { %>
-    <h2><img src='../dialog/img/error.gif'/> System Error Occurred</h2>
+    <h2><img src='../dialog/img/error.gif'/> 发生系统错误</h2>
     <%
         }
     %>
@@ -91,12 +91,12 @@
                     if (authFailure) {
             %>
             <tr>
-                <td><b>Authorization Failure</b></td>
+                <td><b>认证失败</b></td>
             </tr>
             <tr>
                 <td>
                     <%
-                        out.write("You are not authorized to perform this action.");
+                        out.write("您无权执行此操作.");
                     %>
                 </td>
             </tr>
@@ -112,7 +112,7 @@
 	                    StringWriter sw = new StringWriter();
 	                    PrintWriter pw = new PrintWriter(sw);
                     	if(carbonMessage.isShowStackTrace()){
-                    	    pw.write("<b>The following error details are available. Please refer logs for more details.</b><br/>");
+                    	    pw.write("<b>以下错误详细信息可用。有关详细信息，请参阅日志.</b><br/>");
                             e.printStackTrace(pw);
                             String errorStr = Encode.forHtml(sw.toString());
                             errorStr = errorStr.replaceAll("\n", "<br/>");
@@ -120,7 +120,7 @@
                                 out.write(errorStr.charAt(i));
                             }
                         }else{
-                        	pw.write("<b>Please refer log for details.</b><br/>");
+                        	pw.write("<b>请参阅日志了解详细信息.</b><br/>");
                         }
                         sw.close();
                         pw.close();
@@ -161,7 +161,7 @@
     if (error != null) {
 %>
 <p>
-    <label>Error occurred</label>
+    <label>发生错误</label>
         <%
 
      ArrayList<String> list = (ArrayList<String>) error.getErrors();
