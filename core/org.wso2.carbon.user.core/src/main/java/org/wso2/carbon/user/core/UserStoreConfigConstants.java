@@ -57,50 +57,49 @@ public class UserStoreConfigConstants {
 
     //Write Group Privilege Properties
     public static final String writeGroups = "WriteGroups";
-    public static final String writeGroupsDescription = "Indicate whether write groups enabled";
+    public static final String writeGroupsDescription = "指示是否启用写入组";
     public static final String userEntryObjectClass = "UserEntryObjectClass";
-    public static final String userEntryObjectClassDescription = "Object Class used to construct user entries";
+    public static final String userEntryObjectClassDescription = "用来构造用户实体的对象类";
     public static final String passwordJavaScriptRegEx = "PasswordJavaScriptRegEx";
-    public static final String passwordJavaScriptRegExDescription = "Policy that defines the password format";
+    public static final String passwordJavaScriptRegExDescription = "定义密码格式的策略";
     public static final String usernameJavaScriptRegEx = "UserNameJavaScriptRegEx";
-    public static final String usernameJavaScriptRegExDescription = "The regular expression used by the front-end components for username validation";
+    public static final String usernameJavaScriptRegExDescription = "前端组件用于用户名验证的正则表达式";
     public static final String usernameJavaRegEx = "UserNameJavaRegEx";
-    public static final String usernameJavaRegExDescription = "A regular expression to validate user names";
+    public static final String usernameJavaRegExDescription = "用于验证用户名的正则表达式";
     public static final String roleNameJavaScriptRegEx = "RoleNameJavaScriptRegEx";
-    public static final String roleNameJavaScriptRegExDescription = "The regular expression used by the front-end components for role name validation";
+    public static final String roleNameJavaScriptRegExDescription = "前端组件用于角色名称验证的正则表达式";
     public static final String roleNameJavaRegEx = "RoleNameJavaRegEx";
-    public static final String roleNameJavaRegExDescription = "A regular expression to validate role names";
+    public static final String roleNameJavaRegExDescription = "用于验证角色名称的正则表达式";
     public static final String groupEntryObjectClass = "GroupEntryObjectClass";
-    public static final String groupEntryObjectClassDescription = "Object Class used to construct group entries";
+    public static final String groupEntryObjectClassDescription = "用于构造群组的对象类";
     public static final String emptyRolesAllowed = "EmptyRolesAllowed";
-    public static final String emptyRolesAllowedDescription = "Specifies whether the underlying user store allows empty roles to be added";
+    public static final String emptyRolesAllowedDescription = "指定基础用户存储区是否允许添加空角色";
 
     //LDAP Specific Properties
     public static final String passwordHashMethod = "PasswordHashMethod";
-    public static final String passwordHashMethodDescription = "Password Hash method to use when storing user entries";
+    public static final String passwordHashMethodDescription = "存储用户条目时使用的密码哈希方法";
     public static final String usernameListFilter = "UserNameListFilter";
-    public static final String usernameListFilterDescription = "Filtering criteria for listing all the user entries in LDAP";
+    public static final String usernameListFilterDescription = "用于列出LDAP中所有用户条目的筛选条件";
     public static final String usernameSearchFilter = "UserNameSearchFilter";
-    public static final String usernameSearchFilterDescription = "Filtering criteria for searching a particular user entry";
+    public static final String usernameSearchFilterDescription = "搜索特定用户条目的筛选条件";
     public static final String userNameAttribute = "UserNameAttribute";
-    public static final String userNameAttributeDescription = "Attribute used for uniquely identifying a user entry. Users can be authenticated using their email address, uid and etc";
+    public static final String userNameAttributeDescription = "用于唯一标识用户条目的属性。用户可以使用其电子邮件地址、uid等进行身份验证。";
     public static final String readGroups = "ReadGroups";
-    public static final String readLDAPGroupsDescription = "Specifies whether groups should be read from LDAP";
+    public static final String readLDAPGroupsDescription = "指定是否应从LDAP读取组";
     public static final String groupSearchBase = "GroupSearchBase";
-    public static final String groupSearchBaseDescription = "DN of the context under which user entries are stored in LDAP";
+    public static final String groupSearchBaseDescription = "在LDAP中存储用户条目的上下文的DN";
     public static final String groupNameListFilter = "GroupNameListFilter";
-    public static final String groupNameListFilterDescription = "Filtering criteria for listing all the group entries in LDAP";
+    public static final String groupNameListFilterDescription = "在LDAP中列出所有组条目的筛选条件";
     public static final String groupNameAttribute = "GroupNameAttribute";
-    public static final String groupNameAttributeDescription = "Attribute used for uniquely identifying a user entry";
+    public static final String groupNameAttributeDescription = "用于唯一标识用户条目的属性";
     public static final String groupNameSearchFilter = "GroupNameSearchFilter";
-    public static final String groupNameSearchFilterDescription = "Filtering criteria for searching a particular group entry";
+    public static final String groupNameSearchFilterDescription = "用于搜索特定组条目的筛选条件";
     public static final String membershipAttribute = "MembershipAttribute";
-    public static final String membershipAttributeDescription = "Attribute used to define members of LDAP groups";
+    public static final String membershipAttributeDescription = "用于定义LDAP组成员的属性";
     public static final String memberOfAttribute = LDAPConstants.MEMBEROF_ATTRIBUTE;
-    public static final String memberOfAttributeDescription = "Attribute used to define groups of a LDAP User";
+    public static final String memberOfAttributeDescription = "用于定义LDAP用户组的属性";
     public static final String userDNPattern = "UserDNPattern";
-    public static final String userDNPatternDescription = "The patten for user's DN. It can be defined to improve the LDAP search";
+    public static final String userDNPatternDescription = "用户DN的模式。可以定义它来改进LDAP搜索";
     public static final String connectionPoolingEnabled = "ConnectionPoolingEnabled";
-    public static final String connectionPoolingEnabledDescription = "Set this property to enable LDAP connection " +
-            "pooling.";
+    public static final String connectionPoolingEnabledDescription = "设置此属性以启用LDAP连接池.";
 }
