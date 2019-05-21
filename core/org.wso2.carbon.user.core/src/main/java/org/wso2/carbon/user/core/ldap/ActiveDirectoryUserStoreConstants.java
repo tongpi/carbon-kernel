@@ -79,18 +79,18 @@ public class ActiveDirectoryUserStoreConstants {
 
         setProperty(UserStoreConfigConstants.disabled, "禁用", "false", UserStoreConfigConstants.disabledDescription);
 
-        Property readLDAPGroups = new Property(UserStoreConfigConstants.readGroups, "true", "Read Groups#" + UserStoreConfigConstants.readLDAPGroupsDescription, null);
+        Property readLDAPGroups = new Property(UserStoreConfigConstants.readGroups, "true", "读取群组#" + UserStoreConfigConstants.readLDAPGroupsDescription, null);
         //Mandatory only if readGroups is enabled
         Property groupSearchBase = new Property(UserStoreConfigConstants.groupSearchBase, "CN=Users,DC=gds,DC=Com",
-                "Group Search Base#" + UserStoreConfigConstants.groupSearchBaseDescription, null);
+                "群组搜索库#" + UserStoreConfigConstants.groupSearchBaseDescription, null);
         Property groupNameListFilter = new Property(UserStoreConfigConstants.groupNameListFilter, "(objectcategory=group)",
-                "Group Filter#" + UserStoreConfigConstants.groupNameListFilterDescription, null);
-        Property groupNameAttribute = new Property(UserStoreConfigConstants.groupNameAttribute, "cn", "Group Name Attribute#"
+                "群组刷选器#" + UserStoreConfigConstants.groupNameListFilterDescription, null);
+        Property groupNameAttribute = new Property(UserStoreConfigConstants.groupNameAttribute, "cn", "群组名称属性#"
                 + UserStoreConfigConstants.groupNameAttributeDescription, null);
         Property membershipAttribute = new Property(UserStoreConfigConstants.membershipAttribute, "member",
-                "Membership Attribute#" + UserStoreConfigConstants.membershipAttributeDescription, null);
+                "成员属性#" + UserStoreConfigConstants.membershipAttributeDescription, null);
         Property groupNameSearchFilter = new Property(UserStoreConfigConstants.groupNameSearchFilter,
-                "(&(objectClass=group)(cn=?))", "Group Search Filter#" + UserStoreConfigConstants
+                "(&(objectClass=group)(cn=?))", "群组搜索刷选器#" + UserStoreConfigConstants
                 .groupNameSearchFilterDescription, null);
         readLDAPGroups.setChildProperties(new Property[]{groupSearchBase, groupNameAttribute, groupNameListFilter,
                 membershipAttribute, groupNameSearchFilter});
