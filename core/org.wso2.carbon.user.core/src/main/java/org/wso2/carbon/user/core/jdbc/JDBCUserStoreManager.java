@@ -194,7 +194,7 @@ public class JDBCUserStoreManager extends AbstractUserStoreManager {
             dataSource = DatabaseUtil.getRealmDataSource(realmConfig);
         }
         if (dataSource == null) {
-            throw new UserStoreException("User Management Data Source is null");
+            throw new UserStoreException("用户管理数据源为空");
         }
         doInitialSetup();
         this.persistDomain();
@@ -285,7 +285,7 @@ public class JDBCUserStoreManager extends AbstractUserStoreManager {
             dataSource = DatabaseUtil.getRealmDataSource(realmConfig);
         }
         if (dataSource == null) {
-            throw new UserStoreException("User Management Data Source is null");
+            throw new UserStoreException("用户管理数据源为空");
         }
 
         properties.put(UserCoreConstants.DATA_SOURCE, dataSource);
@@ -370,7 +370,7 @@ public class JDBCUserStoreManager extends AbstractUserStoreManager {
             dbConnection = getDBConnection();
 
             if (dbConnection == null) {
-                throw new UserStoreException("null connection");
+                throw new UserStoreException("空连接");
             }
 
             if (isCaseSensitiveUsername()) {
@@ -400,7 +400,7 @@ public class JDBCUserStoreManager extends AbstractUserStoreManager {
                     return users;
                 }
                 String errorMessage =
-                        "Error while fetching users according to filter : " + filter + " & max Item limit " +
+                        "提取用户发生错误，刷选器为 : " + filter + " & 最大条数限制 " +
                         ": " + maxItemLimit;
                 if (log.isDebugEnabled()) {
                     log.debug(errorMessage, e);
@@ -429,7 +429,7 @@ public class JDBCUserStoreManager extends AbstractUserStoreManager {
             Arrays.sort(users);
 
         } catch (SQLException e) {
-            String msg = "Error occurred while retrieving users for filter : " + filter + " & max Item limit : " +
+            String msg = "提取用户发生错误，刷选器为 : " + filter + " & 最大条数限制 : " +
                          maxItemLimit;
             if (log.isDebugEnabled()) {
                 log.debug(msg, e);
@@ -493,7 +493,7 @@ public class JDBCUserStoreManager extends AbstractUserStoreManager {
             dbConnection = getDBConnection();
 
             if (dbConnection == null) {
-                throw new UserStoreException("null connection");
+                throw new UserStoreException("空连接");
             }
 
             sqlStmt = realmConfig.getUserStoreProperty(JDBCRealmConstants.GET_ROLE_LIST); // TODO
@@ -513,8 +513,8 @@ public class JDBCUserStoreManager extends AbstractUserStoreManager {
                     log.error("The cause might be a time out. Hence ignored", e);
                 } else {
                     String errorMessage =
-                            "Error while fetching roles from JDBC user store according to filter : " + filter +
-                            " & max item limit : " + maxItemLimit;
+                            "提取角色发生错误，刷选器为 : " + filter +
+                            " & 最大条数限制 : " + maxItemLimit;
                     if (log.isDebugEnabled()) {
                         log.debug(errorMessage, e);
                     }
@@ -543,7 +543,7 @@ public class JDBCUserStoreManager extends AbstractUserStoreManager {
             }
 
         } catch (SQLException e) {
-            String msg = "Error occurred while retrieving role names for filter : " + filter + " & max item limit : " +
+            String msg = "提取用户发生错误，刷选器为 : " + filter + " & 最大条数限制 : " +
                          maxItemLimit;
             if (log.isDebugEnabled()) {
                 log.debug(msg, e);
@@ -622,7 +622,7 @@ public class JDBCUserStoreManager extends AbstractUserStoreManager {
             dbConnection = getDBConnection();
 
             if (dbConnection == null) {
-                throw new UserStoreException("null connection");
+                throw new UserStoreException("空连接");
             }
 
             sqlStmt = realmConfig.getUserStoreProperty(JDBCRealmConstants.GET_SHARED_ROLE_LIST);
@@ -639,8 +639,8 @@ public class JDBCUserStoreManager extends AbstractUserStoreManager {
                     log.error("The cause might be a time out. Hence ignored", e);
                 } else {
                     String errorMessage =
-                            "Error while fetching roles from JDBC user store for tenant domain : " + tenantDomain +
-                            " & filter : " + filter + "& max item limit : " + maxItemLimit;
+                            "提取用户发生错误，租户Domain为 : " + tenantDomain +
+                            " & 刷选器为 : " + filter + "& 最大条数限制 : " + maxItemLimit;
                     if (log.isDebugEnabled()) {
                         log.debug(errorMessage, e);
                     }
@@ -667,8 +667,8 @@ public class JDBCUserStoreManager extends AbstractUserStoreManager {
             }
         } catch (SQLException e) {
             String errorMessage =
-                    "Error while retrieving roles from JDBC user store for tenant domain : " + tenantDomain +
-                    " & filter : " + filter + "& max item limit : " + maxItemLimit;
+                    "提取角色发生错误，租户Domain为  : " + tenantDomain +
+                    " & 刷选器为 : " + filter + "& 最大条数限制 : " + maxItemLimit;
             if (log.isDebugEnabled()) {
                 log.debug(errorMessage, e);
             }
@@ -697,7 +697,7 @@ public class JDBCUserStoreManager extends AbstractUserStoreManager {
         if (!ctx.isShared()) {
             sqlStmt = realmConfig.getUserStoreProperty(JDBCRealmConstants.GET_USERS_IN_ROLE);
             if (sqlStmt == null) {
-                throw new UserStoreException("The sql statement for retrieving user roles is null");
+                throw new UserStoreException("获取用户角色的SQL语句为空");
             }
             if (sqlStmt.contains(UserCoreConstants.UM_TENANT_COLUMN)) {
                 names =
@@ -744,7 +744,7 @@ public class JDBCUserStoreManager extends AbstractUserStoreManager {
 
         String sqlStmt = realmConfig.getUserStoreProperty(JDBCRealmConstants.GET_IS_ROLE_EXISTING);
         if (sqlStmt == null) {
-            throw new UserStoreException("The sql statement for is role existing role null");
+            throw new UserStoreException("判断角色存在的SQL语句为空");
         }
 
         if (sqlStmt.contains(UserCoreConstants.UM_TENANT_COLUMN)) {
@@ -763,7 +763,7 @@ public class JDBCUserStoreManager extends AbstractUserStoreManager {
     public String[] getAllProfileNames() throws UserStoreException {
         String sqlStmt = realmConfig.getUserStoreProperty(JDBCRealmConstants.GET_PROFILE_NAMES);
         if (sqlStmt == null) {
-            throw new UserStoreException("The sql statement for retrieving profile names is null");
+            throw new UserStoreException("获取用户资料的SQL语句为空");
         }
         String[] names;
         if (sqlStmt.contains(UserCoreConstants.UM_TENANT_COLUMN)) {
@@ -788,7 +788,7 @@ public class JDBCUserStoreManager extends AbstractUserStoreManager {
             sqlStmt = realmConfig.getUserStoreProperty(JDBCCaseInsensitiveConstants.GET_PROFILE_NAMES_FOR_USER_CASE_INSENSITIVE);
         }
         if (sqlStmt == null) {
-            throw new UserStoreException("The sql statement for retrieving  is null");
+            throw new UserStoreException("不区分大小写的获取用户资料的SQL语句为空");
         }
         String[] names;
         if (sqlStmt.contains(UserCoreConstants.UM_TENANT_COLUMN)) {
@@ -826,7 +826,7 @@ public class JDBCUserStoreManager extends AbstractUserStoreManager {
             sqlStmt = realmConfig.getUserStoreProperty(JDBCCaseInsensitiveConstants.GET_USERID_FROM_USERNAME_CASE_INSENSITIVE);
         }
         if (sqlStmt == null) {
-            throw new UserStoreException("The sql statement for retrieving ID is null");
+            throw new UserStoreException("获取用户ID的SQL语句为空");
         }
         int id = -1;
         Connection dbConnection = null;
@@ -839,7 +839,7 @@ public class JDBCUserStoreManager extends AbstractUserStoreManager {
                 id = DatabaseUtil.getIntegerValueFromDatabase(dbConnection, sqlStmt, username);
             }
         } catch (SQLException e) {
-            String errorMessage = "Error occurred while getting user id from username : " + username;
+            String errorMessage = "根据用户名查找用户Id时发生错误 : " + username;
             if (log.isDebugEnabled()) {
                 log.debug(errorMessage, e);
             }
@@ -859,7 +859,7 @@ public class JDBCUserStoreManager extends AbstractUserStoreManager {
         String sqlStmt = realmConfig
                 .getUserStoreProperty(JDBCRealmConstants.GET_USERNAME_FROM_TENANT_ID);
         if (sqlStmt == null) {
-            throw new UserStoreException("The sql statement for retrieving user names is null");
+            throw new UserStoreException("获取用户名的SQL语句为空");
         }
         String[] userNames;
         Connection dbConnection = null;
@@ -867,7 +867,7 @@ public class JDBCUserStoreManager extends AbstractUserStoreManager {
             dbConnection = getDBConnection();
             userNames = DatabaseUtil.getStringValuesFromDatabase(dbConnection, sqlStmt, tenantId);
         } catch (SQLException e) {
-            String errorMessage = "Error occurred while getting username from tenant ID : " + tenantId;
+            String errorMessage = "获取用户名时发生错误。租户ID为 : " + tenantId;
             if (log.isDebugEnabled()) {
                 log.debug(errorMessage, e);
             }
@@ -911,7 +911,7 @@ public class JDBCUserStoreManager extends AbstractUserStoreManager {
      */
     public int getTenantId(String username) throws UserStoreException {
         if (this.tenantId != MultitenantConstants.SUPER_TENANT_ID) {
-            throw new UserStoreException("Not allowed to perform this operation");
+            throw new UserStoreException("不允许执行该操作");
         }
         String sqlStmt;
         if (isCaseSensitiveUsername()) {
@@ -920,7 +920,7 @@ public class JDBCUserStoreManager extends AbstractUserStoreManager {
             sqlStmt = realmConfig.getUserStoreProperty(JDBCCaseInsensitiveConstants.GET_TENANT_ID_FROM_USERNAME_CASE_INSENSITIVE);
         }
         if (sqlStmt == null) {
-            throw new UserStoreException("The sql statement for retrieving ID is null");
+            throw new UserStoreException("获取用户的租户ID的SQL语句为空");
         }
         int id = -1;
         Connection dbConnection = null;
@@ -928,7 +928,7 @@ public class JDBCUserStoreManager extends AbstractUserStoreManager {
             dbConnection = getDBConnection();
             id = DatabaseUtil.getIntegerValueFromDatabase(dbConnection, sqlStmt, username);
         } catch (SQLException e) {
-            String errorMessage = "Error occurred while getting tenant ID from username : " + username;
+            String errorMessage = "获取用户的租户ID发生错误，用户名为 : " + username;
             if (log.isDebugEnabled()) {
                 log.debug(errorMessage, e);
             }
@@ -982,7 +982,7 @@ public class JDBCUserStoreManager extends AbstractUserStoreManager {
             return map;
         } catch (SQLException e) {
             String errorMessage =
-                    "Error Occurred while getting property values for user : " + userName + " & profile name : " +
+                    "获取用户属性是发生错误，用户名为 : " + userName + " & 资料名称 : " +
                     profileName;
             if (log.isDebugEnabled()) {
                 log.debug(errorMessage, e);
@@ -1062,7 +1062,7 @@ public class JDBCUserStoreManager extends AbstractUserStoreManager {
 
         } catch (SQLException e) {
             String msg =
-                    "Error occurred while retrieving role name with tenant id : " + tenantId + " & user : " + userName;
+                    "获取角色名称时发生错误，租户ID为 : " + tenantId + " & 用户 : " + userName;
             if (log.isDebugEnabled()) {
                 log.debug(msg, e);
             }
@@ -1135,7 +1135,7 @@ public class JDBCUserStoreManager extends AbstractUserStoreManager {
             sqlStmt = realmConfig.getUserStoreProperty(JDBCCaseInsensitiveConstants.GET_IS_USER_EXISTING_CASE_INSENSITIVE);
         }
         if (sqlStmt == null) {
-            throw new UserStoreException("The sql statement for is user existing null");
+            throw new UserStoreException("判断用户是否存在的SQL语句为空");
         }
         boolean isExisting = false;
 
@@ -1235,11 +1235,11 @@ public class JDBCUserStoreManager extends AbstractUserStoreManager {
                 }
             }
         } catch (SQLException e) {
-            String msg = "Error occurred while retrieving user authentication info for user : " + userName;
+            String msg = "获取用户认证属性发生错误，用户名 : " + userName;
             if (log.isDebugEnabled()) {
                 log.debug(msg, e);
             }
-            throw new UserStoreException("Authentication Failure", e);
+            throw new UserStoreException("认证失败", e);
         } finally {
             DatabaseUtil.closeAllConnections(dbConnection, rs, prepStmt);
         }
@@ -1285,7 +1285,7 @@ public class JDBCUserStoreManager extends AbstractUserStoreManager {
         try{
             dbConnection = getDBConnection();
         }catch (SQLException e){
-            String errorMessage = "Error occurred while getting DB connection";
+            String errorMessage = "得到数据库连接时发生错误";
             if (log.isDebugEnabled()) {
                 log.debug(errorMessage, e);
             }
@@ -1296,7 +1296,7 @@ public class JDBCUserStoreManager extends AbstractUserStoreManager {
         try {
             credentialObj = Secret.getSecret(credential);
         } catch (UnsupportedSecretTypeException e) {
-            throw new UserStoreException("Unsupported credential type", e);
+            throw new UserStoreException("不支持的凭据类型", e);
         }
 
         try {
@@ -1402,13 +1402,13 @@ public class JDBCUserStoreManager extends AbstractUserStoreManager {
             try {
                 dbConnection.rollback();
             } catch (SQLException e1) {
-                String errorMessage = "Error rollbacking add user operation for user : " + userName;
+                String errorMessage = "回滚添加用户操作发生错误。用户名 : " + userName;
                 if (log.isDebugEnabled()) {
                     log.debug(errorMessage, e1);
                 }
                 throw new UserStoreException(errorMessage, e1);
             }
-            String errorMessage = "Error while persisting user : " + userName;
+            String errorMessage = "持久化用户时出错 : " + userName;
             if (log.isDebugEnabled()) {
                 log.debug(errorMessage, e);
             }
@@ -1472,13 +1472,13 @@ public class JDBCUserStoreManager extends AbstractUserStoreManager {
             }
             dbConnection.commit();
         } catch (SQLException e) {
-            String msg = "Error occurred while adding role : " + roleName;
+            String msg = "添加角色出错 : " + roleName;
             if (log.isDebugEnabled()) {
                 log.debug(msg, e);
             }
             throw new UserStoreException(msg, e);
         } catch (Exception e) {
-            String errorMessage = "Error occurred while getting database type from DB connection";
+            String errorMessage = "从数据库连接获取数据库类型时出错";
             if (log.isDebugEnabled()) {
                 log.debug(errorMessage, e);
             }
@@ -1496,12 +1496,12 @@ public class JDBCUserStoreManager extends AbstractUserStoreManager {
         JDBCRoleContext ctx = (JDBCRoleContext) createRoleContext(roleName);
 
         if (isExistingRole(newRoleName)) {
-            throw new UserStoreException("Role name: " + newRoleName
-                    + " in the system. Please pick another role name.");
+            throw new UserStoreException("角色名: " + newRoleName
+                    + " 已经在系统中. 请选择其他角色名称.");
         }
         String sqlStmt = realmConfig.getUserStoreProperty(JDBCRealmConstants.UPDATE_ROLE_NAME);
         if (sqlStmt == null) {
-            throw new UserStoreException("The sql statement for update role name is null");
+            throw new UserStoreException("更新角色名称的SQL语句为空");
         }
         Connection dbConnection = null;
         try {
@@ -1516,7 +1516,7 @@ public class JDBCUserStoreManager extends AbstractUserStoreManager {
             }
             dbConnection.commit();
         } catch (SQLException e) {
-            String msg = "Error occurred while updating role name : " + roleName;
+            String msg = "更新角色名出错 : " + roleName;
             if (log.isDebugEnabled()) {
                 log.debug(msg, e);
             }
@@ -1578,7 +1578,7 @@ public class JDBCUserStoreManager extends AbstractUserStoreManager {
 
         String sqlStmt = realmConfig.getUserStoreProperty(JDBCRealmConstants.GET_ROLE_LIST);
         if (sqlStmt == null) {
-            throw new UserStoreException("The sql statement for retrieving role name is null");
+            throw new UserStoreException("获取角色名称的SQL语句为空");
         }
         names = getStringValuesFromDatabase(sqlStmt, tenantId);
         if (isReadOnly() && !noHybridRoles) {
@@ -1618,12 +1618,12 @@ public class JDBCUserStoreManager extends AbstractUserStoreManager {
         String sqlStmt1 = realmConfig
                 .getUserStoreProperty(JDBCRealmConstants.ON_DELETE_ROLE_REMOVE_USER_ROLE);
         if (sqlStmt1 == null) {
-            throw new UserStoreException("The sql statement for delete user-role mapping is null");
+            throw new UserStoreException("删除用户角色的SQL语句为空");
         }
 
         String sqlStmt2 = realmConfig.getUserStoreProperty(JDBCRealmConstants.DELETE_ROLE);
         if (sqlStmt2 == null) {
-            throw new UserStoreException("The sql statement for delete role is null");
+            throw new UserStoreException("删除角色的SQL语句为空");
         }
 
         Connection dbConnection = null;
@@ -1640,7 +1640,7 @@ public class JDBCUserStoreManager extends AbstractUserStoreManager {
             //this.userRealm.getAuthorizationManager().clearRoleAuthorization(roleName);
             dbConnection.commit();
         } catch (SQLException e) {
-            String msg = "Error occurred while deleting role : " + roleName;
+            String msg = "删除角色出错 : " + roleName;
             if (log.isDebugEnabled()) {
                 log.debug(msg, e);
             }
@@ -1663,7 +1663,7 @@ public class JDBCUserStoreManager extends AbstractUserStoreManager {
                     .ON_DELETE_USER_REMOVE_USER_ROLE_CASE_INSENSITIVE);
         }
         if (sqlStmt1 == null) {
-            throw new UserStoreException("The sql statement for delete user-role mapping is null");
+            throw new UserStoreException("删除用户角色映射的SQL语句为空");
         }
 
         String sqlStmt2;
@@ -1674,7 +1674,7 @@ public class JDBCUserStoreManager extends AbstractUserStoreManager {
                     .ON_DELETE_USER_REMOVE_ATTRIBUTE_CASE_INSENSITIVE);
         }
         if (sqlStmt2 == null) {
-            throw new UserStoreException("The sql statement for delete user attribute is null");
+            throw new UserStoreException("删除用户属性的SQL语句为空");
         }
 
         String sqlStmt3;
@@ -1684,7 +1684,7 @@ public class JDBCUserStoreManager extends AbstractUserStoreManager {
             sqlStmt3 = realmConfig.getUserStoreProperty(JDBCCaseInsensitiveConstants.DELETE_USER_CASE_INSENSITIVE);
         }
         if (sqlStmt3 == null) {
-            throw new UserStoreException("The sql statement for delete user is null");
+            throw new UserStoreException("删除用户的SQL语句为空");
         }
 
         Connection dbConnection = null;
@@ -1703,7 +1703,7 @@ public class JDBCUserStoreManager extends AbstractUserStoreManager {
             }
             dbConnection.commit();
         } catch (SQLException e) {
-            String msg = "Error occurred while deleting user : " + userName;
+            String msg = "删除用户出错 : " + userName;
             if (log.isDebugEnabled()) {
                 log.debug(msg, e);
             }
@@ -1734,7 +1734,7 @@ public class JDBCUserStoreManager extends AbstractUserStoreManager {
                             JDBCCaseInsensitiveConstants.REMOVE_USER_FROM_ROLE_CASE_INSENSITIVE);
         }
         if (sqlStmt1 == null) {
-            throw new UserStoreException("The sql statement for remove user from role is null");
+            throw new UserStoreException("从角色删除用户的SQL语句为空");
         }
 
         Connection dbConnection = null;
@@ -1766,7 +1766,7 @@ public class JDBCUserStoreManager extends AbstractUserStoreManager {
                 }
             }
             if (sqlStmt2 == null) {
-                throw new UserStoreException("The sql statement for add user to role is null");
+                throw new UserStoreException("添加用户到角色的SQL语句为空");
             }
             if (deletedUsers != null) {
                 if (isShared) {
@@ -1811,13 +1811,13 @@ public class JDBCUserStoreManager extends AbstractUserStoreManager {
             }
             dbConnection.commit();
         } catch (SQLException e) {
-            String msg = "Database error occurred while updating user list of role : " + roleName;
+            String msg = "更新角色的用户列表时发生数据库错误 : " + roleName;
             if (log.isDebugEnabled()) {
                 log.debug(msg, e);
             }
             throw new UserStoreException(msg, e);
         } catch (Exception e) {
-            String errorMessage = "Error occurred while getting database type from DB connection";
+            String errorMessage = "当从数据库连接中得到数据库类型时出错";
             if (log.isDebugEnabled()) {
                 log.debug(errorMessage, e);
             }
@@ -1915,7 +1915,7 @@ public class JDBCUserStoreManager extends AbstractUserStoreManager {
                     }
                     if (sqlStmt1 == null) {
                         throw new UserStoreException(
-                                "The sql statement for remove user from role is null");
+                                "从角色删除用户的SQL语句为空");
                     }
                     if (sqlStmt1.contains(UserCoreConstants.UM_TENANT_COLUMN)) {
                         DatabaseUtil.udpateUserRoleMappingInBatchMode(dbConnection, sqlStmt1,
@@ -1934,7 +1934,7 @@ public class JDBCUserStoreManager extends AbstractUserStoreManager {
                     }
                     if (sqlStmt1 == null) {
                         throw new UserStoreException(
-                                "The sql statement for remove user from role is null");
+                                "从角色删除用户的SQL语句为空");
                     }
 
                     DatabaseUtil.udpateUserRoleMappingWithExactParams(dbConnection, sqlStmt1,
@@ -1948,7 +1948,7 @@ public class JDBCUserStoreManager extends AbstractUserStoreManager {
                 ArrayList<String> newRoleList = new ArrayList<>();
                 for (String role : newRoles) {
                     if(!isExistingRole(role)){
-                        String errorMessage = "The role: " + role + " does not exist.";
+                        String errorMessage = "角色: " + role + " 不存在.";
                         throw new UserStoreException(errorMessage);
                     }
                     if (!isUserInRole(userName, role)) {
@@ -1986,7 +1986,7 @@ public class JDBCUserStoreManager extends AbstractUserStoreManager {
                     }
                     if (sqlStmt2 == null) {
                         throw new UserStoreException(
-                                "The sql statement for add user to role is null");
+                                "添加用户到角色的SQL语句为空");
                     }
                     if (sqlStmt2.contains(UserCoreConstants.UM_TENANT_COLUMN)) {
                         if (UserCoreConstants.OPENEDGE_TYPE.equals(type)) {
@@ -2013,7 +2013,7 @@ public class JDBCUserStoreManager extends AbstractUserStoreManager {
                     }
                     if (sqlStmt2 == null) {
                         throw new UserStoreException(
-                                "The sql statement for remove user from role is null");
+                                "从角色删除用户的SQL语句为空");
                     }
 
                     DatabaseUtil.udpateUserRoleMappingWithExactParams(dbConnection, sqlStmt2,
@@ -2024,19 +2024,19 @@ public class JDBCUserStoreManager extends AbstractUserStoreManager {
             }
             dbConnection.commit();
         } catch (SQLException e) {
-            String msg = "Database error occurred while updating role list of user : " + userName;
+            String msg = "当更新用户的角色列表时发生数据库错误 : " + userName;
             if (log.isDebugEnabled()) {
                 log.debug(msg, e);
             }
             throw new UserStoreException(msg, e);
         } catch (UserStoreException e) {
-            String errorMessage = "Error occurred while updating role list of user:" + userName;
+            String errorMessage = "更新用户的角色列表出错:" + userName;
             if (log.isDebugEnabled()) {
                 log.debug(errorMessage, e);
             }
             throw new UserStoreException(e.getMessage(), e);
         } catch (Exception e) {
-            String errorMessage = "Error occurred while getting database type from DB connection";
+            String errorMessage = "从数据库连接中得到数据库类型时出错";
             if (log.isDebugEnabled()) {
                 log.debug(errorMessage, e);
             }
@@ -2056,7 +2056,7 @@ public class JDBCUserStoreManager extends AbstractUserStoreManager {
             profileName = UserCoreConstants.DEFAULT_PROFILE;
         }
         if (claimValue == null) {
-            throw new UserStoreException("Cannot set null values.");
+            throw new UserStoreException("不能设置空值.");
         }
         Connection dbConnection = null;
         String property = null;
@@ -2072,23 +2072,23 @@ public class JDBCUserStoreManager extends AbstractUserStoreManager {
             dbConnection.commit();
         } catch (SQLException e) {
             String msg =
-                    "Database error occurred while saving user claim value for user : " + userName + " & claim URI : " +
-                    claimURI + " claim value : " + claimValue;
+                    "当保存用户声明时发生数据库错误。用户名 : " + userName + " & 声明 URI : " +
+                    claimURI + "  声明值 : " + claimValue;
             if (log.isDebugEnabled()) {
                 log.debug(msg, e);
             }
             throw new UserStoreException(msg, e);
         } catch (UserStoreException e) {
             String errorMessage =
-                    "Error occurred while adding or updating claim value for user : " + userName + " & claim URI : " +
-                    claimURI + " attribute : " + property + " profile : " + profileName;
+                    "当添加或更新用户声明时发生错误。用户名 : " + userName + " & 声明 URI : " +
+                    claimURI + " 属性 : " + property + " 资料 : " + profileName;
             if (log.isDebugEnabled()) {
                 log.debug(errorMessage, e);
             }
             throw new UserStoreException(errorMessage, e);
         } catch (org.wso2.carbon.user.api.UserStoreException e) {
             String errorMessage =
-                    "Error occurred while getting claim attribute for user : " + userName + " & claim URI : " +
+                    "得到声明属性时出错，用户名 : " + userName + " & 声明 URI : " +
                     claimURI;
             if (log.isDebugEnabled()) {
                 log.debug(errorMessage, e);
@@ -2161,13 +2161,13 @@ public class JDBCUserStoreManager extends AbstractUserStoreManager {
             updateProperties(dbConnection, userName, availableClaims, profileName);
             dbConnection.commit();
         } catch (SQLException e) {
-            String msg = "Database error occurred while setting user claim values for user : " + userName;
+            String msg = "当设置用户声明属性时发生数据库错误，用户名 : " + userName;
             if (log.isDebugEnabled()) {
                 log.debug(msg, e);
             }
             throw new UserStoreException(msg, e);
         } catch (org.wso2.carbon.user.api.UserStoreException e) {
-            String errorMessage = "Error occurred while getting claim attribute for user : " + userName;
+            String errorMessage = "当得到用户声明属性时发生错误，用户名 : " + userName;
             if (log.isDebugEnabled()) {
                 log.debug(errorMessage, e);
             }
@@ -2198,15 +2198,15 @@ public class JDBCUserStoreManager extends AbstractUserStoreManager {
             this.deleteProperty(dbConnection, userName, property, profileName);
             dbConnection.commit();
         } catch (SQLException e) {
-            String msg = "Database error occurred while deleting user claim value for user : " + userName +
-                         " & claim URI : " + claimURI;
+            String msg = "删除用户声明属性时发生数据库错误，用户名 : " + userName +
+                         " & 声明 URI : " + claimURI;
             if (log.isDebugEnabled()) {
                 log.debug(msg, e);
             }
             throw new UserStoreException(msg, e);
         } catch (org.wso2.carbon.user.api.UserStoreException e) {
             String errorMessage =
-                    "Error occurred while getting claim attribute for user : " + userName + " & claim URI : " +
+                    "得到用户声明属性时出错，用户名 : " + userName + " & 声明 URI : " +
                     claimURI;
             if (log.isDebugEnabled()) {
                 log.debug(errorMessage, e);
@@ -2234,13 +2234,13 @@ public class JDBCUserStoreManager extends AbstractUserStoreManager {
             }
             dbConnection.commit();
         } catch (SQLException e) {
-            String msg = "Database error occurred while deleting user claim values for user : " + userName;
+            String msg = "删除用户声明属性时发生数据库错误，用户名 : " + userName;
             if (log.isDebugEnabled()) {
                 log.debug(msg, e);
             }
             throw new UserStoreException(msg, e);
         } catch (org.wso2.carbon.user.api.UserStoreException e) {
-            String errorMessage = "Error occurred while getting claim attribute for user : " + userName;
+            String errorMessage = "得到用户声明属性时出错，用户名 : " + userName;
             if (log.isDebugEnabled()) {
                 log.debug(errorMessage, e);
             }
@@ -2277,7 +2277,7 @@ public class JDBCUserStoreManager extends AbstractUserStoreManager {
             sqlStmt = realmConfig.getUserStoreProperty(JDBCCaseInsensitiveConstants.UPDATE_USER_PASSWORD_CASE_INSENSITIVE);
         }
         if (sqlStmt == null) {
-            throw new UserStoreException("The sql statement for delete user claim value is null");
+            throw new UserStoreException("删除用户声明值的SQL语句为空");
         }
         String saltValue = null;
         if ("true".equalsIgnoreCase(realmConfig.getUserStoreProperties().get(
@@ -2349,7 +2349,7 @@ public class JDBCUserStoreManager extends AbstractUserStoreManager {
                 }
             }
         } catch (SQLException e) {
-            String msg = "Error occurred while retrieving password expiration time for user : " + userName;
+            String msg = "获取用户的密码过期时间时发生错误，用户名 : " + userName;
             if (log.isDebugEnabled()) {
                 log.debug(msg, e);
             }
@@ -2374,7 +2374,7 @@ public class JDBCUserStoreManager extends AbstractUserStoreManager {
             secureRandom.nextBytes(bytes);
             saltValue = Base64.encode(bytes);
         } catch (NoSuchAlgorithmException e) {
-            throw new RuntimeException("SHA1PRNG algorithm could not be found.");
+            throw new RuntimeException("SHA1PRNG 算法未找到.");
         }
         return saltValue;
     }
@@ -2398,7 +2398,7 @@ public class JDBCUserStoreManager extends AbstractUserStoreManager {
                 for (int i = 0; i < params.length; i++) {
                     Object param = params[i];
                     if (param == null) {
-                        throw new UserStoreException("Invalid data provided");
+                        throw new UserStoreException("提供的数据无效");
                     } else if (param instanceof String) {
                         prepStmt.setString(i + 1, (String) param);
                     } else if (param instanceof Integer) {
@@ -2457,7 +2457,7 @@ public class JDBCUserStoreManager extends AbstractUserStoreManager {
                 sqlStmt = realmConfig.getUserStoreProperty(JDBCRealmConstants.ADD_USER_PROPERTY);
             }
             if (sqlStmt == null) {
-                throw new UserStoreException("The sql statement for add user property sql is null");
+                throw new UserStoreException("添加用户属性的SQL语句为空");
             }
 
             if (sqlStmt.contains(UserCoreConstants.UM_TENANT_COLUMN)) {
@@ -2472,8 +2472,8 @@ public class JDBCUserStoreManager extends AbstractUserStoreManager {
                 updateStringValuesToDatabase(dbConnection, sqlStmt, userName, propertyName, value, profileName);
             }
         } catch (Exception e) {
-            String msg = "Error occurred while adding user property for user : " + userName + " & property name : " +
-                         propertyName + " & value : " + value;
+            String msg = "添加用户属性出错，用户名 : " + userName + " & 属性名称 : " +
+                         propertyName + " & 属性值 : " + value;
             if (log.isDebugEnabled()) {
                 log.debug(msg, e);
             }
@@ -2498,7 +2498,7 @@ public class JDBCUserStoreManager extends AbstractUserStoreManager {
             sqlStmt = realmConfig.getUserStoreProperty(JDBCCaseInsensitiveConstants.UPDATE_USER_PROPERTY_CASE_INSENSITIVE);
         }
         if (sqlStmt == null) {
-            throw new UserStoreException("The sql statement for add user property sql is null");
+            throw new UserStoreException("添加用户属性的SQL语句为空");
         }
 
         if (sqlStmt.contains(UserCoreConstants.UM_TENANT_COLUMN)) {
@@ -2526,7 +2526,7 @@ public class JDBCUserStoreManager extends AbstractUserStoreManager {
             sqlStmt = realmConfig.getUserStoreProperty(JDBCCaseInsensitiveConstants.DELETE_USER_PROPERTY_CASE_INSENSITIVE);
         }
         if (sqlStmt == null) {
-            throw new UserStoreException("The sql statement for add user property sql is null");
+            throw new UserStoreException("添加用户属性的SQL语句为空");
         }
 
         if (sqlStmt.contains(UserCoreConstants.UM_TENANT_COLUMN)) {
@@ -2555,7 +2555,7 @@ public class JDBCUserStoreManager extends AbstractUserStoreManager {
             sqlStmt = realmConfig.getUserStoreProperty(JDBCCaseInsensitiveConstants.GET_PROP_FOR_PROFILE_CASE_INSENSITIVE);
         }
         if (sqlStmt == null) {
-            throw new UserStoreException("The sql statement for add user property sql is null");
+            throw new UserStoreException("添加用户属性的SQL语句为空");
         }
         PreparedStatement prepStmt = null;
         ResultSet rs = null;
@@ -2576,8 +2576,8 @@ public class JDBCUserStoreManager extends AbstractUserStoreManager {
             }
             return value;
         } catch (SQLException e) {
-            String msg = "Error occurred while retrieving user profile property for user : " + userName +
-                         " & property name : " + propertyName + " & profile name : " + profileName;
+            String msg = "提取用户个人资料属性时出错，用户名 : " + userName +
+                         " & 属性名 : " + propertyName + " & 资料名 : " + profileName;
             if (log.isDebugEnabled()) {
                 log.debug(msg, e);
             }
@@ -2615,7 +2615,7 @@ public class JDBCUserStoreManager extends AbstractUserStoreManager {
             }
             return password;
         } catch (NoSuchAlgorithmException e) {
-            String msg = "Error occurred while preparing password.";
+            String msg = "准备密码时出错.";
             if (log.isDebugEnabled()) {
                 log.debug(msg, e);
             }
@@ -2637,7 +2637,7 @@ public class JDBCUserStoreManager extends AbstractUserStoreManager {
         try {
             credentialObj = Secret.getSecret(password);
         } catch (UnsupportedSecretTypeException e) {
-            throw new UserStoreException("Unsupported credential type", e);
+            throw new UserStoreException("不支持的凭据类型", e);
         }
 
         try {
@@ -2662,7 +2662,7 @@ public class JDBCUserStoreManager extends AbstractUserStoreManager {
 
             return passwordString;
         } catch (NoSuchAlgorithmException e) {
-            String msg = "Error occurred while preparing password.";
+            String msg = "准备密码时出错.";
             if (log.isDebugEnabled()) {
                 log.debug(msg, e);
             }
@@ -2711,13 +2711,13 @@ public class JDBCUserStoreManager extends AbstractUserStoreManager {
             }
             dbConnection.commit();
         } catch (SQLException e) {
-            String msg = "Database error occurred while saving remember me token for tenant : " + tenantId;
+            String msg = "当保存记住我Token时数据库出错，租户 : " + tenantId;
             if (log.isDebugEnabled()) {
                 log.debug(msg, e);
             }
             throw new UserStoreException(msg, e);
         } catch (Exception e) {
-            String errorMessage = "Error occurred while saving remember me token";
+            String errorMessage = "保存记住我Token时出错";
             if (log.isDebugEnabled()) {
                 log.debug(errorMessage, e);
             }
@@ -2754,7 +2754,7 @@ public class JDBCUserStoreManager extends AbstractUserStoreManager {
                 createdTime = rs.getTimestamp(2);
             }
         } catch (SQLException e) {
-            String errorMessage = "Error occurred while checking is existing remember me token for user : " + userName;
+            String errorMessage = "加成是否存在记住我token时出错，用户名 : " + userName;
             if (log.isDebugEnabled()) {
                 log.debug(errorMessage, e);
             }
@@ -2815,7 +2815,7 @@ public class JDBCUserStoreManager extends AbstractUserStoreManager {
         }
 
         if(value == null){
-            throw new IllegalArgumentException("Filter value cannot be null");
+            throw new IllegalArgumentException("刷选器不能为空");
         }
         if (value.contains(QUERY_FILTER_STRING_ANY)) {
             // This is to support LDAP like queries. Value having only * is restricted except one *.
@@ -2855,8 +2855,8 @@ public class JDBCUserStoreManager extends AbstractUserStoreManager {
 
         } catch (SQLException e) {
             String msg =
-                    "Database error occurred while listing users for a property : " + property + " & value : " + value +
-                    " & profile name : " + profileName;
+                    "列表用户时发生数据库错误，属性名 : " + property + " & 属性值 : " + value +
+                    " & 资料名称 : " + profileName;
             if (log.isDebugEnabled()) {
                 log.debug(msg, e);
             }
@@ -2884,7 +2884,7 @@ public class JDBCUserStoreManager extends AbstractUserStoreManager {
         List<String> roles = new ArrayList<String>();
         String[] names;
         if (sqlStmt == null) {
-            throw new UserStoreException("The sql statement for retrieving user roles is null");
+            throw new UserStoreException("获取用户角色的SQL语句为空");
         }
         if (sqlStmt.contains(UserCoreConstants.UM_TENANT_COLUMN)) {
             names = getStringValuesFromDatabase(sqlStmt, userName, tenantId, tenantId, tenantId);
@@ -2982,7 +2982,7 @@ public class JDBCUserStoreManager extends AbstractUserStoreManager {
             }
             return usersPropertyValuesMap;
         } catch (SQLException e) {
-            String errorMessage = "Error Occurred while getting property values";
+            String errorMessage = "得到属性值时出错";
             if (log.isDebugEnabled()) {
                 errorMessage = errorMessage + ": " + users;
             }
@@ -3010,7 +3010,7 @@ public class JDBCUserStoreManager extends AbstractUserStoreManager {
             if (isCaseSensitiveUsername()) {
                 sqlStmt = realmConfig.getUserStoreProperty(JDBCRealmConstants.GET_USERS_ROLE);
                 if (sqlStmt == null) {
-                    throw new UserStoreException("The sql statement for retrieving users roles is null");
+                    throw new UserStoreException("获取用户角色的SQL语句为空");
                 }
                 for (int i = 0; i < userNames.size(); i++) {
 
@@ -3024,7 +3024,7 @@ public class JDBCUserStoreManager extends AbstractUserStoreManager {
                 sqlStmt = realmConfig
                         .getUserStoreProperty(JDBCCaseInsensitiveConstants.GET_USERS_ROLE_CASE_INSENSITIVE);
                 if (sqlStmt == null) {
-                    throw new UserStoreException("The sql statement for retrieving users roles is null");
+                    throw new UserStoreException("获取用户角色的SQL语句为空");
                 }
                 for (int i = 0; i < userNames.size(); i++) {
 
@@ -3058,7 +3058,7 @@ public class JDBCUserStoreManager extends AbstractUserStoreManager {
             }
             return rolesListOfUsersMap;
         } catch (SQLException e) {
-            String errorMessage = "Error Occurred while getting role lists of users";
+            String errorMessage = "得到用户的角色列表时出错";
             if (log.isDebugEnabled()) {
                 errorMessage = errorMessage + ": " + userNames;
             }
@@ -3095,13 +3095,13 @@ public class JDBCUserStoreManager extends AbstractUserStoreManager {
             }
             dbConnection.commit();
         } catch (SQLException e) {
-            String msg = "Database error occurred while adding shared role : " + roleName;
+            String msg = "添加共享角色时发生数据库错误 : " + roleName;
             if (log.isDebugEnabled()) {
                 log.debug(msg, e);
             }
             throw new UserStoreException(msg, e);
         } catch (Exception e) {
-            String msg = "Error occurred while adding shared role.";
+            String msg = "添加共享角色出错.";
             if (log.isDebugEnabled()) {
                 log.debug(msg, e);
             }
@@ -3150,7 +3150,7 @@ public class JDBCUserStoreManager extends AbstractUserStoreManager {
         try {
             type = DatabaseCreator.getDatabaseType(dbConnection);
         } catch (Exception e) {
-            String msg = "Error occurred while adding user properties for user : " + userName;
+            String msg = "添加用户属性出错，用户名 : " + userName;
             if (log.isDebugEnabled()) {
                 log.debug(msg, e);
             }
@@ -3162,7 +3162,7 @@ public class JDBCUserStoreManager extends AbstractUserStoreManager {
             sqlStmt = realmConfig.getUserStoreProperty(JDBCRealmConstants.ADD_USER_PROPERTY);
         }
         if (sqlStmt == null) {
-            throw new UserStoreException("The sql statement for add user property sql is null");
+            throw new UserStoreException("添加用户属性的SQL语句为空");
         }
 
         PreparedStatement prepStmt = null;
@@ -3238,7 +3238,7 @@ public class JDBCUserStoreManager extends AbstractUserStoreManager {
         try {
             type = DatabaseCreator.getDatabaseType(dbConnection);
         } catch (Exception e) {
-            String msg = "Error occurred while updating user properties for user : " + userName;
+            String msg = "更新用户属性时出错，用户名 : " + userName;
             if (log.isDebugEnabled()) {
                 log.debug(msg, e);
             }
@@ -3250,7 +3250,7 @@ public class JDBCUserStoreManager extends AbstractUserStoreManager {
             sqlStmt = realmConfig.getUserStoreProperty(JDBCRealmConstants.UPDATE_USER_PROPERTY);
         }
         if (sqlStmt == null) {
-            throw new UserStoreException("The sql statement for update user property sql is null");
+            throw new UserStoreException("更新用户属性的SQL语句为空");
         }
 
         PreparedStatement prepStmt = null;
@@ -3325,7 +3325,7 @@ public class JDBCUserStoreManager extends AbstractUserStoreManager {
                 for (int i = 0; i < params.length; i++) {
                     Object param = params[i];
                     if (param == null) {
-                        throw new UserStoreException("Invalid data provided");
+                        throw new UserStoreException("提供的数据无效");
                     } else if (param instanceof String) {
                         prepStmt.setString(i + 1, (String) param);
                     } else if (param instanceof Integer) {
@@ -3429,7 +3429,7 @@ public class JDBCUserStoreManager extends AbstractUserStoreManager {
             dbConnection = getDBConnection();
 
             if (dbConnection == null) {
-                throw new UserStoreException("null connection");
+                throw new UserStoreException("空连接");
             }
 
             String type = DatabaseCreator.getDatabaseType(dbConnection);
@@ -3491,7 +3491,7 @@ public class JDBCUserStoreManager extends AbstractUserStoreManager {
                     return result;
                 }
                 String errorMessage =
-                        "Error while fetching users according to filter : " + filter + " & limit " +
+                        "提取用户出错，刷选器 : " + filter + " & 限制 " +
                                 ": " + limit;
                 if (log.isDebugEnabled()) {
                     log.debug(errorMessage, e);
@@ -3518,7 +3518,7 @@ public class JDBCUserStoreManager extends AbstractUserStoreManager {
 
             Arrays.sort(users);
         } catch (Exception e) {
-            String msg = "Error occurred while retrieving users for filter : " + filter + " & limit : " + limit;
+            String msg = "提取用户出错，刷选器 : " + filter + " & 限制 : " + limit;
             if (log.isDebugEnabled()) {
                 log.debug(msg, e);
             }
@@ -3554,7 +3554,7 @@ public class JDBCUserStoreManager extends AbstractUserStoreManager {
             dbConnection = getDBConnection();
 
             if (dbConnection == null) {
-                throw new UserStoreException("null connection");
+                throw new UserStoreException("空连接");
             }
 
             if (isCaseSensitiveUsername()) {
@@ -3576,7 +3576,7 @@ public class JDBCUserStoreManager extends AbstractUserStoreManager {
             }
 
         } catch (SQLException e) {
-            String msg = "Error occurred while retrieving users count for filter : " + filter;
+            String msg = "提取用户数时出错，刷选器 : " + filter;
             if (log.isDebugEnabled()) {
                 log.debug(msg, e);
             }
@@ -3603,7 +3603,7 @@ public class JDBCUserStoreManager extends AbstractUserStoreManager {
         }
 
         if(value == null){
-            throw new IllegalArgumentException("Filter value cannot be null");
+            throw new IllegalArgumentException("刷选器不能为空");
         }
         if (value.contains(QUERY_FILTER_STRING_ANY)) {
             // This is to support LDAP like queries. Value having only * is restricted except one *.
@@ -3670,8 +3670,8 @@ public class JDBCUserStoreManager extends AbstractUserStoreManager {
             }
             result.setUsers(users);
         } catch (Exception e) {
-            String msg = "Database error occurred while paginating users for a property : " + property + " & value : " +
-                            value + "& profile name : " + profileName;
+            String msg = "分页用户时发生数据库错误，属性名 : " + property + " & 属性值 : " +
+                            value + "& 资料名 : " + profileName;
             if (log.isDebugEnabled()) {
                 log.debug(msg, e);
             }
@@ -3792,7 +3792,7 @@ public class JDBCUserStoreManager extends AbstractUserStoreManager {
             result.setUsers(users);
 
         } catch (Exception e) {
-            String msg = "Error occur while doGetUserList for multi attribute searching";
+            String msg = "当使用doGetUserList进行多属性搜索是出错";
             if (log.isDebugEnabled()) {
                 log.debug(msg, e);
             }
@@ -3932,7 +3932,7 @@ public class JDBCUserStoreManager extends AbstractUserStoreManager {
             sqlBuilder = new SqlBuilder(sqlStatement)
                     .where("U.UM_TENANT_ID = ?", tenantId);
         } else {
-            throw new UserStoreException("Condition is not valid.");
+            throw new UserStoreException("条件不合法.");
         }
 
         SqlBuilder header = new SqlBuilder(new StringBuilder(sqlBuilder.getSql()));
@@ -4163,7 +4163,7 @@ public class JDBCUserStoreManager extends AbstractUserStoreManager {
         }
 
         if (value == null) {
-            throw new IllegalArgumentException("Filter value cannot be null");
+            throw new IllegalArgumentException("刷选器不能为空");
         }
         if (value.contains(QUERY_FILTER_STRING_ANY)) {
             // This is to support LDAP like queries. Value having only * is restricted except one *.
@@ -4196,8 +4196,8 @@ public class JDBCUserStoreManager extends AbstractUserStoreManager {
             }
 
         } catch (SQLException e) {
-            String msg = "Database error occurred while paginating users count for a property : " + property + " & " +
-                    "value :" + " " + value + "& profile name : " + profileName;
+            String msg = "分页用户时发生数据库错误，属性名 : " + property + " & " +
+                    "属性值 :" + " " + value + "& 资料名称 : " + profileName;
             if (log.isDebugEnabled()) {
                 log.debug(msg, e);
             }
