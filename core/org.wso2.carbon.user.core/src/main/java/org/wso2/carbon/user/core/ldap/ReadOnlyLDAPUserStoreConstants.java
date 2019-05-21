@@ -62,7 +62,7 @@ public class ReadOnlyLDAPUserStoreConstants {
         setProperty(UserStoreConfigConstants.disabled, "禁用", "false", UserStoreConfigConstants.disabledDescription);
         setProperty(UserStoreConfigConstants.readGroups, "允许读取群组", "true", UserStoreConfigConstants
                 .readLDAPGroupsDescription);
-        setProperty(UserStoreConfigConstants.groupSearchBase, "群组搜索库", "ou=Groups,dc=wso2,dc=org",
+        setProperty(UserStoreConfigConstants.groupSearchBase, "群组搜索库", "ou=Groups,dc=gds,dc=org",
                 UserStoreConfigConstants.groupSearchBaseDescription);
         setProperty(UserStoreConfigConstants.groupNameAttribute, "群组名称属性", "cn", UserStoreConfigConstants.groupNameAttributeDescription);
         setProperty(UserStoreConfigConstants.groupNameSearchFilter, "群组搜索过滤条件",
@@ -74,8 +74,8 @@ public class ReadOnlyLDAPUserStoreConstants {
 
         setProperty(UserStoreConfigConstants.membershipAttribute, "成员关系属性", "member", UserStoreConfigConstants.membershipAttributeDescription);
         setProperty(UserStoreConfigConstants.memberOfAttribute, "成员属性", "", UserStoreConfigConstants.memberOfAttribute);
-        setProperty("BackLinksEnabled", "启用属性引用", "false", " W是否允许属性由其他对象对对象的引用产生");
-        
+        setProperty("BackLinksEnabled", "启用属性引用", "false", " 是否允许属性由其他对象对对象的引用产生");
+
 
         setProperty("Referral", "转介", "follow", "将请求引导到正确域中的域控制器");
         setProperty("ReplaceEscapeCharactersAtUserLogin", "在用户登录时启用转义字符", "true", "用户登录时是否替换转义符");

@@ -114,7 +114,7 @@ public class LDAPSearchSpecification {
 
         String membershipProperty = realmConfig.getUserStoreProperty(LDAPConstants.MEMBERSHIP_ATTRIBUTE);
         if (StringUtils.isEmpty(membershipProperty)) {
-            throw new UserStoreException("Please set member of attribute or membership attribute");
+            throw new UserStoreException("请设置成员关系属性或成员属性");
         }
         this.isMemberShipPropertyFound = true;
         this.searchBases = realmConfig.getUserStoreProperty(LDAPConstants.GROUP_SEARCH_BASE);
@@ -236,7 +236,7 @@ public class LDAPSearchSpecification {
             property = new StringBuilder(memberOfAttributeName).append(EQUALS_SIGN).append(groupPropertyName);
             value.append(VALUE_SEPARATOR).append(realmConfig.getUserStoreProperty(LDAPConstants.GROUP_SEARCH_BASE));
         } else {
-            throw new UserStoreException("MemberOf attribute only support 'EQ' filter operation.");
+            throw new UserStoreException("成员属性仅支持 'EQ' 筛选操作.");
         }
         return property;
     }
