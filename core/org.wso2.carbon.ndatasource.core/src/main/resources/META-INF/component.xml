@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="ISO-8859-1"?>
+<?xml version="1.0" encoding="UTF-8"?>
 <!--
   ~  Copyright (c) 2009, WSO2 Inc. (http://www.wso2.org) All Rights Reserved.
   ~
@@ -19,7 +19,7 @@
 
     <ManagementPermissions>
         <ManagementPermission>
-            <DisplayName>Configure Data Sources</DisplayName>
+            <DisplayName>配置数据源</DisplayName>
             <ResourceId>/permission/admin/configure/datasources</ResourceId>
         </ManagementPermission>
     </ManagementPermissions>

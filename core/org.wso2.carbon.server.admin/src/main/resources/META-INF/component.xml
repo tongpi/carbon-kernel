@@ -1,3 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
 <!--
  ~ Copyright (c) 2005-2011, WSO2 Inc. (http://www.wso2.org) All Rights Reserved.
  ~
@@ -19,11 +20,11 @@
     <!--custom component config builders -->  
     <ManagementPermissions>
         <ManagementPermission>
-            <DisplayName>Server Admin</DisplayName>
+            <DisplayName>服务器管理</DisplayName>
             <ResourceId>/permission/protected/server-admin</ResourceId>
         </ManagementPermission>
         <ManagementPermission>
-            <DisplayName>Home Page</DisplayName>
+            <DisplayName>首页</DisplayName>
             <ResourceId>/permission/protected/server-admin/homepage</ResourceId>
         </ManagementPermission>
     </ManagementPermissions>
