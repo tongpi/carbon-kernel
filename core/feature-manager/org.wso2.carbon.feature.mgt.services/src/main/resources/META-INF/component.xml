@@ -1,3 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
 <!--
  ~ Copyright (c) 2005-2010, WSO2 Inc. (http://www.wso2.org) All Rights Reserved.
  ~
@@ -19,11 +20,11 @@
     <!--custom component config builders -->  
     <ManagementPermissions>
         <ManagementPermission>
-            <DisplayName>Configure</DisplayName>
+            <DisplayName>配置</DisplayName>
             <ResourceId>/permission/protected/configure</ResourceId>
         </ManagementPermission>
         <ManagementPermission>
-            <DisplayName>Feature Management</DisplayName>
+            <DisplayName>功能管理</DisplayName>
             <ResourceId>/permission/protected/configure/components</ResourceId>
         </ManagementPermission>
     </ManagementPermissions>
