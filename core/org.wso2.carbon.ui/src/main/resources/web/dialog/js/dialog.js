@@ -13,7 +13,7 @@ var pageLoaded = false;
  * Encode html value using jQuery.
  * @method htmlEncode
  * @param {String} value html value to be encoded
- */ 
+ */
 function htmlEncode(value){
   return jQuery('<div/>').text(value).html();
 }
@@ -29,13 +29,13 @@ jQuery(document).ready(function() {
  * @return {Boolean}
  */
 CARBON.showWarningDialog = function(message, callback, closeCallback) {
-    var strDialog = "<div id='dialog' title='WSO2 Carbon'><div id='messagebox-warning'><p>" +
+    var strDialog = "<div id='dialog' title='系统提示'><div id='messagebox-warning'><p>" +
                     htmlEncode(message) + "</p></div></div>";
     //var strDialog = "<div id='dialog' title='WSO2 Carbon'><div id='messagebox'><img src='img/warning.gif'/><p>" +
     //                message + "</p></div></div>";
- 	var func = function() {   
+ 	var func = function() {
     	    jQuery("#dcontainer").html(strDialog);
-    
+
 	    jQuery("#dialog").dialog({
 	        close:function() {
 	            jQuery(this).dialog('destroy').remove();
@@ -46,7 +46,7 @@ CARBON.showWarningDialog = function(message, callback, closeCallback) {
 	            return false;
 	        },
 	        buttons:{
-	            "OK":function() {
+	            "确定":function() {
 	                jQuery(this).dialog("destroy").remove();
 	                jQuery("#dcontainer").empty();
 	                if(callback && typeof callback == "function")
@@ -76,11 +76,11 @@ CARBON.showWarningDialog = function(message, callback, closeCallback) {
  * @return {Boolean}
  */
 CARBON.showErrorDialog = function(message, callback, closeCallback) {
-    var strDialog = "<div id='dialog' title='WSO2 Carbon'><div id='messagebox-error'><p>" +
+    var strDialog = "<div id='dialog' title='错误提示'><div id='messagebox-error'><p>" +
                     htmlEncode(message) + "</p></div></div>";
     //var strDialog = "<div id='dialog' title='WSO2 Carbon'><div id='messagebox'><img src='img/error.gif'/><p>" +
     //                message + "</p></div></div>";
-    var func = function() {   
+    var func = function() {
             jQuery("#dcontainer").html(strDialog);
 
 	    jQuery("#dialog").dialog({
@@ -93,7 +93,7 @@ CARBON.showErrorDialog = function(message, callback, closeCallback) {
 	            return false;
 	        },
 	        buttons:{
-	            "OK":function() {
+	            "确定":function() {
 	                jQuery(this).dialog("destroy").remove();
 	                jQuery("#dcontainer").empty();
 	                if(callback && typeof callback == "function")
@@ -123,13 +123,13 @@ CARBON.showErrorDialog = function(message, callback, closeCallback) {
  * @return {Boolean}
  */
 CARBON.showInfoDialog = function(message, callback, closeCallback) {
-    var strDialog = "<div id='dialog' title='WSO2 Carbon'><div id='messagebox-info'><p>" +
+    var strDialog = "<div id='dialog' title='信息'><div id='messagebox-info'><p>" +
                      htmlEncode(message) + "</p></div></div>";
     //var strDialog = "<div id='dialog' title='WSO2 Carbon'><div id='messagebox'><img src='img/info.gif'/><p>" +
     //                message + "</p></div></div>";
-    var func = function() {   
+    var func = function() {
 	    jQuery("#dcontainer").html(strDialog);
-	
+
 	    jQuery("#dialog").dialog({
 	        close:function() {
 	            jQuery(this).dialog('destroy').remove();
@@ -140,7 +140,7 @@ CARBON.showInfoDialog = function(message, callback, closeCallback) {
 	            return false;
 	        },
 	        buttons:{
-	            "OK":function() {
+	            "确定":function() {
 	                jQuery(this).dialog("destroy").remove();
 	                jQuery("#dcontainer").empty();
 	                if(callback && typeof callback == "function")
@@ -176,15 +176,15 @@ CARBON.showConfirmationDialog = function(message, handleYes, handleNo, closeCall
      * If you are not going to provide handleYes function and want to give handleNo callback please pass null as the second
      * parameter.
      */
-    var strDialog = "<div id='dialog' title='WSO2 Carbon'><div id='messagebox-confirm'><p>" +
+    var strDialog = "<div id='dialog' title='确认信息'><div id='messagebox-confirm'><p>" +
                     htmlEncode(message) + "</p></div></div>";
 
     handleYes = handleYes || function(){return true};
 
     handleNo = handleNo || function(){return false};
-    var func = function() {   
+    var func = function() {
 	    jQuery("#dcontainer").html(strDialog);
-	
+
 	    jQuery("#dialog").dialog({
 	        close:function() {
 	            jQuery(this).dialog('destroy').remove();
@@ -195,12 +195,12 @@ CARBON.showConfirmationDialog = function(message, handleYes, handleNo, closeCall
 	            return false;
 	        },
 	        buttons:{
-	            "Yes":function() {
+	            "是":function() {
 	                jQuery(this).dialog("destroy").remove();
 	                jQuery("#dcontainer").empty();
 	                handleYes();
 	            },
-	            "No":function(){
+	            "否":function(){
 	                jQuery(this).dialog("destroy").remove();
 	                jQuery("#dcontainer").empty();
 	                handleNo();
@@ -233,7 +233,7 @@ CARBON.showPopupDialog = function(message, title, windowHeight, okButton, callba
     if (windowWidth) {
         requiredWidth = windowWidth;
     }
-    var func = function() { 
+    var func = function() {
     jQuery("#dcontainer").html(strDialog);
     if (okButton) {
         jQuery("#dialog").dialog({
@@ -243,7 +243,7 @@ CARBON.showPopupDialog = function(message, title, windowHeight, okButton, callba
                 return false;
             },
             buttons:{
-                "OK":function() {
+                "确定":function() {
                     if (callback && typeof callback == "function")
                         callback();
                     jQuery(this).dialog("destroy").remove();
@@ -271,13 +271,13 @@ CARBON.showPopupDialog = function(message, title, windowHeight, okButton, callba
             modal:true
         });
     }
-	
+
 	jQuery('.ui-dialog-titlebar-close').click(function(){
 				jQuery('#dialog').dialog("destroy").remove();
                 jQuery("#dcontainer").empty();
 				jQuery("#dcontainer").html('');
 		});
-	
+
     };
     if (!pageLoaded) {
         jQuery(document).ready(func);
@@ -315,14 +315,14 @@ CARBON.showPopupConfirm = function (htmlMessage, title, windowHeight, okButton, 
                     return false;
                 },
                 buttons: {
-                    "OK": function () {
+                    "确定": function () {
                         if (callback && typeof callback == "function")
                             callback();
                         jQuery(this).dialog("destroy").remove();
                         dContainer.empty();
                         return false;
                     },
-                    "Cancel": function () {
+                    "取消": function () {
                         jQuery(this).dialog('destroy').remove();
                         dContainer.empty();
                         return false;
@@ -395,7 +395,7 @@ CARBON.showPopupConfirm = function (htmlMessage, title, windowHeight, okButton, 
 CARBON.showInputDialog = function(message, handleOk, handleCancel, closeCallback){
     var strInput = "<div style='margin:20px;'><p>"+message+ "</p><br/>"+
                    "<input type='text' id='carbon-ui-dialog-input' size='40' name='carbon-dialog-inputval'></div>";
-    var strDialog = "<div id='dialog' title='WSO2 Carbon'>" + strInput + "</div>";
+    var strDialog = "<div id='dialog' title='系统提示'>" + strInput + "</div>";
     var func = function() {
 	    jQuery("#dcontainer").html(strDialog);
 	    jQuery("#dialog").dialog({
@@ -408,14 +408,14 @@ CARBON.showInputDialog = function(message, handleOk, handleCancel, closeCallback
 	            return false;
 	        },
 	        buttons:{
-	            "OK":function() {
+	            "确定":function() {
 	                var inputVal = jQuery('input[name=carbon-dialog-inputval]').fieldValue();
 	                handleOk(inputVal);
 	                jQuery(this).dialog("destroy").remove();
 	                jQuery("#dcontainer").empty();
 	                return false;
 	            },
-	            "Cancel":function(){
+	            "取消":function(){
 	                jQuery(this).dialog("destroy").remove();
 	                jQuery("#dcontainer").empty();
 	                handleCancel();
